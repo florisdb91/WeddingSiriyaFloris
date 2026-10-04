@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Noto+Serif+Thai:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ivory:#F7F1E8; --sand:#EFE4D6; --blush:#C97C82; --rose:#A8363F; --powder:#BAC7D3; --cherry:#7D0F1A; --wine:#3E0A0F;
+  --ivory:#F7F1E8; --icy:#DCE5EE; --sand:#EFE4D6; --blush:#C97C82; --rose:#A8363F; --powder:#BAC7D3; --cherry:#7D0F1A; --wine:#3E0A0F;
   --serif:'Cormorant Garamond','Noto Serif Thai',Georgia,serif; --script:'Great Vibes','Brush Script MT',cursive;
 }
 *{box-sizing:border-box;margin:0}
@@ -22,24 +22,29 @@ html[lang=th] body{line-height:1.9}
 .lang button[aria-pressed=true]{opacity:1;border-bottom-color:var(--cherry)}
 .page{min-height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5.5rem 1.5rem 4rem;
   background:radial-gradient(ellipse 90% 50% at 50% 105%,rgba(125,15,26,.09),transparent 70%),linear-gradient(180deg,var(--ivory),var(--sand))}
+.page::before{content:"";position:absolute;inset:1rem;border:1px solid var(--powder);pointer-events:none;z-index:1}
 .page>*:not(.deco){position:relative;z-index:2}
 .deco{position:absolute;z-index:1;pointer-events:none}
 .tl{top:0;left:0;width:min(17rem,58vw)}
 .tr{top:5rem;right:0;width:min(9rem,30vw);opacity:.8}
 .bl{bottom:0;left:0;width:min(8.5rem,26vw);height:62%}
 .br{bottom:0;right:0;width:min(8.5rem,26vw);height:62%;transform:scaleX(-1)}
+.page>.logo{position:absolute;top:1.7rem;left:50%;transform:translateX(-50%);z-index:3;width:3.4rem;height:3.4rem;display:grid;place-items:center}
+.logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.logo .mono{width:100%;height:100%;border-radius:50%;border:1px solid var(--powder);display:grid;place-items:center;font-family:var(--script);font-size:1.25rem;line-height:1;color:var(--cherry)}
+.logo.has .mono{display:none}
 .caps{font-size:.88rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;line-height:1.9}
 html[lang=th] .caps{letter-spacing:.06em;font-size:1rem}
 h1{font-family:var(--script);font-weight:400;line-height:1.05;margin:1.4rem 0 2.2rem;display:flex;flex-direction:column;align-items:flex-start;font-size:clamp(4rem,19vw,7rem);filter:drop-shadow(0 1px 0 rgba(62,10,15,.08))}
 h1 .n2{margin-left:clamp(2rem,16vw,5rem);margin-top:-.15em}
 h1 .amp{font-size:.62em;margin-right:.12em;color:var(--rose)}
-.rule{width:1px;align-self:stretch;background:var(--cherry);opacity:.5}
+.info>.rule{flex:none;width:1px;align-self:stretch;background:var(--powder)}
 .info{display:flex;gap:1.6rem;align-items:stretch;justify-content:center;margin:1.6rem 0 0;max-width:34rem}
 .info>div{flex:1;display:flex;flex-direction:column;align-items:center;gap:.35rem}
-.info svg{width:3rem;height:3rem}
+.info svg{width:3.6rem;height:3.6rem;padding:.55rem;border-radius:50%;background:var(--icy)}
 .sub{font-size:.8rem;letter-spacing:.12em;opacity:.85}
 html[lang=th] .sub{letter-spacing:.03em;font-size:.95rem}
-.arch{width:min(11rem,40vw);aspect-ratio:3/4;max-height:30svh;margin-top:2rem;border-radius:50% 50% 0 0 / 36% 36% 0 0;overflow:hidden;position:relative;background:linear-gradient(160deg,#EBD8CD,#D9B9B3);display:grid;place-items:center}
+.arch{width:min(11rem,40vw);aspect-ratio:3/4;max-height:30svh;margin-top:2rem;border-radius:50% 50% 0 0 / 36% 36% 0 0;overflow:hidden;position:relative;background:linear-gradient(160deg,var(--icy),var(--powder));display:grid;place-items:center}
 .ph{font-style:italic;color:#fff;font-size:1.05rem;opacity:.95}
 .arch img,.sq img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .cue{margin-top:1.2rem;color:var(--cherry);opacity:.55;font-size:1.5rem;text-decoration:none;animation:bob 2.4s ease-in-out infinite}
@@ -52,16 +57,16 @@ html[lang=th] h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem
 .msg{max-width:34rem;font-size:1.25rem;line-height:1.8}
 .grid{width:100%;max-width:52rem;margin:2.2rem 0 2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr))}
 .grid>div{padding:1rem}
-.grid>div+div{border-left:1px solid rgba(125,15,26,.3)}
-.ico{width:3.5rem;height:3.5rem;border-radius:50%;border:1px solid rgba(125,15,26,.4);display:grid;place-items:center;margin:0 auto .7rem}
+.grid>div+div{border-left:1px solid var(--powder)}
+.ico{width:3.5rem;height:3.5rem;border-radius:50%;background:var(--icy);display:grid;place-items:center;margin:0 auto .7rem}
 .ico svg{width:1.7rem;height:1.7rem;stroke:var(--cherry);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .grid h3{font-weight:500;font-size:.85rem;letter-spacing:.22em;text-transform:uppercase;margin-bottom:.2rem}
 html[lang=th] .grid h3{letter-spacing:.04em;font-size:1.05rem}
 .grid p{font-size:1.5rem;line-height:1.3}
 .grid small{display:block;font-size:.95rem;opacity:.8;margin-top:.3rem}
-@media(max-width:640px){.grid>div+div{border-left:0;border-top:1px solid rgba(125,15,26,.3)}}
+@media(max-width:640px){.grid>div+div{border-left:0;border-top:1px solid var(--powder)}}
 .pair{display:flex;gap:1rem;justify-content:center;width:100%;max-width:28rem}
-.sq{position:relative;flex:1;aspect-ratio:1;max-height:9.5rem;background:linear-gradient(160deg,#EBD8CD,#D9B9B3);overflow:hidden;display:grid;place-items:center;border-radius:.2rem}
+.sq{position:relative;flex:1;aspect-ratio:1;max-height:9.5rem;background:linear-gradient(160deg,var(--icy),var(--powder));overflow:hidden;display:grid;place-items:center;border-radius:.2rem}
 :focus-visible{outline:2px solid var(--cherry);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.reveal,.cue{animation:none}html{scroll-behavior:auto}}
 </style>
@@ -88,7 +93,7 @@ html[lang=th] .grid h3{letter-spacing:.04em;font-size:1.05rem}
 <!-- Ikoon-sets voor pagina 1 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="i-cal" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="30" height="29" rx="3"/><path d="M5 18h30M12 6v6M28 6v6"/><circle cx="35" cy="34" r="10" fill="#F7F1E8"/><path d="M35 28v6l4 2.4"/></g></symbol>
+    <symbol id="i-cal" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="9" width="30" height="29" rx="3"/><path d="M5 18h30M12 6v6M28 6v6"/><circle cx="35" cy="34" r="10" fill="#DCE5EE"/><path d="M35 28v6l4 2.4"/></g></symbol>
     <symbol id="i-pin" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42s-12-10-12-21a12 12 0 0 1 24 0c0 11-12 21-12 21z"/><circle cx="24" cy="21" r="4.5"/></g></symbol>
   </defs>
 </svg>
@@ -102,6 +107,7 @@ html[lang=th] .grid h3{letter-spacing:.04em;font-size:1.05rem}
 <main>
 <!-- Pagina 1 -->
 <section class="page" id="p1">
+  <div class="logo" aria-hidden="true"><span class="mono">S&amp;F</span><img src="images/logo.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
   <!-- bloesemtak linksboven -->
   <svg class="deco tl" viewBox="0 0 260 200" aria-hidden="true">
     <path d="M-5 70 C60 60 110 40 170 -5" fill="none" stroke="#7D0F1A" stroke-opacity=".45" stroke-width="2"/>
@@ -165,6 +171,7 @@ html[lang=th] .grid h3{letter-spacing:.04em;font-size:1.05rem}
 
 <!-- Pagina 2 -->
 <section class="page" id="p2">
+  <div class="logo" aria-hidden="true"><span class="mono">S&amp;F</span><img src="images/logo.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()"></div>
   <svg class="deco tr" viewBox="0 0 120 160" aria-hidden="true" style="top:0;opacity:.7">
     <path d="M125 20 C90 40 70 60 50 100" fill="none" stroke="#7D0F1A" stroke-opacity=".35" stroke-width="1.5"/>
     <use href="#bl" x="60" y="6" width="52" height="52" style="color:#C97C82" opacity=".7"/>
