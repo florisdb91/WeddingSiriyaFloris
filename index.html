@@ -123,6 +123,14 @@ body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weig
 .cover-line{width:clamp(2.5rem,12cqw,4.5rem);height:1px;background:var(--red);opacity:.55;margin:0 auto clamp(.9rem,3.6cqw,1.6rem)}
 .cover-side-text{font-size:clamp(.82rem,2.6cqw,1.05rem);font-style:italic;line-height:1.55;opacity:.8;max-width:26rem;min-height:3.1em;display:flex;align-items:center;justify-content:center;text-wrap:balance}
 
+/* countdown */
+.countdown{display:flex;justify-content:center;gap:clamp(.9rem,5cqw,2rem);margin-top:clamp(1rem,4cqw,1.8rem)}
+.countdown div{display:flex;flex-direction:column;align-items:center;min-width:3.2ch}
+.countdown b{font-weight:300;font-size:clamp(1.3rem,6.2cqw,2.3rem);line-height:1.1;font-variant-numeric:tabular-nums lining-nums;letter-spacing:.02em}
+.countdown span{font-size:clamp(.5rem,1.8cqw,.7rem);letter-spacing:.2em;text-transform:uppercase;font-weight:500;opacity:.7;margin-top:.25rem}
+html[lang="th"] .countdown span{letter-spacing:.03em;font-size:clamp(.65rem,2.3cqw,.85rem);text-transform:none}
+.countdown-done{font-family:var(--script);font-size:clamp(1.3rem,5.5cqw,2.2rem);margin-top:clamp(1rem,4cqw,1.8rem)}
+html[lang="th"] .countdown-done{font-family:var(--serif)}
 .next{position:absolute;bottom:clamp(.5rem,2.4cqw,1rem);left:50%;transform:translateX(-50%);color:var(--red);text-decoration:none;font-size:1.5rem;line-height:1;opacity:.7;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{50%{transform:translateX(-50%) translateY(5px)}}
 
@@ -267,6 +275,15 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
         <p class="cover-side-text" data-t="sideText">A day of love, family, celebration and togetherness.</p>
 
+        <!-- countdown naar 27 maart 2027, 09:00 (Thaise tijd) -->
+        <div class="countdown" id="countdown" role="timer" aria-live="off">
+          <div><b id="nD">--</b><span data-t="cdD">Days</span></div>
+          <div><b id="nH">--</b><span data-t="cdH">Hours</span></div>
+          <div><b id="nM">--</b><span data-t="cdM">Minutes</span></div>
+          <div><b id="nS">--</b><span data-t="cdS">Seconds</span></div>
+        </div>
+        <p class="countdown-done" id="cdDone" data-t="cdDone" hidden></p>
+
       </div>
 
       <a class="next" href="#p2" aria-label="Next">↓</a>
@@ -408,7 +425,8 @@ const L = {
     rsvpTitle:"RSVP",
     rsvpText:"Please let us know if you will be joining us on our special day.",
     rsvpLink:"RSVP online",
-    mapLink:"Open in Google Maps"
+    mapLink:"Open in Google Maps",
+    cdD:"Days", cdH:"Hours", cdM:"Minutes", cdS:"Seconds", cdDone:"The day is here"
   },
 
   nl:{
@@ -434,7 +452,8 @@ const L = {
     rsvpTitle:"RSVP",
     rsvpText:"Laat ons weten of je erbij kunt zijn op onze bijzondere dag.",
     rsvpLink:"RSVP online",
-    mapLink:"Open in Google Maps"
+    mapLink:"Open in Google Maps",
+    cdD:"Dagen", cdH:"Uren", cdM:"Minuten", cdS:"Seconden", cdDone:"De dag is aangebroken"
   },
 
   th:{
@@ -460,7 +479,8 @@ const L = {
     rsvpTitle:"ตอบรับการเข้าร่วมงาน",
     rsvpText:"กรุณาแจ้งให้เราทราบว่าท่านจะสามารถมาร่วมงานกับเราได้หรือไม่",
     rsvpLink:"ตอบรับออนไลน์",
-    mapLink:"เปิดใน Google Maps"
+    mapLink:"เปิดใน Google Maps",
+    cdD:"วัน", cdH:"ชั่วโมง", cdM:"นาที", cdS:"วินาที", cdDone:"วันสำคัญมาถึงแล้ว"
   }
 };
 
@@ -478,6 +498,27 @@ function setLang(lang){
 document.querySelectorAll(".lang button").forEach(b=>{
   b.addEventListener("click", ()=> setLang(b.dataset.l));
 });
+
+/* ===== countdown (27 maart 2027, 09:00 Thaise tijd = UTC+7) ===== */
+const TARGET = new Date("2027-03-27T09:00:00+07:00").getTime();
+const cd = {d:document.getElementById("nD"),h:document.getElementById("nH"),m:document.getElementById("nM"),s:document.getElementById("nS")};
+const pad = n => String(n).padStart(2,"0");
+function tick(){
+  const diff = TARGET - Date.now();
+  if(diff <= 0){
+    document.getElementById("countdown").hidden = true;
+    document.getElementById("cdDone").hidden = false;
+    clearInterval(timer);
+    return;
+  }
+  const t = Math.floor(diff/1000);
+  cd.d.textContent = Math.floor(t/86400);
+  cd.h.textContent = pad(Math.floor(t%86400/3600));
+  cd.m.textContent = pad(Math.floor(t%3600/60));
+  cd.s.textContent = pad(t%60);
+}
+const timer = setInterval(tick,1000);
+tick();
 
 /* ===== muziek ===== */
 const audio = document.getElementById("bgm");
