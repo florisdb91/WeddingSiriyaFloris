@@ -1,1167 +1,1309 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Siriya & Floris — 27 March 2027</title>
+<meta charset="utf-8">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1"
+>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Noto+Serif+Thai:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
+<title>Siriya &amp; Floris — 27 March 2027</title>
 
-  <style>
+<meta
+  name="description"
+  content="Siriya & Floris — 27 March 2027 — Baiboon Grand, Loei"
+>
 
-    /* =========================================================
-       ROOT
-       ========================================================= */
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    :root{
-      --red:#7D0F1A;
-      --red-dark:#650B14;
+<link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Thai:wght@300;400&display=swap"
+  rel="stylesheet">
 
-      --cream:#F7F1E8;
-      --cream-soft:#FBF8F2;
 
-      --blue:#BAC7D3;
-      --blue-light:#DCE5EE;
+<style>
 
-      --serif:'Cormorant Garamond','Noto Serif Thai',Georgia,serif;
-    }
+/* =========================================================
+   KLEUREN
+   ========================================================= */
 
-    *{
-      box-sizing:border-box;
-    }
+:root{
 
-    html{
-      scroll-behavior:smooth;
-    }
+  --red:#7D0F1A;
+  --red-dark:#650B14;
 
-    body{
-      margin:0;
-      background:var(--cream);
-      color:var(--red);
-      font-family:var(--serif);
-      font-weight:400;
-    }
+  --cream:#F7F1E8;
+  --cream-soft:#FBF8F2;
 
-    button{
-      font:inherit;
-    }
+  --blue:#BAC7D3;
+  --blue-light:#DCE5EE;
 
-    img{
-      max-width:100%;
-    }
+  --serif:
+    'Cormorant Garamond',
+    'Noto Serif Thai',
+    Georgia,
+    serif;
+}
 
-    /* =========================================================
-       PAGE
-       ========================================================= */
 
-    .page{
-      position:relative;
-      width:100%;
-      min-height:100svh;
-      overflow:hidden;
-    }
+/* =========================================================
+   RESET
+   ========================================================= */
 
-    /* =========================================================
-       LANGUAGE SWITCHER
-       ========================================================= */
+*{
+  box-sizing:border-box;
+  margin:0;
+}
 
-    .lang{
-      position:fixed;
-      z-index:100;
+html{
+  scroll-behavior:smooth;
+}
 
-      top:1.5rem;
-      left:1.5rem;
+body{
 
-      display:flex;
-      gap:.25rem;
+  background:var(--cream);
 
-      padding:.3rem;
+  color:var(--red);
 
-      border:1px solid rgba(247,241,232,.35);
-      background:rgba(0,0,0,.08);
+  font-family:var(--serif);
 
-      backdrop-filter:blur(8px);
-    }
+  font-weight:400;
 
-    .lang button{
-      border:0;
-      background:transparent;
-      color:inherit;
+  line-height:1.6;
 
-      padding:.35rem .55rem;
+  font-size:1.05rem;
+}
 
-      cursor:pointer;
 
-      font-family:var(--serif);
-      font-size:.7rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
+/* =========================================================
+   TAALKEUZE
+   ========================================================= */
 
-      opacity:.6;
-    }
+.lang{
 
-    .lang button[aria-pressed="true"]{
-      opacity:1;
-    }
+  position:fixed;
 
-    /* =========================================================
-       LOGO
-       ========================================================= */
+  top:1rem;
+  right:1rem;
 
-    .logo{
-      position:absolute;
-      z-index:5;
+  z-index:100;
 
-      width:5rem;
-      height:5rem;
+  display:flex;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  gap:.1rem;
 
-      overflow:hidden;
-    }
+  padding:.2rem .35rem;
 
-    .logo img{
-      width:100%;
-      height:100%;
+  background:rgba(247,241,232,.94);
 
-      object-fit:contain;
-      display:block;
-    }
+  border:1px solid rgba(125,15,26,.15);
 
-    .logo .mono{
-      color:inherit;
-      font-size:1.4rem;
-      font-style:italic;
-    }
+  border-radius:2rem;
 
-    .logo.has .mono{
-      display:none;
-    }
+  backdrop-filter:blur(8px);
+}
 
-    /* =========================================================
-       PAGE 1
-       ========================================================= */
+.lang button{
 
-    #p1{
-      display:grid;
-      grid-template-columns:58% 42%;
+  appearance:none;
 
-      background:var(--cream);
-    }
+  border:0;
 
-    /* =========================================================
-       PAGE 1 — COVER
-       ========================================================= */
+  background:none;
 
-    #p1 .cover{
-      position:relative;
+  color:var(--red);
 
-      min-height:100svh;
+  opacity:.45;
 
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+  font-family:inherit;
 
-      background:var(--red);
-      color:var(--cream);
-    }
+  font-size:.85rem;
 
-    /* =========================================================
-       PAGE 1 — LOGO
-       ========================================================= */
+  padding:.25rem .5rem;
 
-    #p1 .logo{
-      top:2rem;
-      right:3rem;
+  cursor:pointer;
+}
 
-      width:13rem;
-      height:13rem;
-    }
+.lang button[aria-pressed="true"]{
 
-    /* =========================================================
-       PAGE 1 — VASTE SPACING
-       NAMEN → LIJN → INVITE
-       ========================================================= */
+  opacity:1;
 
-    #p1 .cover-main{
-      min-height:100svh;
+  border-bottom:1px solid var(--red);
+}
 
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
 
-      text-align:center;
+/* =========================================================
+   ALGEMENE PAGINA
+   ========================================================= */
 
-      padding:6rem 4rem 4rem;
-    }
+.page{
 
-    /* =========================================================
-       INTRO
-       ========================================================= */
+  min-height:100svh;
 
-    .cover-pre{
-      margin:0 0 2.2rem;
+  position:relative;
+}
 
-      font-size:clamp(
-        .8rem,
-        1.5vw,
-        1rem
-      );
 
-      letter-spacing:.22em;
-      text-transform:uppercase;
-      line-height:1.5;
+/* =========================================================
+   LOGO
+   ========================================================= */
 
-      opacity:.9;
-    }
+.logo{
 
-    /* =========================================================
-       NAMEN
-       ========================================================= */
+  position:absolute;
 
-    .cover-names{
-      width:100%;
+  z-index:5;
 
-      flex:none;
+  width:5rem;
+  height:5rem;
 
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
+  display:flex;
 
-      font-size:clamp(
-        4rem,
-        10vw,
-        8rem
-      );
+  align-items:center;
 
-      font-weight:300;
-      line-height:.78;
-      letter-spacing:-.035em;
+  justify-content:center;
 
-      text-align:center;
+  overflow:hidden;
+}
 
-      margin:0;
-    }
+.logo img{
 
-    .cover-names span{
-      display:block;
-    }
+  width:100%;
+  height:100%;
 
-    .cover-names .amp{
-      font-size:.42em;
-      font-style:italic;
-      line-height:1;
+  object-fit:contain;
+}
 
-      margin:.12em 0;
-    }
+.logo .mono{
 
-    /* =========================================================
-       LIJN
-       ========================================================= */
+  color:inherit;
 
-    .cover-line{
-      flex:none;
+  font-size:1.4rem;
 
-      width:4rem;
-      height:1px;
+  font-style:italic;
+}
 
-      margin:2rem 0;
+.logo.has .mono{
+  display:none;
+}
 
-      background:rgba(247,241,232,.65);
-    }
 
-    /* =========================================================
-       INVITE
-       ========================================================= */
+/* =========================================================
+   PAGINA 1
+   ========================================================= */
 
-    .cover-invite{
-      width:100%;
-      max-width:42rem;
+#p1{
 
-      flex:none;
+  min-height:100svh;
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+  background:var(--red);
 
-      margin:0;
+  color:var(--cream);
 
-      font-size:clamp(
-        1.1rem,
-        2vw,
-        1.45rem
-      );
+  display:grid;
 
-      font-style:italic;
-      line-height:1.5;
-    }
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(13rem,24rem);
 
-    /* =========================================================
-       DATUM
-       ========================================================= */
+  overflow:hidden;
+}
 
-    .cover-date{
-      margin:2rem 0 .5rem;
 
-      font-size:1rem;
+/* Linkerzijde pagina 1 */
 
-      letter-spacing:.16em;
-      text-transform:uppercase;
+#p1 .cover-main{
 
-      line-height:1.4;
-    }
+  min-height:100svh;
 
-    /* =========================================================
-       LOCATIE
-       ========================================================= */
+  display:flex;
 
-    .cover-location{
-      margin:0;
+  flex-direction:column;
 
-      font-size:1rem;
+  align-items:center;
 
-      letter-spacing:.06em;
-      line-height:1.5;
+  justify-content:center;
 
-      opacity:.85;
-    }
+  text-align:center;
 
-    /* =========================================================
-       PAGE 1 — SIDE
-       ========================================================= */
+  padding:5rem 4rem;
+}
 
-    #p1 .cover-side{
-      position:relative;
 
-      min-height:100svh;
+/* Logo rechts */
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+#p1 .logo{
 
-      padding:5rem;
+  top:3rem;
 
-      background:var(--cream);
-      color:var(--red);
-    }
+  right:3.5rem;
 
-    .side-inner{
-      width:100%;
-      max-width:25rem;
+  width:9rem;
+  height:9rem;
 
-      text-align:center;
-    }
+  color:var(--cream);
+}
 
-    .side-kicker{
-      margin:0 0 2rem;
 
-      font-size:.75rem;
+#p1 .logo img{
+  filter:none;
+}
 
-      letter-spacing:.2em;
-      text-transform:uppercase;
 
-      opacity:.65;
-    }
+/* =========================================================
+   COVER TYPOGRAFIE
+   ========================================================= */
 
-    .side-text{
-      margin:0;
+.cover-pre{
 
-      font-size:clamp(
-        1.8rem,
-        3vw,
-        2.8rem
-      );
+  font-size:clamp(
+    .8rem,
+    1.5vw,
+    1rem
+  );
 
-      font-weight:300;
-      font-style:italic;
+  letter-spacing:.22em;
 
-      line-height:1.15;
-    }
+  text-transform:uppercase;
 
-    .side-rule{
-      width:3rem;
-      height:1px;
+  margin-bottom:2.2rem;
 
-      margin:2.5rem auto;
+  opacity:.9;
+}
 
-      background:rgba(125,15,26,.35);
-    }
 
-    .side-small{
-      margin:0;
+/* =========================================================
+   NAMEN
+   ========================================================= */
 
-      font-size:.85rem;
+.cover-names{
 
-      letter-spacing:.12em;
-      text-transform:uppercase;
+  font-size:clamp(
+    4rem,
+    10vw,
+    8rem
+  );
 
-      opacity:.65;
-    }
+  font-weight:300;
 
-    /* =========================================================
-       PAGE 1 — THAI
-       ========================================================= */
+  line-height:.82;
 
-    html[lang="th"] .cover-pre{
-      letter-spacing:0;
-      line-height:1.7;
-    }
+  letter-spacing:-.035em;
 
-    html[lang="th"] .cover-names{
-      font-size:clamp(
-        4rem,
-        10vw,
-        8rem
-      );
+  margin:0;
+}
 
-      line-height:.78;
-    }
 
-    html[lang="th"] .cover-line{
-      margin:2rem 0;
-    }
+.cover-names span{
 
-    html[lang="th"] .cover-invite{
-      line-height:1.8;
-    }
+  display:block;
+}
 
-    html[lang="th"] .cover-date{
-      letter-spacing:0;
-      line-height:1.6;
-    }
 
-    html[lang="th"] .cover-location{
-      letter-spacing:0;
-      line-height:1.7;
-    }
+.cover-names .amp{
 
-    /* =========================================================
-       PAGE 2
-       ========================================================= */
+  font-size:.42em;
 
-    #p2{
-      position:relative;
+  font-style:italic;
 
-      min-height:100svh;
+  line-height:1.3;
 
-      padding:6rem 6vw;
+  margin:.25em 0;
+}
 
-      display:flex;
-      flex-direction:column;
-      align-items:center;
 
-      background:var(--cream-soft);
-      color:var(--red);
-    }
+/* =========================================================
+   VASTE LIJN
+   ========================================================= */
 
-    /* =========================================================
-       PAGE 2 — LOGO
-       ========================================================= */
+.cover-line{
 
-    #p2 .logo{
-      top:2rem;
-      right:2rem;
+  flex:none;
 
-      width:7rem;
-      height:7rem;
-    }
+  width:4rem;
 
-    /* =========================================================
-       DETAILS TITLE
-       ========================================================= */
+  height:1px;
 
-    .details-title{
-      width:100%;
-      max-width:75rem;
+  background:rgba(247,241,232,.65);
 
-      text-align:center;
+  margin:2rem auto;
+}
 
-      margin:0 0 4rem;
-    }
 
-    .details-title h2{
-      margin:0 0 .7rem;
+/* =========================================================
+   VASTE INVITE
+   ========================================================= */
 
-      font-size:clamp(
-        3rem,
-        7vw,
+.cover-invite{
+
+  width:100%;
+
+  max-width:42rem;
+
+  flex:none;
+
+  font-size:clamp(
+    1.1rem,
+    2vw,
+    1.45rem
+  );
+
+  font-style:italic;
+
+  line-height:1.5;
+
+  margin:0;
+}
+
+
+/* =========================================================
+   DATUM
+   ========================================================= */
+
+.cover-date{
+
+  font-size:1rem;
+
+  letter-spacing:.16em;
+
+  text-transform:uppercase;
+
+  margin-top:2rem;
+
+  margin-bottom:.45rem;
+}
+
+
+.cover-location{
+
+  font-size:1rem;
+
+  opacity:.85;
+
+  letter-spacing:.06em;
+}
+
+
+/* =========================================================
+   DECORATIEVE LIJN
+   ========================================================= */
+
+/* spacing wordt hierboven geregeld */
+
+
+/* =========================================================
+   RECHTERVLAK PAGINA 1
+   ========================================================= */
+
+#p1 .cover-side{
+
+  min-height:100svh;
+
+  background:var(--cream);
+
+  color:var(--red);
+
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:center;
+
+  padding:3rem;
+
+  position:relative;
+}
+
+
+/* Subtiele verticale lijn */
+
+#p1 .cover-side::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  top:15%;
+
+  bottom:15%;
+
+  width:1px;
+
+  background:rgba(125,15,26,.18);
+}
+
+
+/* =========================================================
+   PAGINA 1 — ONDERSTE TEKST RECHTS
+   ========================================================= */
+
+.cover-side-text{
+
+  max-width:15rem;
+
+  text-align:center;
+
+  font-size:.9rem;
+
+  line-height:1.7;
+
+  opacity:.75;
+}
+
+
+/* =========================================================
+   PAGINA 1 PIJL
+   ========================================================= */
+
+.next{
+
+  position:absolute;
+
+  bottom:2rem;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  color:var(--cream);
+
+  text-decoration:none;
+
+  font-size:1.7rem;
+
+  line-height:1;
+
+  opacity:.75;
+
+  animation:bob 2.4s ease-in-out infinite;
+}
+
+
+@keyframes bob{
+
+  50%{
+    transform:
+      translateX(-50%)
+      translateY(5px);
+  }
+
+}
+
+
+/* =========================================================
+   PAGINA 2
+   ========================================================= */
+
+#p2{
+
+  min-height:100svh;
+
+  background:var(--cream);
+
+  color:var(--red);
+
+  padding:6rem 6vw 6rem;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+}
+
+
+/* Titel */
+
+.details-title{
+
+  width:100%;
+
+  max-width:75rem;
+
+  text-align:center;
+
+  margin-bottom:4rem;
+}
+
+
+.details-title h2{
+
+  font-size:clamp(
+    3rem,
+    7vw,
+    5.5rem
+  );
+
+  font-weight:300;
+
+  font-style:italic;
+
+  line-height:1;
+
+  margin-bottom:.7rem;
+}
+
+
+.details-title p{
+
+  font-size:.9rem;
+
+  letter-spacing:.2em;
+
+  text-transform:uppercase;
+
+  opacity:.65;
+}
+
+
+/* =========================================================
+   TWEE KOLOMMEN
+   ========================================================= */
+
+.details-grid{
+
+  width:100%;
+
+  max-width:75rem;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1.1fr)
+    minmax(20rem,.9fr);
+
+  gap:7rem;
+
+  align-items:start;
+}
+
+
+/* =========================================================
+   TIJDLIJN
+   ========================================================= */
+
+.timeline{
+
+  position:relative;
+
+  padding-left:5.5rem;
+}
+
+
+.timeline::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:1.45rem;
+
+  top:1rem;
+
+  bottom:1rem;
+
+  width:1px;
+
+  background:rgba(125,15,26,.28);
+}
+
+
+.timeline-item{
+
+  position:relative;
+
+  display:grid;
+
+  grid-template-columns:5rem 1fr;
+
+  gap:1.5rem;
+
+  min-height:8rem;
+
+  padding-bottom:3rem;
+}
+
+
+.timeline-icon{
+
+  position:absolute;
+
+  left:-5.5rem;
+
+  top:0;
+
+  width:3rem;
+
+  height:3rem;
+
+  border-radius:50%;
+
+  background:var(--cream);
+
+  border:1px solid var(--red);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  z-index:2;
+}
+
+
+.timeline-icon svg{
+
+  width:1.25rem;
+
+  height:1.25rem;
+
+  stroke:var(--red);
+
+  fill:none;
+
+  stroke-width:1.3;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+}
+
+
+.timeline-time{
+
+  font-size:.85rem;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  padding-top:.25rem;
+
+  opacity:.65;
+}
+
+
+.timeline-content h3{
+
+  font-size:1.7rem;
+
+  font-weight:400;
+
+  line-height:1.1;
+
+  margin-bottom:.3rem;
+}
+
+
+.timeline-content p{
+
+  font-size:1rem;
+
+  line-height:1.55;
+
+  opacity:.72;
+}
+
+
+/* =========================================================
+   RECHTERKANT INFORMATIE
+   ========================================================= */
+
+.info-panel{
+
+  border-left:1px solid rgba(125,15,26,.2);
+
+  padding-left:3rem;
+}
+
+
+.info-panel h3{
+
+  font-size:2rem;
+
+  font-weight:400;
+
+  margin-bottom:1rem;
+}
+
+
+.info-panel .location-name{
+
+  font-size:1.2rem;
+
+  margin-bottom:1rem;
+}
+
+
+.info-panel p{
+
+  font-size:1rem;
+
+  line-height:1.7;
+
+  opacity:.75;
+
+  margin-bottom:1.5rem;
+}
+
+
+/* =========================================================
+   LOCATIE BLOK
+   ========================================================= */
+
+.location-meta{
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:.6rem;
+
+  margin:2rem 0 3rem;
+}
+
+
+.location-row{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:.8rem;
+
+  font-size:.95rem;
+}
+
+
+.location-row svg{
+
+  width:1.2rem;
+
+  height:1.2rem;
+
+  stroke:var(--red);
+
+  fill:none;
+
+  stroke-width:1.3;
+
+  stroke-linecap:round;
+
+  stroke-linejoin:round;
+
+  flex:none;
+}
+
+
+/* =========================================================
+   RSVP
+   ========================================================= */
+
+.rsvp{
+
+  margin-top:2rem;
+
+  padding:2rem;
+
+  border:1px solid rgba(125,15,26,.25);
+
+  text-align:center;
+}
+
+
+.rsvp h3{
+
+  font-size:1.8rem;
+
+  font-weight:400;
+
+  margin-bottom:.5rem;
+}
+
+
+.rsvp p{
+
+  font-size:.95rem;
+
+  margin-bottom:1.5rem;
+}
+
+
+.qr-placeholder{
+
+  width:8rem;
+
+  height:8rem;
+
+  margin:0 auto 1rem;
+
+  border:1px dashed rgba(125,15,26,.5);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  text-align:center;
+
+  font-size:.75rem;
+
+  letter-spacing:.08em;
+
+  text-transform:uppercase;
+
+  opacity:.65;
+}
+
+
+.rsvp-link{
+
+  display:inline-block;
+
+  color:var(--red);
+
+  text-decoration:none;
+
+  border-bottom:1px solid var(--red);
+
+  font-size:.9rem;
+
+  letter-spacing:.12em;
+
+  text-transform:uppercase;
+
+  padding-bottom:.2rem;
+}
+
+
+/* =========================================================
+   PAGINA 2 LOGO
+   ========================================================= */
+
+#p2>.logo{
+
+  top:2rem;
+
+  right:2rem;
+
+  width:5rem;
+
+  height:5rem;
+}
+
+
+/* =========================================================
+   THAI
+   ========================================================= */
+
+html[lang="th"] .cover-pre{
+
+  letter-spacing:0;
+
+  font-size:1rem;
+}
+
+
+html[lang="th"] .cover-names{
+
+  font-size:clamp(
+    3rem,
+    9vw,
+    6rem
+  );
+
+  line-height:1;
+}
+
+
+html[lang="th"] .details-title h2{
+
+  font-style:normal;
+
+  line-height:1.3;
+}
+
+
+/* =========================================================
+   FOCUS
+   ========================================================= */
+
+:focus-visible{
+
+  outline:2px solid currentColor;
+
+  outline-offset:4px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media(max-width:900px){
+
+  #p1{
+
+    grid-template-columns:1fr;
+  }
+
+
+  #p1 .cover-main{
+
+    min-height:75svh;
+
+    padding:
+      7rem
+      2rem
+      4rem;
+  }
+
+
+  #p1 .cover-side{
+
+    min-height:25svh;
+
+    align-items:center;
+
+    padding:3rem;
+  }
+
+
+  #p1 .cover-side::before{
+
+    display:none;
+  }
+
+
+  #p1 .logo{
+
+    top:2rem;
+
+    right:2rem;
+
+    width:6rem;
+
+    height:6rem;
+  }
+
+
+  .details-grid{
+
+    grid-template-columns:1fr;
+
+    gap:5rem;
+
+    max-width:45rem;
+  }
+
+
+  .info-panel{
+
+    border-left:0;
+
+    border-top:1px solid rgba(125,15,26,.2);
+
+    padding-left:0;
+
+    padding-top:3rem;
+  }
+
+}
+
+
+/* =========================================================
+   MOBIEL
+   ========================================================= */
+
+@media(max-width:600px){
+
+  #p1 .cover-main{
+
+    padding:
+      6rem
+      1.5rem
+      3rem;
+  }
+
+
+  #p1 .logo{
+
+    top:1.5rem;
+
+    right:1.5rem;
+
+    width:4.5rem;
+
+    height:4.5rem;
+  }
+
+
+  .cover-pre{
+
+    font-size:.72rem;
+
+    letter-spacing:.15em;
+
+    margin-bottom:1.7rem;
+  }
+
+
+  .cover-names{
+
+    font-size:
+      clamp(
+        3.5rem,
+        17vw,
         5.5rem
       );
 
-      font-weight:300;
-      font-style:italic;
+    line-height:.82;
 
-      line-height:1;
-    }
+    margin:0;
+  }
 
-    .details-title p{
-      margin:0;
 
-      font-size:.9rem;
+  .cover-line{
 
-      letter-spacing:.2em;
-      text-transform:uppercase;
+    width:3.5rem;
 
-      opacity:.65;
-    }
+    margin:1.8rem auto;
+  }
 
-    /* =========================================================
-       DETAILS GRID
-       ========================================================= */
 
-    .details-grid{
-      width:100%;
-      max-width:75rem;
+  .cover-invite{
 
-      display:grid;
+    font-size:1rem;
 
-      grid-template-columns:
-        minmax(0,1.1fr)
-        minmax(20rem,.9fr);
+    line-height:1.6;
 
-      gap:7rem;
-    }
+    margin:0;
 
-    /* =========================================================
-       TIMELINE
-       ========================================================= */
+    max-width:24rem;
+  }
 
-    .timeline{
-      position:relative;
 
-      padding-left:5.5rem;
-    }
+  .cover-date{
 
-    .timeline::before{
-      content:"";
+    margin-top:1.5rem;
 
-      position:absolute;
+    margin-bottom:.4rem;
 
-      left:1.45rem;
-      top:1rem;
-      bottom:1rem;
+    font-size:.9rem;
 
-      width:1px;
+    letter-spacing:.1em;
+  }
 
-      background:rgba(125,15,26,.22);
-    }
 
-    .timeline-item{
-      position:relative;
+  .cover-location{
 
-      display:grid;
+    font-size:.9rem;
 
-      grid-template-columns:5rem 1fr;
+    letter-spacing:.03em;
+  }
 
-      gap:1.5rem;
 
-      min-height:8rem;
+  #p2{
 
-      padding-bottom:3rem;
-    }
+    padding:
+      5rem
+      1.4rem
+      4rem;
+  }
 
-    .timeline-item:last-child{
-      padding-bottom:0;
-    }
 
-    .timeline-icon{
-      position:relative;
-      z-index:2;
+  .details-title{
 
-      width:3rem;
-      height:3rem;
+    margin-bottom:3rem;
+  }
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
 
-      border:1px solid rgba(125,15,26,.35);
-      border-radius:50%;
+  .details-title h2{
 
-      background:var(--cream-soft);
+    font-size:3rem;
+  }
 
-      font-size:.8rem;
-    }
 
-    .timeline-content h3{
-      margin:0 0 .45rem;
+  .timeline{
 
-      font-size:1.7rem;
+    padding-left:4.5rem;
+  }
 
-      font-weight:400;
-      line-height:1.2;
-    }
 
-    .timeline-content p{
-      margin:0;
+  .timeline-item{
 
-      max-width:32rem;
+    grid-template-columns:4rem 1fr;
 
-      font-size:1rem;
-      line-height:1.6;
+    gap:.8rem;
+  }
 
-      opacity:.72;
-    }
 
-    /* =========================================================
-       INFO PANEL
-       ========================================================= */
+  .timeline-icon{
 
-    .info-panel{
-      border-left:1px solid rgba(125,15,26,.22);
+    left:-4.5rem;
+  }
 
-      padding-left:3rem;
-    }
 
-    .info-panel h3{
-      margin:0;
+  .timeline-content h3{
 
-      font-size:2rem;
+    font-size:1.45rem;
+  }
 
-      font-weight:400;
-      line-height:1.2;
-    }
 
-    .info-panel > p{
-      margin:1rem 0 0;
+  .info-panel{
 
-      font-size:1rem;
-      line-height:1.6;
+    padding-top:2.5rem;
+  }
 
-      opacity:.72;
-    }
+}
 
-    /* =========================================================
-       LOCATION META
-       ========================================================= */
 
-    .location-meta{
-      display:flex;
-      flex-direction:column;
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
 
-      gap:.6rem;
+@media(prefers-reduced-motion:reduce){
 
-      margin:2rem 0 3rem;
-    }
+  *{
 
-    .location-meta span{
-      font-size:.85rem;
+    scroll-behavior:auto !important;
 
-      letter-spacing:.1em;
-      text-transform:uppercase;
+    animation:none !important;
+  }
 
-      opacity:.7;
-    }
+}
 
-    /* =========================================================
-       RSVP
-       ========================================================= */
+</style>
 
-    .rsvp{
-      padding:2rem;
-
-      border:1px solid rgba(125,15,26,.2);
-
-      background:rgba(255,255,255,.2);
-    }
-
-    .rsvp h3{
-      margin:0 0 .6rem;
-
-      font-size:1.8rem;
-
-      font-weight:400;
-    }
-
-    .rsvp p{
-      margin:0 0 1.5rem;
-
-      font-size:1rem;
-      line-height:1.6;
-
-      opacity:.72;
-    }
-
-    .qr-placeholder{
-      width:8rem;
-      height:8rem;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      margin-bottom:1.2rem;
-
-      border:1px dashed rgba(125,15,26,.35);
-
-      font-size:.7rem;
-
-      letter-spacing:.08em;
-      text-transform:uppercase;
-
-      opacity:.65;
-    }
-
-    .rsvp-link{
-      display:inline-block;
-
-      color:var(--red);
-
-      font-size:.9rem;
-
-      letter-spacing:.12em;
-      text-transform:uppercase;
-
-      text-decoration:none;
-
-      border-bottom:1px solid rgba(125,15,26,.4);
-
-      padding-bottom:.2rem;
-    }
-
-    /* =========================================================
-       PAGE 2 — THAI
-       ========================================================= */
-
-    html[lang="th"] .details-title h2{
-      font-style:normal;
-      line-height:1.3;
-    }
-
-    html[lang="th"] .details-title p{
-      letter-spacing:0;
-      line-height:1.7;
-    }
-
-    html[lang="th"] .timeline-content h3{
-      line-height:1.35;
-    }
-
-    html[lang="th"] .timeline-content p{
-      line-height:1.7;
-    }
-
-    html[lang="th"] .info-panel > p{
-      line-height:1.8;
-    }
-
-    html[lang="th"] .rsvp p{
-      line-height:1.8;
-    }
-
-    /* =========================================================
-       TABLET
-       ========================================================= */
-
-    @media(max-width:900px){
-
-      #p1{
-        grid-template-columns:1fr;
-      }
-
-      #p1 .cover{
-        min-height:75svh;
-      }
-
-      #p1 .cover-main{
-        min-height:75svh;
-      }
-
-      #p1 .cover-side{
-        min-height:25svh;
-        padding:3rem;
-      }
-
-      #p1 .logo{
-        width:9rem;
-        height:9rem;
-
-        top:2rem;
-        right:2rem;
-      }
-
-      #p2 .logo{
-        width:6rem;
-        height:6rem;
-
-        top:1.5rem;
-        right:1.5rem;
-      }
-
-      .details-grid{
-        grid-template-columns:1fr;
-
-        gap:4rem;
-      }
-
-      .info-panel{
-        border-left:0;
-        border-top:1px solid rgba(125,15,26,.22);
-
-        padding-left:0;
-        padding-top:3rem;
-      }
-
-    }
-
-    /* =========================================================
-       MOBILE
-       ========================================================= */
-
-    @media(max-width:600px){
-
-      /* -------------------------------------------------------
-         Language
-         ------------------------------------------------------- */
-
-      .lang{
-        top:1rem;
-        left:1rem;
-      }
-
-      /* -------------------------------------------------------
-         Page 1
-         ------------------------------------------------------- */
-
-      #p1 .cover{
-        min-height:75svh;
-      }
-
-      #p1 .cover-main{
-        min-height:75svh;
-
-        padding:4.5rem 1.5rem 2.5rem;
-      }
-
-      #p1 .logo{
-        width:7rem;
-        height:7rem;
-
-        top:1.2rem;
-        right:1.2rem;
-      }
-
-      .cover-pre{
-        margin-bottom:1.7rem;
-
-        font-size:.72rem;
-
-        letter-spacing:.15em;
-        line-height:1.6;
-      }
-
-      .cover-names{
-        font-size:clamp(
-          3.5rem,
-          17vw,
-          5.5rem
-        );
-
-        line-height:.8;
-      }
-
-      .cover-line{
-        width:3.5rem;
-
-        margin:1.8rem 0 1.6rem;
-      }
-
-      .cover-invite{
-        width:calc(100% - 1rem);
-        max-width:24rem;
-
-        padding:0 .5rem;
-
-        font-size:1rem;
-        line-height:1.6;
-      }
-
-      .cover-date{
-        margin-top:1.5rem;
-        margin-bottom:.4rem;
-
-        font-size:.9rem;
-        letter-spacing:.1em;
-      }
-
-      .cover-location{
-        font-size:.9rem;
-        letter-spacing:.03em;
-      }
-
-      /* -------------------------------------------------------
-         Thai mobile
-         ------------------------------------------------------- */
-
-      html[lang="th"] .cover-names{
-        font-size:clamp(
-          3.5rem,
-          17vw,
-          5.5rem
-        );
-
-        line-height:.8;
-      }
-
-      html[lang="th"] .cover-line{
-        margin:1.8rem 0 1.6rem;
-      }
-
-      html[lang="th"] .cover-invite{
-        line-height:1.8;
-      }
-
-      /* -------------------------------------------------------
-         Page 2
-         ------------------------------------------------------- */
-
-      #p2{
-        padding:5rem 1.4rem 4rem;
-      }
-
-      #p2 .logo{
-        width:5rem;
-        height:5rem;
-
-        top:1.2rem;
-        right:1.2rem;
-      }
-
-      .details-title{
-        margin-bottom:3rem;
-      }
-
-      .details-title h2{
-        font-size:clamp(
-          3rem,
-          15vw,
-          4rem
-        );
-      }
-
-      .details-title p{
-        font-size:.75rem;
-        letter-spacing:.15em;
-      }
-
-      .details-grid{
-        gap:3rem;
-      }
-
-      .timeline{
-        padding-left:4.5rem;
-      }
-
-      .timeline::before{
-        left:1.15rem;
-      }
-
-      .timeline-item{
-        grid-template-columns:4rem 1fr;
-
-        gap:1rem;
-
-        min-height:7rem;
-
-        padding-bottom:2.5rem;
-      }
-
-      .timeline-icon{
-        width:2.5rem;
-        height:2.5rem;
-      }
-
-      .timeline-content h3{
-        font-size:1.45rem;
-      }
-
-      .timeline-content p{
-        font-size:.95rem;
-      }
-
-      .info-panel{
-        padding-top:2.5rem;
-      }
-
-      .info-panel h3{
-        font-size:1.7rem;
-      }
-
-      .rsvp{
-        padding:1.5rem;
-      }
-
-    }
-
-  </style>
 </head>
 
 
 <body>
 
-  <!-- =======================================================
-       LANGUAGE SWITCHER
-       ======================================================= -->
 
-  <nav class="lang" aria-label="Language">
-    <button
-      type="button"
-      data-l="en"
-      aria-pressed="true"
+<!-- =====================================================
+     TAALKEUZE
+     ===================================================== -->
+
+<nav
+  class="lang"
+  aria-label="Language"
+>
+
+  <button
+    data-l="en"
+    aria-pressed="true"
+  >
+    EN
+  </button>
+
+  <button
+    data-l="nl"
+    aria-pressed="false"
+  >
+    NL
+  </button>
+
+  <button
+    data-l="th"
+    aria-pressed="false"
+    lang="th"
+  >
+    ไทย
+  </button>
+
+</nav>
+
+
+<main>
+
+
+<!-- =====================================================
+     PAGINA 1 — COVER
+     ===================================================== -->
+
+<section
+  class="page"
+  id="p1"
+>
+
+
+  <!-- Linkerzijde -->
+
+  <div class="cover-main">
+
+
+    <p
+      class="cover-pre"
+      data-t="pre"
     >
-      EN
-    </button>
+      Together with their families
+    </p>
 
-    <button
-      type="button"
-      data-l="nl"
-      aria-pressed="false"
+
+    <h1 class="cover-names">
+
+      <span>Siriya</span>
+
+      <span class="amp">&amp;</span>
+
+      <span>Floris</span>
+
+    </h1>
+
+
+    <div class="cover-line"></div>
+
+
+    <p
+      class="cover-invite"
+      data-t="invite1"
     >
-      NL
-    </button>
+      invite you to join us
+    </p>
 
-    <button
-      type="button"
-      data-l="th"
-      aria-pressed="false"
+
+    <p
+      class="cover-date"
+      data-t="date"
     >
-      TH
-    </button>
-  </nav>
+      27 March 2027
+    </p>
 
 
-  <!-- =======================================================
-       PAGE 1
-       ======================================================= -->
-
-  <section class="page" id="p1">
-
-    <!-- COVER -->
-
-    <div class="cover">
-
-      <!-- LOGO -->
-
-      <div class="logo" aria-hidden="true">
-
-        <span class="mono">S&amp;F</span>
-
-        <img
-          src="images/logo.png"
-          alt=""
-          onload="this.parentNode.classList.add('has')"
-          onerror="this.remove()"
-        >
-
-      </div>
+    <p
+      class="cover-location"
+      data-t="time"
+    >
+      09:00 AM · Baiboon Grand, Loei
+    </p>
 
 
-      <!-- MAIN -->
-
-      <main class="cover-main">
-
-        <p
-          class="cover-pre"
-          data-t="pre"
-        >
-          Together with their families
-        </p>
+  </div>
 
 
-        <h1 class="cover-names">
+  <!-- Rechterzijde -->
 
-          <span>Siriya</span>
-
-          <span class="amp">&amp;</span>
-
-          <span>Floris</span>
-
-        </h1>
+  <div class="cover-side">
 
 
-        <div class="cover-line"></div>
+    <div
+      class="logo"
+      aria-hidden="true"
+    >
 
-
-        <p
-          class="cover-invite"
-          data-t="invite1"
-        >
-          invite you to join us
-        </p>
-
-
-        <p
-          class="cover-date"
-          data-t="date"
-        >
-          27 March 2027
-        </p>
-
-
-        <p
-          class="cover-location"
-          data-t="time"
-        >
-          09:00 AM · Baiboon Grand, Loei
-        </p>
-
-      </main>
-
-    </div>
-
-
-    <!-- SIDE -->
-
-    <aside class="cover-side">
-
-      <div class="side-inner">
-
-        <p class="side-kicker">
-          Siriya &amp; Floris
-        </p>
-
-        <p
-          class="side-text"
-          data-t="sideText"
-        >
-          A day of love, family, celebration and togetherness.
-        </p>
-
-        <div class="side-rule"></div>
-
-        <p class="side-small">
-          27 · 03 · 2027
-        </p>
-
-      </div>
-
-    </aside>
-
-  </section>
-
-
-  <!-- =======================================================
-       PAGE 2
-       ======================================================= -->
-
-  <section class="page" id="p2">
-
-    <!-- LOGO -->
-
-    <div class="logo" aria-hidden="true">
-
-      <span class="mono">S&amp;F</span>
+      <span class="mono">
+        S&amp;F
+      </span>
 
       <img
         src="images/logo.png"
@@ -1173,496 +1315,396 @@
     </div>
 
 
-    <!-- TITLE -->
+    <p
+      class="cover-side-text"
+      data-t="sideText"
+    >
+      A day of love, family,
+      celebration and togetherness.
+    </p>
 
-    <header class="details-title">
 
-      <h2 data-t="detailsTitle">
-        The Day
-      </h2>
+  </div>
 
-      <p data-t="detailsSub">
-        Our wedding celebration
+
+  <a
+    class="next"
+    href="#p2"
+    aria-label="Next"
+  >
+    ↓
+  </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     PAGINA 2 — DETAILS
+     ===================================================== -->
+
+<section
+  class="page"
+  id="p2"
+>
+
+
+  <div
+    class="logo"
+    aria-hidden="true"
+  >
+
+    <span class="mono">
+      S&amp;F
+    </span>
+
+    <img
+      src="images/logo.png"
+      alt=""
+      onload="this.parentNode.classList.add('has')"
+      onerror="this.remove()"
+    >
+
+  </div>
+
+
+  <header class="details-title">
+
+    <h2 data-t="detailsTitle">
+      The Day
+    </h2>
+
+    <p data-t="detailsSub">
+      Our wedding celebration
+    </p>
+
+  </header>
+
+
+
+  <div class="details-grid">
+
+
+    <div class="timeline">
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M6 3h7l-1 8H7L6 3z"/>
+            <path d="M9 11v6"/>
+            <path d="M6 20h7"/>
+            <path d="M15 5h4l-.7 6h-2.6L15 5z"/>
+            <path d="M17 11v6"/>
+            <path d="M14.5 20h5"/>
+
+          </svg>
+
+        </div>
+
+
+        <div class="timeline-time">
+          08:30
+        </div>
+
+
+        <div class="timeline-content">
+
+          <h3 data-t="welcomeTitle">
+            Welcome Drinks
+          </h3>
+
+          <p data-t="welcomeText">
+            Welcome, mingle and enjoy a refreshing drink
+            with family and friends.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M4 20h16"/>
+            <path d="M6 20V10"/>
+            <path d="M18 20V10"/>
+            <path d="M4 10h16"/>
+            <path d="M5 10l7-6 7 6"/>
+            <path d="M9 20v-5h6v5"/>
+
+          </svg>
+
+        </div>
+
+
+        <div class="timeline-time">
+          09:00
+        </div>
+
+
+        <div class="timeline-content">
+
+          <h3 data-t="ceremonyTitle">
+            Ceremony
+          </h3>
+
+          <p data-t="ceremonyText">
+            Join us as we celebrate the beginning
+            of our married life.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9z"/>
+            <path d="M16 11h2a2.5 2.5 0 0 1 0 5h-2"/>
+            <path d="M7 5v2"/>
+            <path d="M11 4v3"/>
+            <path d="M15 5v2"/>
+            <path d="M4 21h14"/>
+
+          </svg>
+
+        </div>
+
+
+        <div class="timeline-time">
+          10:30
+        </div>
+
+
+        <div class="timeline-content">
+
+          <h3 data-t="coffeeTitle">
+            Coffee &amp; Snacks
+          </h3>
+
+          <p data-t="coffeeText">
+            Take a little break, enjoy coffee and
+            something sweet.
+          </p>
+
+        </div>
+
+      </article>
+
+
+
+      <article class="timeline-item">
+
+        <div class="timeline-icon">
+
+          <svg viewBox="0 0 24 24">
+
+            <path d="M5 4v7"/>
+            <path d="M8 4v7"/>
+            <path d="M5 8h3"/>
+            <path d="M6.5 11v9"/>
+            <path d="M15 4v16"/>
+            <path d="M15 4c3 1 4 3 4 6v1h-4"/>
+
+          </svg>
+
+        </div>
+
+
+        <div class="timeline-time">
+          12:00
+        </div>
+
+
+        <div class="timeline-content">
+
+          <h3 data-t="lunchTitle">
+            Wedding Lunch
+          </h3>
+
+          <p data-t="lunchText">
+            A relaxed lunch with our loved ones
+            to continue the celebration.
+          </p>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+
+    <aside class="info-panel">
+
+
+      <h3 data-t="locationTitle">
+        The Location
+      </h3>
+
+
+      <div class="location-name">
+        Baiboon Grand
+      </div>
+
+
+      <p data-t="locationText">
+        We are delighted to celebrate our special day
+        at Baiboon Grand in Loei, Thailand.
       </p>
 
-    </header>
+
+      <div class="location-meta">
 
 
-    <!-- DETAILS -->
+        <div class="location-row">
 
-    <div class="details-grid">
+          <svg viewBox="0 0 24 24">
 
+            <path
+              d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"
+            />
 
-      <!-- ===================================================
-           TIMELINE
-           =================================================== -->
+            <circle
+              cx="12"
+              cy="10"
+              r="2.3"
+            />
 
-      <div class="timeline">
+          </svg>
 
+          <span>
+            Baiboon Grand, Loei
+          </span>
 
-        <!-- WELCOME -->
-
-        <article class="timeline-item">
-
-          <div class="timeline-icon">
-            01
-          </div>
-
-          <div class="timeline-content">
-
-            <h3 data-t="welcomeTitle">
-              Welcome Drinks
-            </h3>
-
-            <p data-t="welcomeText">
-              Welcome, mingle and enjoy a refreshing drink with
-              family and friends.
-            </p>
-
-          </div>
-
-        </article>
+        </div>
 
 
-        <!-- CEREMONY -->
+        <div class="location-row">
 
-        <article class="timeline-item">
+          <svg viewBox="0 0 24 24">
 
-          <div class="timeline-icon">
-            02
-          </div>
+            <circle
+              cx="12"
+              cy="12"
+              r="8.5"
+            />
 
-          <div class="timeline-content">
+            <path
+              d="M12 7v5l3.2 2"
+            />
 
-            <h3 data-t="ceremonyTitle">
-              Ceremony
-            </h3>
+          </svg>
 
-            <p data-t="ceremonyText">
-              Join us as we celebrate the beginning of our
-              married life.
-            </p>
+          <span>
+            27 March 2027 · 09:00
+          </span>
 
-          </div>
+        </div>
 
-        </article>
-
-
-        <!-- COFFEE -->
-
-        <article class="timeline-item">
-
-          <div class="timeline-icon">
-            03
-          </div>
-
-          <div class="timeline-content">
-
-            <h3 data-t="coffeeTitle">
-              Coffee &amp; Snacks
-            </h3>
-
-            <p data-t="coffeeText">
-              Take a little break, enjoy coffee and something sweet.
-            </p>
-
-          </div>
-
-        </article>
-
-
-        <!-- LUNCH -->
-
-        <article class="timeline-item">
-
-          <div class="timeline-icon">
-            04
-          </div>
-
-          <div class="timeline-content">
-
-            <h3 data-t="lunchTitle">
-              Wedding Lunch
-            </h3>
-
-            <p data-t="lunchText">
-              A relaxed lunch with our loved ones to continue
-              the celebration.
-            </p>
-
-          </div>
-
-        </article>
 
       </div>
 
 
-      <!-- ===================================================
-           INFO
-           =================================================== -->
 
-      <aside class="info-panel">
+      <div class="rsvp">
 
-        <h3 data-t="locationTitle">
-          The Location
+
+        <h3 data-t="rsvpTitle">
+          RSVP
         </h3>
 
-        <p data-t="locationText">
-          We are delighted to celebrate our special day at
-          Baiboon Grand in Loei, Thailand.
+
+        <p data-t="rsvpText">
+          Please let us know if you will be
+          joining us on our special day.
         </p>
 
 
-        <div class="location-meta">
-
-          <span>
-            Baiboon Grand
-          </span>
-
-          <span>
-            Loei, Thailand
-          </span>
-
-          <span>
-            27 March 2027 · 09:00 AM
-          </span>
-
+        <div class="qr-placeholder">
+          QR CODE<br>
+          RSVP
         </div>
 
 
-        <!-- RSVP -->
+        <a
+          href="#"
+          class="rsvp-link"
+          data-t="rsvpLink"
+          onclick="return false;"
+        >
+          RSVP online
+        </a>
 
-        <div class="rsvp">
 
-          <h3 data-t="rsvpTitle">
-            RSVP
-          </h3>
+      </div>
 
-          <p data-t="rsvpText">
-            Please let us know if you will be joining us
-            on our special day.
-          </p>
 
+    </aside>
 
-          <!-- QR CODE PLACEHOLDER -->
 
-          <div class="qr-placeholder">
-            QR CODE
-          </div>
+  </div>
 
 
-          <a
-            href="#"
-            class="rsvp-link"
-            data-t="rsvpLink"
-          >
-            RSVP online
-          </a>
+</section>
 
-        </div>
+</main>
 
-      </aside>
 
-    </div>
 
-  </section>
+<script>
 
+const L = {
 
-  <!-- =======================================================
-       JAVASCRIPT
-       ======================================================= -->
+  en:{
 
-  <script>
+    pre:
+      "Together with their families",
 
-    const L = {
+    invite1:
+      "invite you to join us",
 
-      /* =====================================================
-         ENGLISH
-         ===================================================== */
+    date:
+      "27 March 2027",
 
-      en: {
+    time:
+      "09:00 AM · Baiboon Grand, Loei",
 
-        pre:
-          "Together with their families",
+    sideText:
+      "A day of love, family, celebration and togetherness.",
 
-        invite1:
-          "invite you to join us",
+    detailsTitle:
+      "The Day",
 
-        date:
-          "27 March 2027",
+    detailsSub:
+      "Our wedding celebration",
 
-        time:
-          "09:00 AM · Baiboon Grand, Loei",
+    welcomeTitle:
+      "Welcome Drinks",
 
-        sideText:
-          "A day of love, family, celebration and togetherness.",
+    welcomeText:
+      "Welcome, mingle and enjoy a refreshing drink with family and friends.",
 
-        detailsTitle:
-          "The Day",
+    ceremonyTitle:
+      "Ceremony",
 
-        detailsSub:
-          "Our wedding celebration",
-
-        welcomeTitle:
-          "Welcome Drinks",
-
-        welcomeText:
-          "Welcome, mingle and enjoy a refreshing drink with family and friends.",
-
-        ceremonyTitle:
-          "Ceremony",
-
-        ceremonyText:
-          "Join us as we celebrate the beginning of our married life.",
-
-        coffeeTitle:
-          "Coffee & Snacks",
-
-        coffeeText:
-          "Take a little break, enjoy coffee and something sweet.",
-
-        lunchTitle:
-          "Wedding Lunch",
-
-        lunchText:
-          "A relaxed lunch with our loved ones to continue the celebration.",
-
-        locationTitle:
-          "The Location",
-
-        locationText:
-          "We are delighted to celebrate our special day at Baiboon Grand in Loei, Thailand.",
-
-        rsvpTitle:
-          "RSVP",
-
-        rsvpText:
-          "Please let us know if you will be joining us on our special day.",
-
-        rsvpLink:
-          "RSVP online"
-
-      },
-
-
-      /* =====================================================
-         DUTCH
-         ===================================================== */
-
-      nl: {
-
-        pre:
-          "Samen met hun families",
-
-        invite1:
-          "nodigen wij jullie uit om dit met ons te vieren",
-
-        date:
-          "27 maart 2027",
-
-        time:
-          "09:00 uur · Baiboon Grand, Loei",
-
-        sideText:
-          "Een dag vol liefde, familie, geluk en samenzijn.",
-
-        detailsTitle:
-          "De dag",
-
-        detailsSub:
-          "Onze huwelijksviering",
-
-        welcomeTitle:
-          "Ontvangst & drankjes",
-
-        welcomeText:
-          "Welkom, ontmoet elkaar en geniet samen met familie en vrienden van een drankje.",
-
-        ceremonyTitle:
-          "Ceremonie",
-
-        ceremonyText:
-          "Vier samen met ons het begin van ons huwelijk.",
-
-        coffeeTitle:
-          "Koffie & lekkernijen",
-
-        coffeeText:
-          "Een klein moment om te genieten van koffie en iets lekkers.",
-
-        lunchTitle:
-          "Huwelijkslunch",
-
-        lunchText:
-          "Een ontspannen lunch met onze dierbaren om de dag samen voort te zetten.",
-
-        locationTitle:
-          "De locatie",
-
-        locationText:
-          "Met veel plezier vieren wij onze bijzondere dag bij Baiboon Grand in Loei, Thailand.",
-
-        rsvpTitle:
-          "RSVP",
-
-        rsvpText:
-          "Laat ons weten of je erbij kunt zijn op onze bijzondere dag.",
-
-        rsvpLink:
-          "RSVP online"
-
-      },
-
-
-      /* =====================================================
-         THAI
-         ===================================================== */
-
-      th: {
-
-        pre:
-          "พร้อมด้วยครอบครัวทั้งสองฝ่าย",
-
-        invite1:
-          "ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา",
-
-        date:
-          "27 มีนาคม 2570",
-
-        time:
-          "เวลา 09.00 น. · Baiboon Grand, Loei",
-
-        sideText:
-          "วันแห่งความรัก ครอบครัว ความสุข และการเฉลิมฉลองร่วมกัน",
-
-        detailsTitle:
-          "กำหนดการ",
-
-        detailsSub:
-          "รายละเอียดงานฉลองมงคลสมรส",
-
-        welcomeTitle:
-          "ต้อนรับและเครื่องดื่ม",
-
-        welcomeText:
-          "ขอต้อนรับทุกท่าน พบปะพูดคุย และเพลิดเพลินกับเครื่องดื่มร่วมกับครอบครัวและเพื่อน ๆ",
-
-        ceremonyTitle:
-          "พิธีมงคลสมรส",
-
-        ceremonyText:
-          "ร่วมเป็นสักขีพยานและเฉลิมฉลองการเริ่มต้นชีวิตคู่ของเรา",
-
-        coffeeTitle:
-          "กาแฟและของว่าง",
-
-        coffeeText:
-          "พักผ่อนและเพลิดเพลินกับกาแฟและของว่าง",
-
-        lunchTitle:
-          "เลี้ยงฉลองมงคลสมรส",
-
-        lunchText:
-          "ร่วมรับประทานอาหารกลางวันและเฉลิมฉลองวันสำคัญกับครอบครัวและคนที่เรารัก",
-
-        locationTitle:
-          "สถานที่",
-
-        locationText:
-          "เรามีความยินดีเป็นอย่างยิ่งที่จะจัดงานฉลองมงคลสมรส ณ Baiboon Grand จังหวัดเลย ประเทศไทย",
-
-        rsvpTitle:
-          "ตอบรับการเข้าร่วมงาน",
-
-        rsvpText:
-          "กรุณาแจ้งให้เราทราบว่าท่านจะสามารถมาร่วมงานกับเราได้หรือไม่",
-
-        rsvpLink:
-          "ตอบรับออนไลน์"
-
-      }
-
-    };
-
-
-    /* =======================================================
-       LANGUAGE FUNCTION
-       ======================================================= */
-
-    function setLang(lang){
-
-      if(!L[lang]){
-        lang = "en";
-      }
-
-      document.documentElement.lang = lang;
-
-
-      document
-        .querySelectorAll("[data-t]")
-        .forEach(element => {
-
-          const key = element.dataset.t;
-
-          if(
-            L[lang] &&
-            L[lang][key] !== undefined
-          ){
-
-            element.textContent = L[lang][key];
-
-          }
-
-        });
-
-
-      document
-        .querySelectorAll(".lang button")
-        .forEach(button => {
-
-          button.setAttribute(
-            "aria-pressed",
-            button.dataset.l === lang
-          );
-
-        });
-
-    }
-
-
-    /* =======================================================
-       LANGUAGE BUTTONS
-       ======================================================= */
-
-    document
-      .querySelectorAll(".lang button")
-      .forEach(button => {
-
-        button.addEventListener(
-          "click",
-          () => setLang(button.dataset.l)
-        );
-
-      });
-
-
-    /* =======================================================
-       URL LANGUAGE
-       ======================================================= */
-
-    const urlLang =
-      new URLSearchParams(
-        window.location.search
-      ).get("lang");
-
-
-    setLang(
-      urlLang && L[urlLang]
-        ? urlLang
-        : "en"
-    );
-
-  </script>
-
-</body>
-</html>
+    ceremonyText:
+      "Join us as we celebrate t
+```
