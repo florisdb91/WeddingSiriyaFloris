@@ -61,10 +61,7 @@ body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weig
   min-height:100svh;
   padding:var(--m);
   display:flex;justify-content:center;align-items:stretch;
-  background:
-    radial-gradient(ellipse 85% 70% at 50% 45%,rgba(255,120,130,.14),transparent 70%),   /* zachte gloed achter de kaart */
-    radial-gradient(ellipse 120% 100% at 50% 50%,transparent 45%,rgba(30,2,6,.55) 100%),   /* donkere, fluwelen randen */
-    repeating-linear-gradient(90deg,var(--stripe-a) 0 var(--bar),var(--stripe-b) var(--bar) calc(var(--bar)*2));
+  background:var(--cream);                /* zelfde crème als pagina 2 */
   color:var(--red);
 }
 
@@ -76,7 +73,7 @@ body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weig
   background:#FFFEFB;
   container-type:inline-size;
   display:flex;
-  box-shadow:0 20px 44px rgba(0,0,0,.35);
+  box-shadow:0 0 0 1px rgba(125,15,26,.22),0 18px 40px rgba(125,15,26,.16);
 }
 
 .frame{
