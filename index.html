@@ -3,20 +3,25 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Siriya &amp; Floris – 27 maart 2027</title>
-<meta name="description" content="Uitnodiging voor de bruiloft van Siriya en Floris op 27 maart 2027 in Baiboon Grand, Loei.">
+<title>Siriya &amp; Floris – 27 03 2027</title>
+<meta name="description" content="Siriya & Floris – 27 maart 2027 – Baiboon Grand, Loei">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&family=Noto+Serif+Thai:wght@300;400&display=swap" rel="stylesheet">
 <style>
 :root{
   --ivory:#F7F1E8; --icy:#DCE5EE; --powder:#BAC7D3; --cherry:#7D0F1A; --wine:#3E0A0F;
-  --serif:'Cormorant Garamond',Georgia,serif; --sans:'Jost',system-ui,sans-serif;
+  --serif:'Cormorant Garamond','Noto Serif Thai',Georgia,serif; --sans:'Jost','Noto Serif Thai',system-ui,sans-serif;
 }
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth}
 body{background:var(--ivory);color:var(--wine);font-family:var(--sans);font-weight:300;line-height:1.7;font-size:1.05rem}
-.hero{min-height:100svh;background:var(--wine);color:var(--ivory);display:grid;place-items:center;text-align:center;padding:4rem 1.5rem;position:relative;overflow:hidden}
+html[lang=th] body{line-height:1.9}
+html[lang=th] em,html[lang=th] h3,html[lang=th] .pre{font-style:normal}
+.lang{position:fixed;top:1.6rem;right:1.8rem;z-index:5;display:flex;gap:.2rem;font-family:var(--sans)}
+.lang button{background:none;border:0;color:var(--powder);font:inherit;font-size:.95rem;padding:.3rem .55rem;cursor:pointer;border-bottom:1px solid transparent}
+.lang button[aria-pressed=true]{color:var(--ivory);border-bottom-color:var(--ivory)}
+.hero{min-height:100svh;background:var(--wine);color:var(--ivory);display:grid;place-items:center;text-align:center;padding:5rem 1.5rem 4rem;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:1.25rem;border:1px solid rgba(186,199,211,.35);pointer-events:none}
 .hero p.pre{font-family:var(--serif);font-style:italic;font-size:1.35rem;color:var(--powder);margin-bottom:1.5rem}
 .hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(3.6rem,15vw,10rem);line-height:.95;letter-spacing:-.01em}
@@ -28,11 +33,10 @@ body{background:var(--ivory);color:var(--wine);font-family:var(--sans);font-weig
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 section{padding:6rem 1.5rem}
 .narrow{max-width:38rem;margin:0 auto;text-align:center}
-h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,6vw,3.2rem);line-height:1.15;margin-bottom:1.5rem}
-h2 em{font-weight:300}
+h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,6vw,3.2rem);line-height:1.2;margin-bottom:1.5rem}
 .message p{font-family:var(--serif);font-size:1.3rem;line-height:1.8}
 .details{background:var(--icy)}
-.grid{max-width:56rem;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:0}
+.grid{max-width:56rem;margin:3rem auto 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
 .grid div{padding:1.5rem 1rem;text-align:center}
 .grid div+div{border-left:1px solid var(--powder)}
 .grid h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.3rem;color:var(--cherry);margin-bottom:.4rem}
@@ -41,54 +45,58 @@ h2 em{font-weight:300}
 @media(max-width:640px){.grid div+div{border-left:0;border-top:1px solid var(--powder)}}
 .photos{max-width:60rem;margin:0 auto;display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
 .photos figure{position:relative;overflow:hidden;background:linear-gradient(145deg,var(--icy),var(--powder));min-height:16rem;display:grid;place-items:center}
-.photos figure::after{content:attr(data-label);position:absolute;font-family:var(--serif);font-style:italic;color:#fff;opacity:.85;font-size:1.1rem}
+.photos figure span{font-family:var(--serif);font-style:italic;color:#fff;opacity:.85;font-size:1.1rem}
 .photos figure:nth-child(2){background:linear-gradient(145deg,#a8222e,var(--cherry))}
 .photos figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .photos figure:nth-child(1){grid-column:span 4;min-height:24rem}
-.photos figure:nth-child(2){grid-column:span 2}
-.photos figure:nth-child(3){grid-column:span 2}
+.photos figure:nth-child(2),.photos figure:nth-child(3){grid-column:span 2}
 .photos figure:nth-child(4){grid-column:span 4}
 @media(max-width:640px){.photos figure:nth-child(n){grid-column:span 6;min-height:18rem}}
 footer{background:var(--wine);color:var(--powder);text-align:center;padding:4rem 1.5rem;font-family:var(--serif);font-size:1.4rem}
-footer span{display:block;font-family:var(--serif);font-style:italic;color:var(--ivory);font-size:2rem;margin-bottom:.4rem}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--cherry);outline-offset:3px}
+footer span{display:block;font-style:italic;color:var(--ivory);font-size:2rem;margin-bottom:.4rem}
+:focus-visible{outline:2px solid var(--powder);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.reveal{animation:none}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
+<nav class="lang" aria-label="Taal / Language / ภาษา">
+  <button data-l="nl" aria-pressed="true">NL</button>
+  <button data-l="en" aria-pressed="false">EN</button>
+  <button data-l="th" aria-pressed="false" lang="th">ไทย</button>
+</nav>
+
 <header class="hero">
   <div>
-    <p class="pre reveal">Wij gaan trouwen</p>
+    <p class="pre reveal" data-t="pre"></p>
     <h1 class="reveal d2">Siriya <span class="amp">&amp;</span> Floris</h1>
-    <p class="when reveal d2">Zaterdag 27 maart 2027</p>
-    <p class="where reveal d2">Baiboon Grand, Loei</p>
+    <p class="when reveal d2" data-t="when"></p>
+    <p class="where reveal d2" data-t="where"></p>
   </div>
 </header>
 
 <section class="message">
   <div class="narrow">
-    <h2>Met <em>blijdschap</em> nodigen wij u uit</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <h2 data-t="invite"></h2>
+    <p data-t="lorem"></p>
   </div>
 </section>
 
 <section class="details">
-  <div class="narrow"><h2>De dag</h2></div>
+  <div class="narrow"><h2 data-t="day"></h2></div>
   <div class="grid">
-    <div><h3>Datum</h3><p>27 maart 2027</p><small>zaterdag</small></div>
-    <div><h3>Tijd</h3><p>09:00 uur</p><small>ontvangst om 08:30</small></div>
-    <div><h3>Locatie</h3><p>Baiboon Grand</p><small>Loei, Thailand</small></div>
+    <div><h3 data-t="dateL"></h3><p data-t="dateV"></p><small data-t="dateS"></small></div>
+    <div><h3 data-t="timeL"></h3><p data-t="timeV"></p><small data-t="timeS"></small></div>
+    <div><h3 data-t="locL"></h3><p>Baiboon Grand</p><small data-t="locS"></small></div>
   </div>
 </section>
 
 <section>
   <div class="photos">
-    <figure data-label="Foto 1"><img src="images/foto-1.jpg" alt="" onerror="this.remove()"></figure>
-    <figure data-label="Foto 2"><img src="images/foto-2.jpg" alt="" onerror="this.remove()"></figure>
-    <figure data-label="Foto 3"><img src="images/foto-3.jpg" alt="" onerror="this.remove()"></figure>
-    <figure data-label="Foto 4"><img src="images/foto-4.jpg" alt="" onerror="this.remove()"></figure>
+    <figure><span data-t="photo1"></span><img src="images/foto-1.jpg" alt="" onerror="this.remove()"></figure>
+    <figure><span data-t="photo2"></span><img src="images/foto-2.jpg" alt="" onerror="this.remove()"></figure>
+    <figure><span data-t="photo3"></span><img src="images/foto-3.jpg" alt="" onerror="this.remove()"></figure>
+    <figure><span data-t="photo4"></span><img src="images/foto-4.jpg" alt="" onerror="this.remove()"></figure>
   </div>
 </section>
 
@@ -97,5 +105,49 @@ a{color:inherit}
   27 · 03 · 2027
 </footer>
 
+<script>
+const L = {
+  nl: {
+    pre:"Wij gaan trouwen", when:"Zaterdag 27 maart 2027", where:"Baiboon Grand, Loei",
+    invite:"Met blijdschap nodigen wij u uit",
+    lorem:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    day:"De dag", dateL:"Datum", dateV:"27 maart 2027", dateS:"zaterdag",
+    timeL:"Tijd", timeV:"09:00 uur", timeS:"ontvangst om 08:30",
+    locL:"Locatie", locS:"Loei, Thailand",
+    photo1:"Foto 1", photo2:"Foto 2", photo3:"Foto 3", photo4:"Foto 4"
+  },
+  en: {
+    pre:"We are getting married", when:"Saturday, 27 March 2027", where:"Baiboon Grand, Loei",
+    invite:"With joy, we invite you",
+    lorem:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    day:"The day", dateL:"Date", dateV:"27 March 2027", dateS:"Saturday",
+    timeL:"Time", timeV:"9:00 AM", timeS:"guests welcome from 8:30 AM",
+    locL:"Location", locS:"Loei, Thailand",
+    photo1:"Photo 1", photo2:"Photo 2", photo3:"Photo 3", photo4:"Photo 4"
+  },
+  th: {
+    pre:"เรากำลังจะแต่งงานกัน", when:"วันเสาร์ที่ 27 มีนาคม พ.ศ. 2570", where:"Baiboon Grand จังหวัดเลย",
+    invite:"ด้วยความยินดี ขอเรียนเชิญท่านร่วมเป็นเกียรติ",
+    lorem:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+    day:"วันสำคัญของเรา", dateL:"วันที่", dateV:"27 มีนาคม 2570", dateS:"วันเสาร์ (ค.ศ. 2027)",
+    timeL:"เวลา", timeV:"09.00 น.", timeS:"ต้อนรับแขกตั้งแต่ 08.30 น.",
+    locL:"สถานที่", locS:"จังหวัดเลย ประเทศไทย",
+    photo1:"ภาพที่ 1", photo2:"ภาพที่ 2", photo3:"ภาพที่ 3", photo4:"ภาพที่ 4"
+  }
+};
+function setLang(l){
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-t]').forEach(e => e.textContent = L[l][e.dataset.t]);
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.l === l));
+  try { localStorage.setItem('lang', l); } catch(e){}
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
+let start = 'nl';
+try {
+  const q = new URLSearchParams(location.search).get('lang');
+  start = (q in L) ? q : (localStorage.getItem('lang') in L ? localStorage.getItem('lang') : 'nl');
+} catch(e){}
+setLang(start);
+</script>
 </body>
 </html>
