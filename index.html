@@ -54,12 +54,17 @@ body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weig
 
 /* ===================== PAGINA 1 — KAART ===================== */
 #p1{
-  --bar:clamp(.5rem,1.7vw,.85rem);        /* breedte van 1 streep (kleiner = fijner) */
+  --bar:clamp(.5rem,1.7vw,.85rem);        /* breedte van 1 streep */
   --m:clamp(1.4rem,5.2vw,2.6rem);         /* zichtbare rand rond de kaart */
+  --stripe-a:#7D0F1A;                     /* palet-rood */
+  --stripe-b:#730E18;                     /* bijna dezelfde tint: pas dit aan voor meer/minder contrast */
   min-height:100svh;
   padding:var(--m);
   display:flex;justify-content:center;align-items:stretch;
-  background:repeating-linear-gradient(90deg,var(--red) 0 var(--bar),#5C0A14 var(--bar) calc(var(--bar)*2));
+  background:
+    radial-gradient(ellipse 85% 70% at 50% 45%,rgba(255,120,130,.14),transparent 70%),   /* zachte gloed achter de kaart */
+    radial-gradient(ellipse 120% 100% at 50% 50%,transparent 45%,rgba(30,2,6,.55) 100%),   /* donkere, fluwelen randen */
+    repeating-linear-gradient(90deg,var(--stripe-a) 0 var(--bar),var(--stripe-b) var(--bar) calc(var(--bar)*2));
   color:var(--red);
 }
 
