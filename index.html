@@ -161,6 +161,11 @@ body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weig
 
 .location-meta{display:flex;flex-direction:column;gap:.6rem;margin:2rem 0 3rem}
 .location-row{display:flex;align-items:center;gap:.8rem;font-size:.95rem}
+.location-row.address{align-items:flex-start}
+.location-row.address svg{margin-top:.2rem}
+address{font-style:normal;line-height:1.55}
+.map-link{align-self:flex-start;margin:.3rem 0 .4rem 2rem;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding-bottom:.15rem}
+html[lang="th"] .map-link{letter-spacing:.02em;font-size:.95rem}
 .location-row svg{width:1.2rem;height:1.2rem;stroke:var(--red);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* RSVP */
@@ -234,10 +239,10 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
         <img src="images/foto-1.jpg" alt="" onerror="this.remove()">
       </div>
 
-      <!-- logo: images/logo.png (anders S&F) -->
+      <!-- logo: images/logo1.png (anders S&F) -->
       <div class="mark" aria-hidden="true">
         <span class="mono">S&amp;F</span>
-        <img src="images/logo.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+        <img src="images/logo1.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
       </div>
 
       <div class="card-body">
@@ -275,7 +280,7 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
   <div class="logo" aria-hidden="true">
     <span class="mono">S&amp;F</span>
-    <img src="images/logo.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+    <img src="images/logo2.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
   </div>
 
   <header class="details-title">
@@ -343,10 +348,11 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
       <p data-t="locationText">We are delighted to celebrate our special day at Baiboon Grand in Loei, Thailand.</p>
 
       <div class="location-meta">
-        <div class="location-row">
+        <div class="location-row address">
           <svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
-          <span>Baiboon Grand, Loei</span>
+          <address>Baiboon Grand<br>111 Na An, อ.เมืองเลย,<br>Loei 42000, Thailand</address>
         </div>
+        <a class="map-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x312147a75364f8b3:0xcbe444a94fc6d62e?sa=X&amp;ved=1t:8290&amp;ictx=111" target="_blank" rel="noopener" data-t="mapLink">Open in Google Maps</a>
         <div class="location-row">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></svg>
           <span>27 March 2027 · 09:00</span>
@@ -399,7 +405,8 @@ const L = {
     locationText:"We are delighted to celebrate our special day at Baiboon Grand in Loei, Thailand.",
     rsvpTitle:"RSVP",
     rsvpText:"Please let us know if you will be joining us on our special day.",
-    rsvpLink:"RSVP online"
+    rsvpLink:"RSVP online",
+    mapLink:"Open in Google Maps"
   },
 
   nl:{
@@ -424,7 +431,8 @@ const L = {
     locationText:"Met veel plezier vieren wij onze bijzondere dag bij Baiboon Grand in Loei, Thailand.",
     rsvpTitle:"RSVP",
     rsvpText:"Laat ons weten of je erbij kunt zijn op onze bijzondere dag.",
-    rsvpLink:"RSVP online"
+    rsvpLink:"RSVP online",
+    mapLink:"Open in Google Maps"
   },
 
   th:{
@@ -449,7 +457,8 @@ const L = {
     locationText:"เรามีความยินดีเป็นอย่างยิ่งที่จะจัดงานฉลองมงคลสมรส ณ Baiboon Grand จังหวัดเลย ประเทศไทย",
     rsvpTitle:"ตอบรับการเข้าร่วมงาน",
     rsvpText:"กรุณาแจ้งให้เราทราบว่าท่านจะสามารถมาร่วมงานกับเราได้หรือไม่",
-    rsvpLink:"ตอบรับออนไลน์"
+    rsvpLink:"ตอบรับออนไลน์",
+    mapLink:"เปิดใน Google Maps"
   }
 };
 
