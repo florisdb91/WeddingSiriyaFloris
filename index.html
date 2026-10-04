@@ -28,7 +28,7 @@
 <style>
 
 /* =========================================================
-   KLEUREN
+   VARIABLES
    ========================================================= */
 
 :root{
@@ -80,7 +80,7 @@ body{
 
 
 /* =========================================================
-   TAALKEUZE
+   LANGUAGE SWITCHER
    ========================================================= */
 
 .lang{
@@ -137,7 +137,7 @@ body{
 
 
 /* =========================================================
-   ALGEMENE PAGINA
+   GENERAL
    ========================================================= */
 
 .page{
@@ -195,7 +195,7 @@ body{
 
 
 /* =========================================================
-   PAGINA 1
+   PAGE 1
    ========================================================= */
 
 #p1{
@@ -217,29 +217,29 @@ body{
 
 
 /* =========================================================
-   LINKERZIJDE PAGINA 1
+   PAGE 1 — MAIN AREA
+
+   BELANGRIJK:
+   Geen justify-content:center meer.
+   De inhoud staat op vaste verticale posities.
    ========================================================= */
 
 #p1 .cover-main{
 
   min-height:100svh;
 
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-  justify-content:center;
+  position:relative;
 
   text-align:center;
 
-  padding:5rem 4rem;
+  padding:
+    1px
+    4rem;
 }
 
 
 /* =========================================================
-   GROOT SIERLIJK LOGO
+   LOGO PAGE 1
    ========================================================= */
 
 #p1 .logo{
@@ -256,18 +256,26 @@ body{
 }
 
 
-#p1 .logo img{
-
-  filter:none;
-
-}
-
-
 /* =========================================================
-   COVER TYPOGRAFIE
+   COVER PRE
+
+   VASTE POSITIE
    ========================================================= */
 
 .cover-pre{
+
+  position:absolute;
+
+  top:24%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:min(
+    90%,
+    42rem
+  );
 
   font-size:clamp(
     .8rem,
@@ -279,13 +287,31 @@ body{
 
   text-transform:uppercase;
 
-  margin-bottom:2.2rem;
+  line-height:1.5;
 
   opacity:.9;
+
+  white-space:nowrap;
 }
 
 
+/* =========================================================
+   NAMES
+
+   VASTE POSITIE
+   ========================================================= */
+
 .cover-names{
+
+  position:absolute;
+
+  top:32%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:100%;
 
   font-size:clamp(
     4rem,
@@ -299,7 +325,9 @@ body{
 
   letter-spacing:-.035em;
 
-  margin-bottom:2.4rem;
+  margin:0;
+
+  text-align:center;
 }
 
 
@@ -321,7 +349,52 @@ body{
 }
 
 
+/* =========================================================
+   DECORATIVE LINE
+
+   VASTE POSITIE
+   ========================================================= */
+
+.cover-line{
+
+  position:absolute;
+
+  top:60%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:4rem;
+
+  height:1px;
+
+  background:rgba(247,241,232,.65);
+
+  margin:0;
+}
+
+
+/* =========================================================
+   INVITE
+
+   VASTE POSITIE
+   ========================================================= */
+
 .cover-invite{
+
+  position:absolute;
+
+  top:65%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:min(
+    90%,
+    38rem
+  );
 
   font-size:clamp(
     1.1rem,
@@ -331,11 +404,29 @@ body{
 
   font-style:italic;
 
-  margin-bottom:2.4rem;
+  line-height:1.5;
+
+  margin:0;
 }
 
 
+/* =========================================================
+   DATE
+
+   VASTE POSITIE
+   ========================================================= */
+
 .cover-date{
+
+  position:absolute;
+
+  top:73%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:90%;
 
   font-size:1rem;
 
@@ -343,38 +434,44 @@ body{
 
   text-transform:uppercase;
 
-  margin-bottom:.45rem;
+  line-height:1.5;
+
+  margin:0;
 }
 
 
+/* =========================================================
+   LOCATION
+
+   VASTE POSITIE
+   ========================================================= */
+
 .cover-location{
+
+  position:absolute;
+
+  top:78%;
+
+  left:50%;
+
+  transform:translateX(-50%);
+
+  width:90%;
 
   font-size:1rem;
 
   opacity:.85;
 
   letter-spacing:.06em;
+
+  line-height:1.5;
+
+  margin:0;
 }
 
 
 /* =========================================================
-   DECORATIEVE LIJN
-   ========================================================= */
-
-.cover-line{
-
-  width:4rem;
-
-  height:1px;
-
-  background:rgba(247,241,232,.65);
-
-  margin:1.5rem auto;
-}
-
-
-/* =========================================================
-   RECHTERVLAK PAGINA 1
+   PAGE 1 — SIDE
    ========================================================= */
 
 #p1 .cover-side{
@@ -397,8 +494,6 @@ body{
 }
 
 
-/* Subtiele verticale lijn */
-
 #p1 .cover-side::before{
 
   content:"";
@@ -417,10 +512,6 @@ body{
 }
 
 
-/* =========================================================
-   PAGINA 1 — ONDERSTE TEKST RECHTS
-   ========================================================= */
-
 .cover-side-text{
 
   max-width:15rem;
@@ -436,7 +527,7 @@ body{
 
 
 /* =========================================================
-   PAGINA 1 PIJL
+   NEXT ARROW
    ========================================================= */
 
 .next{
@@ -466,16 +557,18 @@ body{
 @keyframes bob{
 
   50%{
+
     transform:
       translateX(-50%)
       translateY(5px);
+
   }
 
 }
 
 
 /* =========================================================
-   PAGINA 2
+   PAGE 2
    ========================================================= */
 
 #p2{
@@ -486,7 +579,10 @@ body{
 
   color:var(--red);
 
-  padding:6rem 6vw 6rem;
+  padding:
+    6rem
+    6vw
+    6rem;
 
   display:flex;
 
@@ -497,7 +593,7 @@ body{
 
 
 /* =========================================================
-   PAGINA 2 LOGO
+   PAGE 2 LOGO
    ========================================================= */
 
 #p2>.logo{
@@ -513,7 +609,7 @@ body{
 
 
 /* =========================================================
-   TITEL
+   PAGE 2 TITLE
    ========================================================= */
 
 .details-title{
@@ -559,7 +655,7 @@ body{
 
 
 /* =========================================================
-   TWEE KOLOMMEN
+   DETAILS GRID
    ========================================================= */
 
 .details-grid{
@@ -581,7 +677,7 @@ body{
 
 
 /* =========================================================
-   TIJDLIJN
+   TIMELINE
    ========================================================= */
 
 .timeline{
@@ -591,8 +687,6 @@ body{
   padding-left:5.5rem;
 }
 
-
-/* Verticale lijn */
 
 .timeline::before{
 
@@ -612,8 +706,6 @@ body{
 }
 
 
-/* Tijdlijn item */
-
 .timeline-item{
 
   position:relative;
@@ -631,7 +723,7 @@ body{
 
 
 /* =========================================================
-   SYMBOOL
+   TIMELINE ICON
    ========================================================= */
 
 .timeline-icon{
@@ -680,10 +772,6 @@ body{
 }
 
 
-/* =========================================================
-   TIJD
-   ========================================================= */
-
 .timeline-time{
 
   font-size:.85rem;
@@ -697,10 +785,6 @@ body{
   opacity:.65;
 }
 
-
-/* =========================================================
-   INHOUD
-   ========================================================= */
 
 .timeline-content h3{
 
@@ -725,7 +809,7 @@ body{
 
 
 /* =========================================================
-   RECHTERKANT INFORMATIE
+   INFO PANEL
    ========================================================= */
 
 .info-panel{
@@ -767,7 +851,7 @@ body{
 
 
 /* =========================================================
-   LOCATIE BLOK
+   LOCATION
    ========================================================= */
 
 .location-meta{
@@ -848,10 +932,6 @@ body{
 }
 
 
-/* =========================================================
-   QR PLACEHOLDER
-   ========================================================= */
-
 .qr-placeholder{
 
   width:8rem;
@@ -880,10 +960,6 @@ body{
 }
 
 
-/* =========================================================
-   RSVP LINK
-   ========================================================= */
-
 .rsvp-link{
 
   display:inline-block;
@@ -905,23 +981,21 @@ body{
 
 
 /* =========================================================
-   THAI TYPOGRAFIE
-   ========================================================= */
+   THAI
 
-/*
-   Thai krijgt NIET meer een kleinere font-size.
-   De tekst blijft visueel gelijkwaardig aan EN/NL.
-   Alleen de regelhoogte wordt aangepast omdat Thaise
-   lettertekens dichter op elkaar kunnen staan.
-*/
+   De taal wisselt alleen de inhoud.
+   De posities van de elementen blijven identiek.
+   ========================================================= */
 
 html[lang="th"] .cover-pre{
 
   letter-spacing:0;
 
-  font-size:1rem;
+  line-height:1.7;
 
-  line-height:1.6;
+  white-space:normal;
+
+  max-width:32rem;
 }
 
 
@@ -935,21 +1009,15 @@ html[lang="th"] .cover-names{
 
   line-height:1;
 
-  letter-spacing:0;
-
-  font-weight:300;
+  letter-spacing:-.035em;
 }
 
 
 html[lang="th"] .cover-invite{
 
-  font-size:clamp(
-    1.1rem,
-    2vw,
-    1.45rem
-  );
+  line-height:1.8;
 
-  line-height:1.7;
+  max-width:38rem;
 }
 
 
@@ -957,7 +1025,7 @@ html[lang="th"] .cover-date{
 
   letter-spacing:0;
 
-  line-height:1.6;
+  line-height:1.7;
 }
 
 
@@ -971,15 +1039,9 @@ html[lang="th"] .cover-location{
 
 html[lang="th"] .details-title h2{
 
-  font-size:clamp(
-    3rem,
-    7vw,
-    5.5rem
-  );
-
   font-style:normal;
 
-  line-height:1.3;
+  line-height:1.35;
 }
 
 
@@ -987,7 +1049,7 @@ html[lang="th"] .details-title p{
 
   letter-spacing:0;
 
-  line-height:1.6;
+  line-height:1.7;
 }
 
 
@@ -1016,18 +1078,6 @@ html[lang="th"] .rsvp p{
 
 
 /* =========================================================
-   FOCUS
-   ========================================================= */
-
-:focus-visible{
-
-  outline:2px solid currentColor;
-
-  outline-offset:4px;
-}
-
-
-/* =========================================================
    TABLET
    ========================================================= */
 
@@ -1044,9 +1094,8 @@ html[lang="th"] .rsvp p{
     min-height:75svh;
 
     padding:
-      7rem
-      2rem
-      4rem;
+      1px
+      2rem;
   }
 
 
@@ -1066,7 +1115,7 @@ html[lang="th"] .rsvp p{
   }
 
 
-  /* Groot logo op tablet */
+  /* Logo */
 
   #p1 .logo{
 
@@ -1089,6 +1138,44 @@ html[lang="th"] .rsvp p{
     width:6rem;
 
     height:6rem;
+  }
+
+
+  /* Vaste tablet posities */
+
+  .cover-pre{
+
+    top:18%;
+  }
+
+
+  .cover-names{
+
+    top:28%;
+  }
+
+
+  .cover-line{
+
+    top:57%;
+  }
+
+
+  .cover-invite{
+
+    top:63%;
+  }
+
+
+  .cover-date{
+
+    top:73%;
+  }
+
+
+  .cover-location{
+
+    top:79%;
   }
 
 
@@ -1117,21 +1204,22 @@ html[lang="th"] .rsvp p{
 
 
 /* =========================================================
-   MOBIEL
+   MOBILE
    ========================================================= */
 
 @media(max-width:600px){
 
   #p1 .cover-main{
 
+    min-height:75svh;
+
     padding:
-      6rem
-      1.5rem
-      3rem;
+      1px
+      1.5rem;
   }
 
 
-  /* Groot logo op mobiel */
+  /* Logo */
 
   #p1 .logo{
 
@@ -1157,17 +1245,29 @@ html[lang="th"] .rsvp p{
   }
 
 
+  /* Vaste mobiele posities */
+
   .cover-pre{
+
+    top:19%;
+
+    width:calc(100% - 3rem);
 
     font-size:.72rem;
 
     letter-spacing:.15em;
 
-    margin-bottom:1.7rem;
+    white-space:normal;
+
+    line-height:1.6;
   }
 
 
   .cover-names{
+
+    top:30%;
+
+    width:100%;
 
     font-size:
       clamp(
@@ -1175,12 +1275,52 @@ html[lang="th"] .rsvp p{
         17vw,
         5.5rem
       );
+
+    line-height:.86;
+  }
+
+
+  .cover-line{
+
+    top:57%;
+
+    width:3.5rem;
   }
 
 
   .cover-invite{
 
+    top:62%;
+
+    width:calc(100% - 3rem);
+
     font-size:1rem;
+
+    line-height:1.6;
+  }
+
+
+  .cover-date{
+
+    top:73%;
+
+    width:calc(100% - 2rem);
+
+    font-size:.9rem;
+
+    letter-spacing:.1em;
+  }
+
+
+  .cover-location{
+
+    top:79%;
+
+    width:calc(100% - 2rem);
+
+    font-size:.9rem;
+
+    letter-spacing:.03em;
   }
 
 
@@ -1237,9 +1377,23 @@ html[lang="th"] .rsvp p{
   }
 
 
-  /* Thai mobiel */
+  /* Thai mobile */
+
+  html[lang="th"] .cover-pre{
+
+    top:18%;
+
+    font-size:.9rem;
+
+    line-height:1.8;
+
+    letter-spacing:0;
+  }
+
 
   html[lang="th"] .cover-names{
+
+    top:30%;
 
     font-size:
       clamp(
@@ -1248,21 +1402,35 @@ html[lang="th"] .rsvp p{
         5.5rem
       );
 
-    line-height:1.05;
-  }
-
-
-  html[lang="th"] .cover-pre{
-
-    font-size:.9rem;
-
-    line-height:1.7;
+    line-height:.9;
   }
 
 
   html[lang="th"] .cover-invite{
 
+    top:62%;
+
     font-size:1rem;
+
+    line-height:1.9;
+  }
+
+
+  html[lang="th"] .cover-date{
+
+    top:73%;
+
+    font-size:.9rem;
+
+    line-height:1.8;
+  }
+
+
+  html[lang="th"] .cover-location{
+
+    top:80%;
+
+    font-size:.9rem;
 
     line-height:1.8;
   }
@@ -1302,7 +1470,7 @@ html[lang="th"] .rsvp p{
 
 
 <!-- =====================================================
-     TAALKEUZE
+     LANGUAGE
      ===================================================== -->
 
 <nav
@@ -1335,11 +1503,12 @@ html[lang="th"] .rsvp p{
 </nav>
 
 
+
 <main>
 
 
 <!-- =====================================================
-     PAGINA 1 — COVER
+     PAGE 1
      ===================================================== -->
 
 <section
@@ -1400,7 +1569,6 @@ html[lang="th"] .rsvp p{
   </div>
 
 
-  <!-- Rechterzijde -->
 
   <div class="cover-side">
 
@@ -1450,7 +1618,7 @@ html[lang="th"] .rsvp p{
 
 
 <!-- =====================================================
-     PAGINA 2 — DETAILS
+     PAGE 2
      ===================================================== -->
 
 <section
@@ -1458,8 +1626,6 @@ html[lang="th"] .rsvp p{
   id="p2"
 >
 
-
-  <!-- Logo -->
 
   <div
     class="logo"
@@ -1480,7 +1646,6 @@ html[lang="th"] .rsvp p{
   </div>
 
 
-  <!-- Titel -->
 
   <header class="details-title">
 
@@ -1496,19 +1661,17 @@ html[lang="th"] .rsvp p{
 
 
 
-  <!-- Twee kolommen -->
-
   <div class="details-grid">
 
 
     <!-- =================================================
-         LINKERKANT — TIJDLIJN
+         TIMELINE
          ================================================= -->
 
     <div class="timeline">
 
 
-      <!-- Welcome Drinks -->
+      <!-- 08:30 -->
 
       <article class="timeline-item">
 
@@ -1552,11 +1715,12 @@ html[lang="th"] .rsvp p{
 
         </div>
 
+
       </article>
 
 
 
-      <!-- Ceremony -->
+      <!-- 09:00 -->
 
       <article class="timeline-item">
 
@@ -1600,11 +1764,12 @@ html[lang="th"] .rsvp p{
 
         </div>
 
+
       </article>
 
 
 
-      <!-- Coffee & Snacks -->
+      <!-- 10:30 -->
 
       <article class="timeline-item">
 
@@ -1648,11 +1813,12 @@ html[lang="th"] .rsvp p{
 
         </div>
 
+
       </article>
 
 
 
-      <!-- Wedding Lunch -->
+      <!-- 12:00 -->
 
       <article class="timeline-item">
 
@@ -1696,6 +1862,7 @@ html[lang="th"] .rsvp p{
 
         </div>
 
+
       </article>
 
 
@@ -1704,7 +1871,7 @@ html[lang="th"] .rsvp p{
 
 
     <!-- =================================================
-         RECHTERKANT — LOCATIE / RSVP
+         LOCATION / RSVP
          ================================================= -->
 
     <aside class="info-panel">
@@ -1721,10 +1888,8 @@ html[lang="th"] .rsvp p{
 
 
       <p data-t="locationText">
-
         We are delighted to celebrate our special day
         at Baiboon Grand in Loei, Thailand.
-
       </p>
 
 
@@ -1781,8 +1946,6 @@ html[lang="th"] .rsvp p{
 
 
 
-      <!-- RSVP -->
-
       <div class="rsvp">
 
 
@@ -1792,14 +1955,17 @@ html[lang="th"] .rsvp p{
 
 
         <p data-t="rsvpText">
-          Please let us know if you will be
-          joining us on our special day.
+          Please let us know if you will be joining us
+          on our special day.
         </p>
 
 
         <div class="qr-placeholder">
+
           QR CODE<br>
+
           RSVP
+
         </div>
 
 
@@ -1832,7 +1998,7 @@ html[lang="th"] .rsvp p{
 <script>
 
 /* =========================================================
-   VERTALINGEN
+   TRANSLATIONS
    ========================================================= */
 
 const L = {
@@ -2035,7 +2201,7 @@ const L = {
 
 
 /* =========================================================
-   TAAL INSTELLEN
+   SET LANGUAGE
    ========================================================= */
 
 function setLang(lang){
@@ -2047,7 +2213,8 @@ function setLang(lang){
     .querySelectorAll("[data-t]")
     .forEach(element => {
 
-      const key = element.dataset.t;
+      const key =
+        element.dataset.t;
 
       if(
         L[lang] &&
@@ -2077,7 +2244,7 @@ function setLang(lang){
 
 
 /* =========================================================
-   TAALKNOPPEN
+   LANGUAGE BUTTONS
    ========================================================= */
 
 document
@@ -2093,7 +2260,7 @@ document
 
 
 /* =========================================================
-   STARTTAAL
+   INITIAL LANGUAGE
    ========================================================= */
 
 const urlLang =
