@@ -28,11 +28,10 @@
 <style>
 
 /* =========================================================
-   KLEUREN
+   VARIABLES
    ========================================================= */
 
 :root{
-
   --red:#7D0F1A;
   --red-dark:#650B14;
 
@@ -64,36 +63,26 @@ html{
 }
 
 body{
-
   background:var(--cream);
-
   color:var(--red);
-
   font-family:var(--serif);
-
   font-weight:400;
-
   line-height:1.6;
-
   font-size:1.05rem;
 }
 
 
 /* =========================================================
-   TAALKEUZE
+   LANGUAGE SWITCHER
    ========================================================= */
 
 .lang{
-
   position:fixed;
-
   top:1rem;
   right:1rem;
-
   z-index:100;
 
   display:flex;
-
   gap:.1rem;
 
   padding:.2rem .35rem;
@@ -108,11 +97,8 @@ body{
 }
 
 .lang button{
-
   appearance:none;
-
   border:0;
-
   background:none;
 
   color:var(--red);
@@ -120,7 +106,6 @@ body{
   opacity:.45;
 
   font-family:inherit;
-
   font-size:.85rem;
 
   padding:.25rem .5rem;
@@ -129,21 +114,17 @@ body{
 }
 
 .lang button[aria-pressed="true"]{
-
   opacity:1;
-
   border-bottom:1px solid var(--red);
 }
 
 
 /* =========================================================
-   ALGEMENE PAGINA
+   GENERAL
    ========================================================= */
 
 .page{
-
   min-height:100svh;
-
   position:relative;
 }
 
@@ -153,25 +134,20 @@ body{
    ========================================================= */
 
 .logo{
-
   position:absolute;
-
   z-index:5;
 
   width:5rem;
   height:5rem;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   overflow:hidden;
 }
 
 .logo img{
-
   width:100%;
   height:100%;
 
@@ -181,11 +157,8 @@ body{
 }
 
 .logo .mono{
-
   color:inherit;
-
   font-size:1.4rem;
-
   font-style:italic;
 }
 
@@ -195,15 +168,13 @@ body{
 
 
 /* =========================================================
-   PAGINA 1
+   PAGE 1
    ========================================================= */
 
 #p1{
-
   min-height:100svh;
 
   background:var(--red);
-
   color:var(--cream);
 
   display:grid;
@@ -216,58 +187,34 @@ body{
 }
 
 
-/* Linkerzijde pagina 1 */
+/* =========================================================
+   COVER MAIN
+   ========================================================= */
 
 #p1 .cover-main{
-
   min-height:100svh;
 
   display:flex;
-
   flex-direction:column;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
 
-  padding:5rem 4rem;
+  padding:
+    6rem
+    4rem
+    4rem;
 }
 
 
 /* =========================================================
-   GROTER SIERLIJK LOGO
-   ========================================================= */
-
-#p1 .logo{
-
-  top:2rem;
-
-  right:3rem;
-
-  width:13rem;
-
-  height:13rem;
-
-  color:var(--cream);
-}
-
-
-/* Logo afbeelding */
-
-#p1 .logo img{
-
-  filter:none;
-
-}
-
-
-/* =========================================================
-   COVER TYPOGRAFIE
+   COVER INTRO
    ========================================================= */
 
 .cover-pre{
+  margin-bottom:2.2rem;
 
   font-size:clamp(
     .8rem,
@@ -279,11 +226,15 @@ body{
 
   text-transform:uppercase;
 
-  margin-bottom:2.2rem;
+  line-height:1.5;
 
   opacity:.9;
 }
 
+
+/* =========================================================
+   NAMES
+   ========================================================= */
 
 .cover-names{
 
@@ -295,19 +246,18 @@ body{
 
   font-weight:300;
 
-  line-height:.82;
+  line-height:.78;
 
   letter-spacing:-.035em;
 
-  margin-bottom:2.4rem;
-}
+  text-align:center;
 
+  margin:0;
+}
 
 .cover-names span{
-
   display:block;
 }
-
 
 .cover-names .amp{
 
@@ -315,13 +265,37 @@ body{
 
   font-style:italic;
 
-  line-height:1.3;
+  line-height:1;
 
-  margin:.25em 0;
+  margin:.12em 0;
 }
 
 
+/* =========================================================
+   LINE
+   ========================================================= */
+
+.cover-line{
+
+  width:4rem;
+  height:1px;
+
+  background:rgba(247,241,232,.65);
+
+  margin:
+    2.2rem
+    0
+    2rem;
+}
+
+
+/* =========================================================
+   INVITATION
+   ========================================================= */
+
 .cover-invite{
+
+  max-width:42rem;
 
   font-size:clamp(
     1.1rem,
@@ -331,9 +305,15 @@ body{
 
   font-style:italic;
 
-  margin-bottom:2.4rem;
+  line-height:1.5;
+
+  margin-bottom:2rem;
 }
 
+
+/* =========================================================
+   DATE
+   ========================================================= */
 
 .cover-date{
 
@@ -343,38 +323,46 @@ body{
 
   text-transform:uppercase;
 
-  margin-bottom:.45rem;
+  line-height:1.4;
+
+  margin-bottom:.5rem;
 }
 
+
+/* =========================================================
+   LOCATION
+   ========================================================= */
 
 .cover-location{
 
   font-size:1rem;
 
-  opacity:.85;
-
   letter-spacing:.06em;
+
+  line-height:1.5;
+
+  opacity:.85;
 }
 
 
 /* =========================================================
-   DECORATIEVE LIJN
+   PAGE 1 LOGO
    ========================================================= */
 
-.cover-line{
+#p1 .logo{
 
-  width:4rem;
+  top:2rem;
+  right:3rem;
 
-  height:1px;
+  width:13rem;
+  height:13rem;
 
-  background:rgba(247,241,232,.65);
-
-  margin:1.5rem auto;
+  color:var(--cream);
 }
 
 
 /* =========================================================
-   RECHTERVLAK PAGINA 1
+   PAGE 1 SIDE
    ========================================================= */
 
 #p1 .cover-side{
@@ -388,7 +376,6 @@ body{
   display:flex;
 
   align-items:flex-end;
-
   justify-content:center;
 
   padding:3rem;
@@ -396,8 +383,6 @@ body{
   position:relative;
 }
 
-
-/* Subtiele verticale lijn */
 
 #p1 .cover-side::before{
 
@@ -408,7 +393,6 @@ body{
   left:0;
 
   top:15%;
-
   bottom:15%;
 
   width:1px;
@@ -417,13 +401,9 @@ body{
 }
 
 
-/* =========================================================
-   PAGINA 1 — ONDERSTE TEKST RECHTS
-   ========================================================= */
-
 .cover-side-text{
 
-  max-width:15rem;
+  width:15rem;
 
   text-align:center;
 
@@ -436,7 +416,7 @@ body{
 
 
 /* =========================================================
-   PAGINA 1 PIJL
+   NEXT
    ========================================================= */
 
 .next{
@@ -444,7 +424,6 @@ body{
   position:absolute;
 
   bottom:2rem;
-
   left:50%;
 
   transform:translateX(-50%);
@@ -475,7 +454,7 @@ body{
 
 
 /* =========================================================
-   PAGINA 2
+   PAGE 2
    ========================================================= */
 
 #p2{
@@ -486,7 +465,10 @@ body{
 
   color:var(--red);
 
-  padding:6rem 6vw 6rem;
+  padding:
+    6rem
+    6vw
+    6rem;
 
   display:flex;
 
@@ -497,29 +479,26 @@ body{
 
 
 /* =========================================================
-   PAGINA 2 LOGO
+   PAGE 2 LOGO
    ========================================================= */
 
 #p2>.logo{
 
   top:2rem;
-
   right:2rem;
 
   width:7rem;
-
   height:7rem;
 }
 
 
 /* =========================================================
-   TITEL
+   DETAILS TITLE
    ========================================================= */
 
 .details-title{
 
   width:100%;
-
   max-width:75rem;
 
   text-align:center;
@@ -559,13 +538,12 @@ body{
 
 
 /* =========================================================
-   TWEE KOLOMMEN
+   DETAILS GRID
    ========================================================= */
 
 .details-grid{
 
   width:100%;
-
   max-width:75rem;
 
   display:grid;
@@ -581,7 +559,7 @@ body{
 
 
 /* =========================================================
-   TIJDLIJN
+   TIMELINE
    ========================================================= */
 
 .timeline{
@@ -592,8 +570,6 @@ body{
 }
 
 
-/* Verticale lijn */
-
 .timeline::before{
 
   content:"";
@@ -603,7 +579,6 @@ body{
   left:1.45rem;
 
   top:1rem;
-
   bottom:1rem;
 
   width:1px;
@@ -611,8 +586,6 @@ body{
   background:rgba(125,15,26,.28);
 }
 
-
-/* Tijdlijn item */
 
 .timeline-item{
 
@@ -630,18 +603,18 @@ body{
 }
 
 
-/* Symbool */
+/* =========================================================
+   ICON
+   ========================================================= */
 
 .timeline-icon{
 
   position:absolute;
 
   left:-5.5rem;
-
   top:0;
 
   width:3rem;
-
   height:3rem;
 
   border-radius:50%;
@@ -653,19 +626,15 @@ body{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   z-index:2;
 }
 
 
-/* SVG symbool */
-
 .timeline-icon svg{
 
   width:1.25rem;
-
   height:1.25rem;
 
   stroke:var(--red);
@@ -675,12 +644,13 @@ body{
   stroke-width:1.3;
 
   stroke-linecap:round;
-
   stroke-linejoin:round;
 }
 
 
-/* Tijd */
+/* =========================================================
+   TIME
+   ========================================================= */
 
 .timeline-time{
 
@@ -696,7 +666,9 @@ body{
 }
 
 
-/* Inhoud */
+/* =========================================================
+   CONTENT
+   ========================================================= */
 
 .timeline-content h3{
 
@@ -721,12 +693,14 @@ body{
 
 
 /* =========================================================
-   RECHTERKANT INFORMATIE
+   INFO PANEL
    ========================================================= */
 
 .info-panel{
 
-  border-left:1px solid rgba(125,15,26,.2);
+  border-left:
+    1px solid
+    rgba(125,15,26,.2);
 
   padding-left:3rem;
 }
@@ -750,7 +724,7 @@ body{
 }
 
 
-.info-panel p{
+.info-panel>p{
 
   font-size:1rem;
 
@@ -763,7 +737,7 @@ body{
 
 
 /* =========================================================
-   LOCATIE BLOK
+   LOCATION META
    ========================================================= */
 
 .location-meta{
@@ -774,7 +748,10 @@ body{
 
   gap:.6rem;
 
-  margin:2rem 0 3rem;
+  margin:
+    2rem
+    0
+    3rem;
 }
 
 
@@ -793,7 +770,6 @@ body{
 .location-row svg{
 
   width:1.2rem;
-
   height:1.2rem;
 
   stroke:var(--red);
@@ -803,7 +779,6 @@ body{
   stroke-width:1.3;
 
   stroke-linecap:round;
-
   stroke-linejoin:round;
 
   flex:none;
@@ -816,11 +791,11 @@ body{
 
 .rsvp{
 
-  margin-top:2rem;
-
   padding:2rem;
 
-  border:1px solid rgba(125,15,26,.25);
+  border:
+    1px solid
+    rgba(125,15,26,.25);
 
   text-align:center;
 }
@@ -840,26 +815,33 @@ body{
 
   font-size:.95rem;
 
+  line-height:1.6;
+
   margin-bottom:1.5rem;
 }
 
 
-/* QR PLACEHOLDER */
+/* =========================================================
+   QR
+   ========================================================= */
 
 .qr-placeholder{
 
   width:8rem;
-
   height:8rem;
 
-  margin:0 auto 1rem;
+  margin:
+    0
+    auto
+    1rem;
 
-  border:1px dashed rgba(125,15,26,.5);
+  border:
+    1px dashed
+    rgba(125,15,26,.5);
 
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 
   text-align:center;
@@ -874,7 +856,9 @@ body{
 }
 
 
-/* RSVP link */
+/* =========================================================
+   RSVP LINK
+   ========================================================= */
 
 .rsvp-link{
 
@@ -884,7 +868,9 @@ body{
 
   text-decoration:none;
 
-  border-bottom:1px solid var(--red);
+  border-bottom:
+    1px solid
+    var(--red);
 
   font-size:.9rem;
 
@@ -904,19 +890,41 @@ html[lang="th"] .cover-pre{
 
   letter-spacing:0;
 
-  font-size:1rem;
+  line-height:1.7;
 }
 
 
 html[lang="th"] .cover-names{
 
   font-size:clamp(
-    3rem,
-    9vw,
-    6rem
+    4rem,
+    10vw,
+    8rem
   );
 
-  line-height:1;
+  line-height:.78;
+}
+
+
+html[lang="th"] .cover-invite{
+
+  line-height:1.8;
+}
+
+
+html[lang="th"] .cover-date{
+
+  letter-spacing:0;
+
+  line-height:1.6;
+}
+
+
+html[lang="th"] .cover-location{
+
+  letter-spacing:0;
+
+  line-height:1.7;
 }
 
 
@@ -928,15 +936,35 @@ html[lang="th"] .details-title h2{
 }
 
 
-/* =========================================================
-   FOCUS
-   ========================================================= */
+html[lang="th"] .details-title p{
 
-:focus-visible{
+  letter-spacing:0;
 
-  outline:2px solid currentColor;
+  line-height:1.7;
+}
 
-  outline-offset:4px;
+
+html[lang="th"] .timeline-content h3{
+
+  line-height:1.35;
+}
+
+
+html[lang="th"] .timeline-content p{
+
+  line-height:1.7;
+}
+
+
+html[lang="th"] .info-panel>p{
+
+  line-height:1.8;
+}
+
+
+html[lang="th"] .rsvp p{
+
+  line-height:1.8;
 }
 
 
@@ -949,6 +977,10 @@ html[lang="th"] .details-title h2{
   #p1{
 
     grid-template-columns:1fr;
+
+    grid-template-rows:
+      75svh
+      25svh;
   }
 
 
@@ -957,9 +989,9 @@ html[lang="th"] .details-title h2{
     min-height:75svh;
 
     padding:
-      7rem
+      5rem
       2rem
-      4rem;
+      3rem;
   }
 
 
@@ -979,16 +1011,12 @@ html[lang="th"] .details-title h2{
   }
 
 
-  /* Groter logo op tablet */
-
   #p1 .logo{
 
     top:2rem;
-
     right:2rem;
 
     width:9rem;
-
     height:9rem;
   }
 
@@ -996,11 +1024,9 @@ html[lang="th"] .details-title h2{
   #p2>.logo{
 
     top:1.5rem;
-
     right:1.5rem;
 
     width:6rem;
-
     height:6rem;
   }
 
@@ -1019,7 +1045,9 @@ html[lang="th"] .details-title h2{
 
     border-left:0;
 
-    border-top:1px solid rgba(125,15,26,.2);
+    border-top:
+      1px solid
+      rgba(125,15,26,.2);
 
     padding-left:0;
 
@@ -1030,30 +1058,36 @@ html[lang="th"] .details-title h2{
 
 
 /* =========================================================
-   MOBIEL
+   MOBILE
    ========================================================= */
 
 @media(max-width:600px){
 
-  #p1 .cover-main{
+  #p1{
 
-    padding:
-      6rem
-      1.5rem
-      3rem;
+    grid-template-rows:
+      75svh
+      25svh;
   }
 
 
-  /* Groot sierlijk logo op mobiel */
+  #p1 .cover-main{
+
+    min-height:75svh;
+
+    padding:
+      4.5rem
+      1.5rem
+      2.5rem;
+  }
+
 
   #p1 .logo{
 
     top:1.2rem;
-
     right:1.2rem;
 
     width:7rem;
-
     height:7rem;
   }
 
@@ -1061,22 +1095,22 @@ html[lang="th"] .details-title h2{
   #p2>.logo{
 
     top:1.2rem;
-
     right:1.2rem;
 
     width:5rem;
-
     height:5rem;
   }
 
 
   .cover-pre{
 
+    margin-bottom:1.7rem;
+
     font-size:.72rem;
 
     letter-spacing:.15em;
 
-    margin-bottom:1.7rem;
+    line-height:1.6;
   }
 
 
@@ -1088,12 +1122,51 @@ html[lang="th"] .details-title h2{
         17vw,
         5.5rem
       );
+
+    line-height:.8;
+  }
+
+
+  .cover-line{
+
+    width:3.5rem;
+
+    margin:
+      1.8rem
+      0
+      1.6rem;
   }
 
 
   .cover-invite{
 
+    max-width:24rem;
+
+    padding:0 .5rem;
+
     font-size:1rem;
+
+    line-height:1.6;
+
+    margin-bottom:1.5rem;
+  }
+
+
+  .cover-date{
+
+    font-size:.9rem;
+
+    letter-spacing:.1em;
+
+    margin-bottom:.4rem;
+  }
+
+
+  .cover-location{
+
+    font-size:.9rem;
+
+    letter-spacing:.03em;
   }
 
 
@@ -1118,6 +1191,12 @@ html[lang="th"] .details-title h2{
   }
 
 
+  .details-title p{
+
+    font-size:.78rem;
+  }
+
+
   .timeline{
 
     padding-left:4.5rem;
@@ -1126,9 +1205,13 @@ html[lang="th"] .details-title h2{
 
   .timeline-item{
 
-    grid-template-columns:4rem 1fr;
+    grid-template-columns:
+      4rem
+      1fr;
 
     gap:.8rem;
+
+    padding-bottom:3rem;
   }
 
 
@@ -1144,9 +1227,89 @@ html[lang="th"] .details-title h2{
   }
 
 
+  .timeline-content p{
+
+    font-size:.95rem;
+
+    line-height:1.55;
+  }
+
+
   .info-panel{
 
     padding-top:2.5rem;
+  }
+
+
+  .info-panel>p{
+
+    line-height:1.7;
+  }
+
+
+  .location-meta{
+
+    margin:
+      1.5rem
+      0
+      2rem;
+  }
+
+
+  .rsvp{
+
+    padding:1.5rem;
+  }
+
+
+  html[lang="th"] .cover-pre{
+
+    letter-spacing:0;
+
+    line-height:1.7;
+  }
+
+
+  html[lang="th"] .cover-names{
+
+    font-size:
+      clamp(
+        3.5rem,
+        17vw,
+        5.5rem
+      );
+
+    line-height:.8;
+  }
+
+
+  html[lang="th"] .cover-invite{
+
+    line-height:1.8;
+  }
+
+
+  html[lang="th"] .cover-date{
+
+    letter-spacing:0;
+
+    line-height:1.7;
+  }
+
+
+  html[lang="th"] .cover-location{
+
+    letter-spacing:0;
+
+    line-height:1.8;
+  }
+
+
+  html[lang="th"] .details-title h2{
+
+    font-size:3rem;
+
+    line-height:1.3;
   }
 
 }
@@ -1176,7 +1339,7 @@ html[lang="th"] .details-title h2{
 
 
 <!-- =====================================================
-     TAALKEUZE
+     LANGUAGE SWITCHER
      ===================================================== -->
 
 <nav
@@ -1209,11 +1372,12 @@ html[lang="th"] .details-title h2{
 </nav>
 
 
+
 <main>
 
 
 <!-- =====================================================
-     PAGINA 1 — COVER
+     PAGE 1
      ===================================================== -->
 
 <section
@@ -1221,8 +1385,6 @@ html[lang="th"] .details-title h2{
   id="p1"
 >
 
-
-  <!-- Linkerzijde -->
 
   <div class="cover-main">
 
@@ -1276,12 +1438,9 @@ html[lang="th"] .details-title h2{
   </div>
 
 
-  <!-- Rechterzijde -->
 
   <div class="cover-side">
 
-
-    <!-- Jullie echte logo -->
 
     <div
       class="logo"
@@ -1306,8 +1465,7 @@ html[lang="th"] .details-title h2{
       class="cover-side-text"
       data-t="sideText"
     >
-      A day of love, family,
-      celebration and togetherness.
+      A day of love, family, celebration and togetherness.
     </p>
 
 
@@ -1328,7 +1486,7 @@ html[lang="th"] .details-title h2{
 
 
 <!-- =====================================================
-     PAGINA 2 — DETAILS
+     PAGE 2
      ===================================================== -->
 
 <section
@@ -1336,8 +1494,6 @@ html[lang="th"] .details-title h2{
   id="p2"
 >
 
-
-  <!-- Logo -->
 
   <div
     class="logo"
@@ -1358,7 +1514,6 @@ html[lang="th"] .details-title h2{
   </div>
 
 
-  <!-- Titel -->
 
   <header class="details-title">
 
@@ -1374,48 +1529,34 @@ html[lang="th"] .details-title h2{
 
 
 
-  <!-- Twee kolommen -->
-
   <div class="details-grid">
 
-
-    <!-- =================================================
-         LINKERKANT — TIJDLIJN
-         ================================================= -->
 
     <div class="timeline">
 
 
-      <!-- Welcome Drinks -->
+      <!-- WELCOME -->
 
       <article class="timeline-item">
-
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M6 3h7l-1 8H7L6 3z"/>
-
             <path d="M9 11v6"/>
-
             <path d="M6 20h7"/>
-
             <path d="M15 5h4l-.7 6h-2.6L15 5z"/>
-
             <path d="M17 11v6"/>
-
             <path d="M14.5 20h5"/>
 
           </svg>
 
         </div>
 
-
         <div class="timeline-time">
           08:30
         </div>
-
 
         <div class="timeline-content">
 
@@ -1434,36 +1575,28 @@ html[lang="th"] .details-title h2{
 
 
 
-      <!-- Ceremony -->
+      <!-- CEREMONY -->
 
       <article class="timeline-item">
-
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M4 20h16"/>
-
             <path d="M6 20V10"/>
-
             <path d="M18 20V10"/>
-
             <path d="M4 10h16"/>
-
             <path d="M5 10l7-6 7 6"/>
-
             <path d="M9 20v-5h6v5"/>
 
           </svg>
 
         </div>
 
-
         <div class="timeline-time">
           09:00
         </div>
-
 
         <div class="timeline-content">
 
@@ -1482,36 +1615,28 @@ html[lang="th"] .details-title h2{
 
 
 
-      <!-- Coffee & Snacks -->
+      <!-- COFFEE -->
 
       <article class="timeline-item">
-
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9z"/>
-
             <path d="M16 11h2a2.5 2.5 0 0 1 0 5h-2"/>
-
             <path d="M7 5v2"/>
-
             <path d="M11 4v3"/>
-
             <path d="M15 5v2"/>
-
             <path d="M4 21h14"/>
 
           </svg>
 
         </div>
 
-
         <div class="timeline-time">
           10:30
         </div>
-
 
         <div class="timeline-content">
 
@@ -1530,36 +1655,28 @@ html[lang="th"] .details-title h2{
 
 
 
-      <!-- Wedding Lunch -->
+      <!-- LUNCH -->
 
       <article class="timeline-item">
-
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M5 4v7"/>
-
             <path d="M8 4v7"/>
-
             <path d="M5 8h3"/>
-
             <path d="M6.5 11v9"/>
-
             <path d="M15 4v16"/>
-
             <path d="M15 4c3 1 4 3 4 6v1h-4"/>
 
           </svg>
 
         </div>
 
-
         <div class="timeline-time">
           12:00
         </div>
-
 
         <div class="timeline-content">
 
@@ -1581,10 +1698,6 @@ html[lang="th"] .details-title h2{
 
 
 
-    <!-- =================================================
-         RECHTERKANT — LOCATIE / RSVP
-         ================================================= -->
-
     <aside class="info-panel">
 
 
@@ -1599,14 +1712,10 @@ html[lang="th"] .details-title h2{
 
 
       <p data-t="locationText">
-
         We are delighted to celebrate our special day
         at Baiboon Grand in Loei, Thailand.
-
       </p>
 
-
-      <!-- Locatiegegevens -->
 
       <div class="location-meta">
 
@@ -1661,10 +1770,6 @@ html[lang="th"] .details-title h2{
 
 
 
-      <!-- =================================================
-           RSVP
-           ================================================= -->
-
       <div class="rsvp">
 
 
@@ -1674,45 +1779,18 @@ html[lang="th"] .details-title h2{
 
 
         <p data-t="rsvpText">
-          Please let us know if you will be
-          joining us on our special day.
+          Please let us know if you will be joining us
+          on our special day.
         </p>
 
 
-        <!--
-
-          LATER HIER DE ECHTE QR CODE PLAATSEN.
-
-          Bijvoorbeeld:
-
-          <img
-            src="images/rsvp-qr.png"
-            alt="RSVP QR code"
-            class="rsvp-qr"
-          >
-
-        -->
-
         <div class="qr-placeholder">
+
           QR CODE<br>
           RSVP
+
         </div>
 
-
-        <!--
-
-          LATER DE ECHTE RSVP LINK INVULLEN.
-
-          Bijvoorbeeld:
-
-          <a
-            href="https://jouw-rsvp-link.nl"
-            class="rsvp-link"
-          >
-            RSVP online
-          </a>
-
-        -->
 
         <a
           href="#"
@@ -1743,15 +1821,10 @@ html[lang="th"] .details-title h2{
 <script>
 
 /* =========================================================
-   VERTALINGEN
+   TRANSLATIONS
    ========================================================= */
 
 const L = {
-
-
-  /* =======================================================
-     ENGLISH
-     ======================================================= */
 
   en:{
 
@@ -1818,10 +1891,6 @@ const L = {
   },
 
 
-  /* =======================================================
-     NEDERLANDS
-     ======================================================= */
-
   nl:{
 
     pre:
@@ -1886,10 +1955,6 @@ const L = {
 
   },
 
-
-  /* =======================================================
-     THAI
-     ======================================================= */
 
   th:{
 
@@ -1959,19 +2024,24 @@ const L = {
 
 
 /* =========================================================
-   TAAL INSTELLEN
+   SET LANGUAGE
    ========================================================= */
 
 function setLang(lang){
 
-  document.documentElement.lang = lang;
+  if(!L[lang]){
+    lang="en";
+  }
+
+  document.documentElement.lang=lang;
 
 
   document
     .querySelectorAll("[data-t]")
     .forEach(element => {
 
-      const key = element.dataset.t;
+      const key =
+        element.dataset.t;
 
       if(
         L[lang] &&
@@ -2001,7 +2071,7 @@ function setLang(lang){
 
 
 /* =========================================================
-   TAALKNOPPEN
+   LANGUAGE BUTTONS
    ========================================================= */
 
 document
@@ -2010,14 +2080,20 @@ document
 
     button.addEventListener(
       "click",
-      () => setLang(button.dataset.l)
+      () => {
+
+        setLang(
+          button.dataset.l
+        );
+
+      }
     );
 
   });
 
 
 /* =========================================================
-   STARTTAAL
+   INITIAL LANGUAGE
    ========================================================= */
 
 const urlLang =
