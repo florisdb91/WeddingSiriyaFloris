@@ -195,7 +195,9 @@ body{
 
 
 /* =========================================================
+   =========================================================
    PAGE 1
+   =========================================================
    ========================================================= */
 
 #p1{
@@ -217,65 +219,59 @@ body{
 
 
 /* =========================================================
-   PAGE 1 — MAIN AREA
+   COVER MAIN
 
-   BELANGRIJK:
-   Geen justify-content:center meer.
-   De inhoud staat op vaste verticale posities.
+   GEEN FLEX CENTRERING.
+
+   Alles staat in vaste GRID-RIJEN.
+   Taalwisselen kan daardoor de positie niet veranderen.
    ========================================================= */
 
 #p1 .cover-main{
 
   min-height:100svh;
 
+  display:grid;
+
+  grid-template-columns:1fr;
+
+  grid-template-rows:
+
+    24%
+    31%
+    7%
+    13%
+    8%
+    8%
+    9%;
+
   position:relative;
 
   text-align:center;
 
   padding:
-    1px
+    0
     4rem;
 }
 
 
 /* =========================================================
-   LOGO PAGE 1
-   ========================================================= */
-
-#p1 .logo{
-
-  top:2rem;
-
-  right:3rem;
-
-  width:13rem;
-
-  height:13rem;
-
-  color:var(--cream);
-}
-
-
-/* =========================================================
-   COVER PRE
-
-   VASTE POSITIE
+   INTRO
    ========================================================= */
 
 .cover-pre{
 
-  position:absolute;
+  grid-row:1;
 
-  top:24%;
+  align-self:end;
 
-  left:50%;
+  justify-self:center;
 
-  transform:translateX(-50%);
+  width:100%;
 
-  width:min(
-    90%,
-    42rem
-  );
+  max-width:42rem;
+
+  padding-bottom:2rem;
 
   font-size:clamp(
     .8rem,
@@ -290,28 +286,34 @@ body{
   line-height:1.5;
 
   opacity:.9;
-
-  white-space:nowrap;
 }
 
 
 /* =========================================================
-   NAMES
+   NAMEN
 
-   VASTE POSITIE
+   VASTE GRID-RIJ.
    ========================================================= */
 
 .cover-names{
 
-  position:absolute;
+  grid-row:2;
 
-  top:32%;
+  align-self:center;
 
-  left:50%;
-
-  transform:translateX(-50%);
+  justify-self:center;
 
   width:100%;
+
+  height:100%;
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
 
   font-size:clamp(
     4rem,
@@ -321,11 +323,9 @@ body{
 
   font-weight:300;
 
-  line-height:.82;
+  line-height:.78;
 
   letter-spacing:-.035em;
-
-  margin:0;
 
   text-align:center;
 }
@@ -343,58 +343,59 @@ body{
 
   font-style:italic;
 
-  line-height:1.3;
+  line-height:1;
 
-  margin:.25em 0;
+  margin:.12em 0;
 }
 
 
 /* =========================================================
-   DECORATIVE LINE
-
-   VASTE POSITIE
+   LIJN
    ========================================================= */
 
 .cover-line{
 
-  position:absolute;
+  grid-row:3;
 
-  top:60%;
+  align-self:center;
 
-  left:50%;
-
-  transform:translateX(-50%);
+  justify-self:center;
 
   width:4rem;
 
   height:1px;
 
   background:rgba(247,241,232,.65);
-
-  margin:0;
 }
 
 
 /* =========================================================
-   INVITE
+   UITNODIGING
 
-   VASTE POSITIE
+   VAST TEKSTVAK.
    ========================================================= */
 
 .cover-invite{
 
-  position:absolute;
+  grid-row:4;
 
-  top:65%;
+  align-self:center;
 
-  left:50%;
+  justify-self:center;
 
-  transform:translateX(-50%);
+  width:100%;
 
-  width:min(
-    90%,
-    38rem
-  );
+  max-width:42rem;
+
+  min-height:3rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  padding:0 1rem;
 
   font-size:clamp(
     1.1rem,
@@ -406,27 +407,31 @@ body{
 
   line-height:1.5;
 
-  margin:0;
+  text-align:center;
 }
 
 
 /* =========================================================
-   DATE
-
-   VASTE POSITIE
+   DATUM
    ========================================================= */
 
 .cover-date{
 
-  position:absolute;
+  grid-row:5;
 
-  top:73%;
+  align-self:center;
 
-  left:50%;
+  justify-self:center;
 
-  transform:translateX(-50%);
+  width:100%;
 
-  width:90%;
+  min-height:2rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
   font-size:1rem;
 
@@ -434,44 +439,66 @@ body{
 
   text-transform:uppercase;
 
-  line-height:1.5;
+  line-height:1.4;
 
-  margin:0;
+  text-align:center;
 }
 
 
 /* =========================================================
-   LOCATION
-
-   VASTE POSITIE
+   LOCATIE
    ========================================================= */
 
 .cover-location{
 
-  position:absolute;
+  grid-row:6;
 
-  top:78%;
+  align-self:center;
 
-  left:50%;
+  justify-self:center;
 
-  transform:translateX(-50%);
+  width:100%;
 
-  width:90%;
+  min-height:2rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
   font-size:1rem;
-
-  opacity:.85;
 
   letter-spacing:.06em;
 
   line-height:1.5;
 
-  margin:0;
+  text-align:center;
+
+  opacity:.85;
 }
 
 
 /* =========================================================
-   PAGE 1 — SIDE
+   PAGINA 1 LOGO
+   ========================================================= */
+
+#p1 .logo{
+
+  top:2rem;
+
+  right:3rem;
+
+  width:13rem;
+
+  height:13rem;
+
+  color:var(--cream);
+}
+
+
+/* =========================================================
+   PAGINA 1 RECHTERKANT
    ========================================================= */
 
 #p1 .cover-side{
@@ -514,7 +541,9 @@ body{
 
 .cover-side-text{
 
-  max-width:15rem;
+  width:15rem;
+
+  min-height:4rem;
 
   text-align:center;
 
@@ -527,7 +556,7 @@ body{
 
 
 /* =========================================================
-   NEXT ARROW
+   PIJL
    ========================================================= */
 
 .next{
@@ -557,18 +586,18 @@ body{
 @keyframes bob{
 
   50%{
-
     transform:
       translateX(-50%)
       translateY(5px);
-
   }
 
 }
 
 
 /* =========================================================
+   =========================================================
    PAGE 2
+   =========================================================
    ========================================================= */
 
 #p2{
@@ -609,7 +638,7 @@ body{
 
 
 /* =========================================================
-   PAGE 2 TITLE
+   TITEL
    ========================================================= */
 
 .details-title{
@@ -618,6 +647,10 @@ body{
 
   max-width:75rem;
 
+  height:8rem;
+
+  flex:none;
+
   text-align:center;
 
   margin-bottom:4rem;
@@ -625,6 +658,14 @@ body{
 
 
 .details-title h2{
+
+  height:5.5rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
   font-size:clamp(
     3rem,
@@ -643,6 +684,14 @@ body{
 
 
 .details-title p{
+
+  height:2rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
 
   font-size:.9rem;
 
@@ -706,6 +755,10 @@ body{
 }
 
 
+/* =========================================================
+   ELK TIMELINE ITEM HEEFT VASTE HOOGTE
+   ========================================================= */
+
 .timeline-item{
 
   position:relative;
@@ -716,14 +769,16 @@ body{
 
   gap:1.5rem;
 
+  height:8rem;
+
   min-height:8rem;
 
-  padding-bottom:3rem;
+  padding:0 0 3rem;
 }
 
 
 /* =========================================================
-   TIMELINE ICON
+   ICON
    ========================================================= */
 
 .timeline-icon{
@@ -772,6 +827,10 @@ body{
 }
 
 
+/* =========================================================
+   TIJD
+   ========================================================= */
+
 .timeline-time{
 
   font-size:.85rem;
@@ -786,7 +845,27 @@ body{
 }
 
 
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.timeline-content{
+
+  min-width:0;
+
+  height:5rem;
+
+  overflow:hidden;
+}
+
+
 .timeline-content h3{
+
+  height:2rem;
+
+  display:flex;
+
+  align-items:flex-start;
 
   font-size:1.7rem;
 
@@ -799,6 +878,10 @@ body{
 
 
 .timeline-content p{
+
+  height:3rem;
+
+  overflow:hidden;
 
   font-size:1rem;
 
@@ -822,6 +905,12 @@ body{
 
 .info-panel h3{
 
+  height:3rem;
+
+  display:flex;
+
+  align-items:flex-start;
+
   font-size:2rem;
 
   font-weight:400;
@@ -832,13 +921,19 @@ body{
 
 .info-panel .location-name{
 
+  height:2rem;
+
   font-size:1.2rem;
 
   margin-bottom:1rem;
 }
 
 
-.info-panel p{
+.info-panel>p{
+
+  height:5rem;
+
+  overflow:hidden;
 
   font-size:1rem;
 
@@ -851,14 +946,18 @@ body{
 
 
 /* =========================================================
-   LOCATION
+   LOCATION META
    ========================================================= */
 
 .location-meta{
 
+  height:5rem;
+
   display:flex;
 
   flex-direction:column;
+
+  justify-content:flex-start;
 
   gap:.6rem;
 
@@ -867,6 +966,8 @@ body{
 
 
 .location-row{
+
+  height:2rem;
 
   display:flex;
 
@@ -904,6 +1005,8 @@ body{
 
 .rsvp{
 
+  height:19rem;
+
   margin-top:2rem;
 
   padding:2rem;
@@ -916,6 +1019,14 @@ body{
 
 .rsvp h3{
 
+  height:2.3rem;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
   font-size:1.8rem;
 
   font-weight:400;
@@ -926,11 +1037,27 @@ body{
 
 .rsvp p{
 
+  height:3.2rem;
+
+  overflow:hidden;
+
+  display:flex;
+
+  align-items:flex-start;
+
+  justify-content:center;
+
   font-size:.95rem;
+
+  line-height:1.6;
 
   margin-bottom:1.5rem;
 }
 
+
+/* =========================================================
+   QR
+   ========================================================= */
 
 .qr-placeholder{
 
@@ -960,6 +1087,10 @@ body{
 }
 
 
+/* =========================================================
+   RSVP LINK
+   ========================================================= */
+
 .rsvp-link{
 
   display:inline-block;
@@ -983,8 +1114,8 @@ body{
 /* =========================================================
    THAI
 
-   De taal wisselt alleen de inhoud.
-   De posities van de elementen blijven identiek.
+   GEEN ANDERE POSITIES.
+   ALLEEN leesbaarheid.
    ========================================================= */
 
 html[lang="th"] .cover-pre{
@@ -992,10 +1123,6 @@ html[lang="th"] .cover-pre{
   letter-spacing:0;
 
   line-height:1.7;
-
-  white-space:normal;
-
-  max-width:32rem;
 }
 
 
@@ -1007,17 +1134,13 @@ html[lang="th"] .cover-names{
     8rem
   );
 
-  line-height:1;
-
-  letter-spacing:-.035em;
+  line-height:.78;
 }
 
 
 html[lang="th"] .cover-invite{
 
   line-height:1.8;
-
-  max-width:38rem;
 }
 
 
@@ -1025,7 +1148,7 @@ html[lang="th"] .cover-date{
 
   letter-spacing:0;
 
-  line-height:1.7;
+  line-height:1.6;
 }
 
 
@@ -1041,7 +1164,7 @@ html[lang="th"] .details-title h2{
 
   font-style:normal;
 
-  line-height:1.35;
+  line-height:1.3;
 }
 
 
@@ -1055,17 +1178,17 @@ html[lang="th"] .details-title p{
 
 html[lang="th"] .timeline-content h3{
 
-  line-height:1.4;
+  line-height:1.35;
 }
 
 
 html[lang="th"] .timeline-content p{
 
-  line-height:1.8;
+  line-height:1.7;
 }
 
 
-html[lang="th"] .info-panel p{
+html[lang="th"] .info-panel>p{
 
   line-height:1.8;
 }
@@ -1078,7 +1201,9 @@ html[lang="th"] .rsvp p{
 
 
 /* =========================================================
+   =========================================================
    TABLET
+   =========================================================
    ========================================================= */
 
 @media(max-width:900px){
@@ -1086,6 +1211,10 @@ html[lang="th"] .rsvp p{
   #p1{
 
     grid-template-columns:1fr;
+
+    grid-template-rows:
+      75svh
+      25svh;
   }
 
 
@@ -1093,8 +1222,18 @@ html[lang="th"] .rsvp p{
 
     min-height:75svh;
 
+    grid-template-rows:
+
+      19%
+      34%
+      7%
+      14%
+      9%
+      9%
+      8%;
+
     padding:
-      1px
+      0
       2rem;
   }
 
@@ -1141,43 +1280,7 @@ html[lang="th"] .rsvp p{
   }
 
 
-  /* Vaste tablet posities */
-
-  .cover-pre{
-
-    top:18%;
-  }
-
-
-  .cover-names{
-
-    top:28%;
-  }
-
-
-  .cover-line{
-
-    top:57%;
-  }
-
-
-  .cover-invite{
-
-    top:63%;
-  }
-
-
-  .cover-date{
-
-    top:73%;
-  }
-
-
-  .cover-location{
-
-    top:79%;
-  }
-
+  /* Details */
 
   .details-grid{
 
@@ -1204,22 +1307,44 @@ html[lang="th"] .rsvp p{
 
 
 /* =========================================================
+   =========================================================
    MOBILE
+   =========================================================
    ========================================================= */
 
 @media(max-width:600px){
+
+  #p1{
+
+    grid-template-rows:
+      75svh
+      25svh;
+  }
+
 
   #p1 .cover-main{
 
     min-height:75svh;
 
+    grid-template-rows:
+
+      18%
+      35%
+      7%
+      14%
+      9%
+      9%
+      8%;
+
     padding:
-      1px
+      0
       1.5rem;
   }
 
 
-  /* Logo */
+  /* =====================================================
+     LOGO MOBILE
+     ===================================================== */
 
   #p1 .logo{
 
@@ -1245,29 +1370,32 @@ html[lang="th"] .rsvp p{
   }
 
 
-  /* Vaste mobiele posities */
+  /* =====================================================
+     INTRO MOBILE
+     ===================================================== */
 
   .cover-pre{
 
-    top:19%;
+    width:
+      calc(100% - 2rem);
 
-    width:calc(100% - 3rem);
+    max-width:24rem;
+
+    padding-bottom:1rem;
 
     font-size:.72rem;
 
     letter-spacing:.15em;
 
-    white-space:normal;
-
     line-height:1.6;
   }
 
 
+  /* =====================================================
+     NAMEN MOBILE
+     ===================================================== */
+
   .cover-names{
-
-    top:30%;
-
-    width:100%;
 
     font-size:
       clamp(
@@ -1276,23 +1404,32 @@ html[lang="th"] .rsvp p{
         5.5rem
       );
 
-    line-height:.86;
+    line-height:.8;
   }
 
 
-  .cover-line{
+  /* =====================================================
+     LINE MOBILE
+     ===================================================== */
 
-    top:57%;
+  .cover-line{
 
     width:3.5rem;
   }
 
 
+  /* =====================================================
+     INVITE MOBILE
+     ===================================================== */
+
   .cover-invite{
 
-    top:62%;
+    width:
+      calc(100% - 1rem);
 
-    width:calc(100% - 3rem);
+    max-width:24rem;
+
+    padding:0 .5rem;
 
     font-size:1rem;
 
@@ -1300,11 +1437,14 @@ html[lang="th"] .rsvp p{
   }
 
 
+  /* =====================================================
+     DATE MOBILE
+     ===================================================== */
+
   .cover-date{
 
-    top:73%;
-
-    width:calc(100% - 2rem);
+    width:
+      calc(100% - 1rem);
 
     font-size:.9rem;
 
@@ -1312,17 +1452,24 @@ html[lang="th"] .rsvp p{
   }
 
 
+  /* =====================================================
+     LOCATION MOBILE
+     ===================================================== */
+
   .cover-location{
 
-    top:79%;
-
-    width:calc(100% - 2rem);
+    width:
+      calc(100% - 1rem);
 
     font-size:.9rem;
 
     letter-spacing:.03em;
   }
 
+
+  /* =====================================================
+     PAGE 2 MOBILE
+     ===================================================== */
 
   #p2{
 
@@ -1335,15 +1482,31 @@ html[lang="th"] .rsvp p{
 
   .details-title{
 
+    height:7rem;
+
     margin-bottom:3rem;
   }
 
 
   .details-title h2{
 
+    height:4.5rem;
+
     font-size:3rem;
   }
 
+
+  .details-title p{
+
+    height:2rem;
+
+    font-size:.78rem;
+  }
+
+
+  /* =====================================================
+     TIMELINE MOBILE
+     ===================================================== */
 
   .timeline{
 
@@ -1353,9 +1516,15 @@ html[lang="th"] .rsvp p{
 
   .timeline-item{
 
-    grid-template-columns:4rem 1fr;
+    grid-template-columns:
+      4rem
+      1fr;
 
     gap:.8rem;
+
+    height:9rem;
+
+    min-height:9rem;
   }
 
 
@@ -1365,11 +1534,33 @@ html[lang="th"] .rsvp p{
   }
 
 
+  .timeline-content{
+
+    height:6rem;
+  }
+
+
   .timeline-content h3{
+
+    height:2.2rem;
 
     font-size:1.45rem;
   }
 
+
+  .timeline-content p{
+
+    height:3.5rem;
+
+    font-size:.95rem;
+
+    line-height:1.55;
+  }
+
+
+  /* =====================================================
+     INFO MOBILE
+     ===================================================== */
 
   .info-panel{
 
@@ -1377,23 +1568,58 @@ html[lang="th"] .rsvp p{
   }
 
 
-  /* Thai mobile */
+  .info-panel h3{
+
+    height:2.8rem;
+  }
+
+
+  .info-panel .location-name{
+
+    height:2rem;
+  }
+
+
+  .info-panel>p{
+
+    height:7rem;
+
+    line-height:1.7;
+  }
+
+
+  .location-meta{
+
+    height:5rem;
+
+    margin:
+      1.5rem
+      0
+      2rem;
+  }
+
+
+  .rsvp{
+
+    height:19rem;
+
+    padding:1.5rem;
+  }
+
+
+  /* =====================================================
+     THAI MOBILE
+     ===================================================== */
 
   html[lang="th"] .cover-pre{
 
-    top:18%;
-
-    font-size:.9rem;
-
-    line-height:1.8;
-
     letter-spacing:0;
+
+    line-height:1.7;
   }
 
 
   html[lang="th"] .cover-names{
-
-    top:30%;
 
     font-size:
       clamp(
@@ -1402,35 +1628,27 @@ html[lang="th"] .rsvp p{
         5.5rem
       );
 
-    line-height:.9;
+    line-height:.8;
   }
 
 
   html[lang="th"] .cover-invite{
 
-    top:62%;
-
-    font-size:1rem;
-
-    line-height:1.9;
+    line-height:1.8;
   }
 
 
   html[lang="th"] .cover-date{
 
-    top:73%;
+    letter-spacing:0;
 
-    font-size:.9rem;
-
-    line-height:1.8;
+    line-height:1.7;
   }
 
 
   html[lang="th"] .cover-location{
 
-    top:80%;
-
-    font-size:.9rem;
+    letter-spacing:0;
 
     line-height:1.8;
   }
@@ -1440,7 +1658,7 @@ html[lang="th"] .rsvp p{
 
     font-size:3rem;
 
-    line-height:1.35;
+    line-height:1.3;
   }
 
 }
@@ -1470,7 +1688,7 @@ html[lang="th"] .rsvp p{
 
 
 <!-- =====================================================
-     LANGUAGE
+     LANGUAGE SWITCHER
      ===================================================== -->
 
 <nav
@@ -1570,6 +1788,10 @@ html[lang="th"] .rsvp p{
 
 
 
+  <!-- ===================================================
+       RIGHT SIDE
+       =================================================== -->
+
   <div class="cover-side">
 
 
@@ -1596,8 +1818,7 @@ html[lang="th"] .rsvp p{
       class="cover-side-text"
       data-t="sideText"
     >
-      A day of love, family,
-      celebration and togetherness.
+      A day of love, family, celebration and togetherness.
     </p>
 
 
@@ -1627,6 +1848,8 @@ html[lang="th"] .rsvp p{
 >
 
 
+  <!-- LOGO -->
+
   <div
     class="logo"
     aria-hidden="true"
@@ -1646,6 +1869,8 @@ html[lang="th"] .rsvp p{
   </div>
 
 
+
+  <!-- TITLE -->
 
   <header class="details-title">
 
@@ -1946,6 +2171,8 @@ html[lang="th"] .rsvp p{
 
 
 
+      <!-- RSVP -->
+
       <div class="rsvp">
 
 
@@ -2205,6 +2432,12 @@ const L = {
    ========================================================= */
 
 function setLang(lang){
+
+  /*
+    Belangrijk:
+    hier wordt uitsluitend tekst vervangen.
+    Er wordt niets toegevoegd/verwijderd aan de layout.
+  */
 
   document.documentElement.lang = lang;
 
