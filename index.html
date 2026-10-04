@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -250,8 +249,13 @@ body{
 }
 
 
+/* Als logo.png transparant is,
+   wordt het netjes weergegeven */
+
 #p1 .logo img{
+
   filter:none;
+
 }
 
 
@@ -277,10 +281,6 @@ body{
 }
 
 
-/* =========================================================
-   NAMEN
-   ========================================================= */
-
 .cover-names{
 
   font-size:clamp(
@@ -295,7 +295,7 @@ body{
 
   letter-spacing:-.035em;
 
-  margin:0;
+  margin-bottom:2.4rem;
 }
 
 
@@ -317,35 +317,7 @@ body{
 }
 
 
-/* =========================================================
-   VASTE LIJN
-   ========================================================= */
-
-.cover-line{
-
-  flex:none;
-
-  width:4rem;
-
-  height:1px;
-
-  background:rgba(247,241,232,.65);
-
-  margin:2rem auto;
-}
-
-
-/* =========================================================
-   VASTE INVITE
-   ========================================================= */
-
 .cover-invite{
-
-  width:100%;
-
-  max-width:42rem;
-
-  flex:none;
 
   font-size:clamp(
     1.1rem,
@@ -355,15 +327,9 @@ body{
 
   font-style:italic;
 
-  line-height:1.5;
-
-  margin:0;
+  margin-bottom:2.4rem;
 }
 
-
-/* =========================================================
-   DATUM
-   ========================================================= */
 
 .cover-date{
 
@@ -372,8 +338,6 @@ body{
   letter-spacing:.16em;
 
   text-transform:uppercase;
-
-  margin-top:2rem;
 
   margin-bottom:.45rem;
 }
@@ -393,7 +357,16 @@ body{
    DECORATIEVE LIJN
    ========================================================= */
 
-/* spacing wordt hierboven geregeld */
+.cover-line{
+
+  width:4rem;
+
+  height:1px;
+
+  background:rgba(247,241,232,.65);
+
+  margin:1.5rem auto;
+}
 
 
 /* =========================================================
@@ -597,6 +570,8 @@ body{
 }
 
 
+/* Verticale lijn */
+
 .timeline::before{
 
   content:"";
@@ -615,6 +590,8 @@ body{
 }
 
 
+/* Tijdlijn item */
+
 .timeline-item{
 
   position:relative;
@@ -630,6 +607,8 @@ body{
   padding-bottom:3rem;
 }
 
+
+/* Symbool */
 
 .timeline-icon{
 
@@ -659,6 +638,8 @@ body{
 }
 
 
+/* SVG symbool */
+
 .timeline-icon svg{
 
   width:1.25rem;
@@ -677,6 +658,8 @@ body{
 }
 
 
+/* Tijd */
+
 .timeline-time{
 
   font-size:.85rem;
@@ -690,6 +673,8 @@ body{
   opacity:.65;
 }
 
+
+/* Inhoud */
 
 .timeline-content h3{
 
@@ -837,6 +822,8 @@ body{
 }
 
 
+/* QR PLACEHOLDER */
+
 .qr-placeholder{
 
   width:8rem;
@@ -864,6 +851,8 @@ body{
   opacity:.65;
 }
 
+
+/* RSVP link */
 
 .rsvp-link{
 
@@ -1065,50 +1054,12 @@ html[lang="th"] .details-title h2{
         17vw,
         5.5rem
       );
-
-    line-height:.82;
-
-    margin:0;
-  }
-
-
-  .cover-line{
-
-    width:3.5rem;
-
-    margin:1.8rem auto;
   }
 
 
   .cover-invite{
 
     font-size:1rem;
-
-    line-height:1.6;
-
-    margin:0;
-
-    max-width:24rem;
-  }
-
-
-  .cover-date{
-
-    margin-top:1.5rem;
-
-    margin-bottom:.4rem;
-
-    font-size:.9rem;
-
-    letter-spacing:.1em;
-  }
-
-
-  .cover-location{
-
-    font-size:.9rem;
-
-    letter-spacing:.03em;
   }
 
 
@@ -1296,6 +1247,8 @@ html[lang="th"] .details-title h2{
   <div class="cover-side">
 
 
+    <!-- Jullie echte logo -->
+
     <div
       class="logo"
       aria-hidden="true"
@@ -1350,6 +1303,8 @@ html[lang="th"] .details-title h2{
 >
 
 
+  <!-- Logo -->
+
   <div
     class="logo"
     aria-hidden="true"
@@ -1369,6 +1324,8 @@ html[lang="th"] .details-title h2{
   </div>
 
 
+  <!-- Titel -->
+
   <header class="details-title">
 
     <h2 data-t="detailsTitle">
@@ -1383,23 +1340,39 @@ html[lang="th"] .details-title h2{
 
 
 
+  <!-- Twee kolommen -->
+
   <div class="details-grid">
 
+
+    <!-- =================================================
+         LINKERKANT — TIJDLIJN
+         ================================================= -->
 
     <div class="timeline">
 
 
+      <!-- Welcome Drinks -->
+
       <article class="timeline-item">
+
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
+            <!-- glazen -->
+
             <path d="M6 3h7l-1 8H7L6 3z"/>
+
             <path d="M9 11v6"/>
+
             <path d="M6 20h7"/>
+
             <path d="M15 5h4l-.7 6h-2.6L15 5z"/>
+
             <path d="M17 11v6"/>
+
             <path d="M14.5 20h5"/>
 
           </svg>
@@ -1429,17 +1402,25 @@ html[lang="th"] .details-title h2{
 
 
 
+      <!-- Ceremony -->
+
       <article class="timeline-item">
+
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M4 20h16"/>
+
             <path d="M6 20V10"/>
+
             <path d="M18 20V10"/>
+
             <path d="M4 10h16"/>
+
             <path d="M5 10l7-6 7 6"/>
+
             <path d="M9 20v-5h6v5"/>
 
           </svg>
@@ -1469,17 +1450,25 @@ html[lang="th"] .details-title h2{
 
 
 
+      <!-- Coffee & Snacks -->
+
       <article class="timeline-item">
+
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M4 9h12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V9z"/>
+
             <path d="M16 11h2a2.5 2.5 0 0 1 0 5h-2"/>
+
             <path d="M7 5v2"/>
+
             <path d="M11 4v3"/>
+
             <path d="M15 5v2"/>
+
             <path d="M4 21h14"/>
 
           </svg>
@@ -1509,17 +1498,25 @@ html[lang="th"] .details-title h2{
 
 
 
+      <!-- Wedding Lunch -->
+
       <article class="timeline-item">
+
 
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
 
             <path d="M5 4v7"/>
+
             <path d="M8 4v7"/>
+
             <path d="M5 8h3"/>
+
             <path d="M6.5 11v9"/>
+
             <path d="M15 4v16"/>
+
             <path d="M15 4c3 1 4 3 4 6v1h-4"/>
 
           </svg>
@@ -1552,6 +1549,10 @@ html[lang="th"] .details-title h2{
 
 
 
+    <!-- =================================================
+         RECHTERKANT — LOCATIE / RSVP
+         ================================================= -->
+
     <aside class="info-panel">
 
 
@@ -1566,10 +1567,14 @@ html[lang="th"] .details-title h2{
 
 
       <p data-t="locationText">
+
         We are delighted to celebrate our special day
         at Baiboon Grand in Loei, Thailand.
+
       </p>
 
+
+      <!-- Locatiegegevens -->
 
       <div class="location-meta">
 
@@ -1624,6 +1629,10 @@ html[lang="th"] .details-title h2{
 
 
 
+      <!-- =================================================
+           RSVP
+           ================================================= -->
+
       <div class="rsvp">
 
 
@@ -1638,11 +1647,40 @@ html[lang="th"] .details-title h2{
         </p>
 
 
+        <!--
+
+          LATER HIER DE ECHTE QR CODE PLAATSEN.
+
+          Bijvoorbeeld:
+
+          <img
+            src="images/rsvp-qr.png"
+            alt="RSVP QR code"
+            class="rsvp-qr"
+          >
+
+        -->
+
         <div class="qr-placeholder">
           QR CODE<br>
           RSVP
         </div>
 
+
+        <!--
+
+          LATER DE ECHTE RSVP LINK INVULLEN.
+
+          Bijvoorbeeld:
+
+          <a
+            href="https://jouw-rsvp-link.nl"
+            class="rsvp-link"
+          >
+            RSVP online
+          </a>
+
+        -->
 
         <a
           href="#"
@@ -1671,7 +1709,16 @@ html[lang="th"] .details-title h2{
 
 <script>
 
+/* =========================================================
+   VERTALINGEN
+   ========================================================= */
+
 const L = {
+
+
+  /* =======================================================
+     ENGLISH
+     ======================================================= */
 
   en:{
 
@@ -1706,5 +1753,254 @@ const L = {
       "Ceremony",
 
     ceremonyText:
-      "Join us as we celebrate t
+      "Join us as we celebrate the beginning of our married life.",
+
+    coffeeTitle:
+      "Coffee & Snacks",
+
+    coffeeText:
+      "Take a little break, enjoy coffee and something sweet.",
+
+    lunchTitle:
+      "Wedding Lunch",
+
+    lunchText:
+      "A relaxed lunch with our loved ones to continue the celebration.",
+
+    locationTitle:
+      "The Location",
+
+    locationText:
+      "We are delighted to celebrate our special day at Baiboon Grand in Loei, Thailand.",
+
+    rsvpTitle:
+      "RSVP",
+
+    rsvpText:
+      "Please let us know if you will be joining us on our special day.",
+
+    rsvpLink:
+      "RSVP online"
+
+  },
+
+
+  /* =======================================================
+     NEDERLANDS
+     ======================================================= */
+
+  nl:{
+
+    pre:
+      "Samen met hun families",
+
+    invite1:
+      "nodigen wij jullie uit om dit met ons te vieren",
+
+    date:
+      "27 maart 2027",
+
+    time:
+      "09:00 uur · Baiboon Grand, Loei",
+
+    sideText:
+      "Een dag vol liefde, familie, geluk en samenzijn.",
+
+    detailsTitle:
+      "De dag",
+
+    detailsSub:
+      "Onze huwelijksviering",
+
+    welcomeTitle:
+      "Ontvangst & drankjes",
+
+    welcomeText:
+      "Welkom, ontmoet elkaar en geniet samen met familie en vrienden van een drankje.",
+
+    ceremonyTitle:
+      "Ceremonie",
+
+    ceremonyText:
+      "Vier samen met ons het begin van ons huwelijk.",
+
+    coffeeTitle:
+      "Koffie & lekkernijen",
+
+    coffeeText:
+      "Een klein moment om te genieten van koffie en iets lekkers.",
+
+    lunchTitle:
+      "Huwelijkslunch",
+
+    lunchText:
+      "Een ontspannen lunch met onze dierbaren om de dag samen voort te zetten.",
+
+    locationTitle:
+      "De locatie",
+
+    locationText:
+      "Met veel plezier vieren wij onze bijzondere dag bij Baiboon Grand in Loei, Thailand.",
+
+    rsvpTitle:
+      "RSVP",
+
+    rsvpText:
+      "Laat ons weten of je erbij kunt zijn op onze bijzondere dag.",
+
+    rsvpLink:
+      "RSVP online"
+
+  },
+
+
+  /* =======================================================
+     THAI
+     ======================================================= */
+
+  th:{
+
+    pre:
+      "พร้อมด้วยครอบครัวทั้งสองฝ่าย",
+
+    invite1:
+      "ขอเชิญร่วมเป็นส่วนหนึ่งในวันสำคัญของเรา",
+
+    date:
+      "27 มีนาคม 2570",
+
+    time:
+      "เวลา 09.00 น. · Baiboon Grand, Loei",
+
+    sideText:
+      "วันแห่งความรัก ครอบครัว ความสุข และการเฉลิมฉลองร่วมกัน",
+
+    detailsTitle:
+      "กำหนดการ",
+
+    detailsSub:
+      "รายละเอียดงานฉลองมงคลสมรส",
+
+    welcomeTitle:
+      "ต้อนรับและเครื่องดื่ม",
+
+    welcomeText:
+      "ขอต้อนรับทุกท่าน พบปะพูดคุย และเพลิดเพลินกับเครื่องดื่มร่วมกับครอบครัวและเพื่อน ๆ",
+
+    ceremonyTitle:
+      "พิธีมงคลสมรส",
+
+    ceremonyText:
+      "ร่วมเป็นสักขีพยานและเฉลิมฉลองการเริ่มต้นชีวิตคู่ของเรา",
+
+    coffeeTitle:
+      "กาแฟและของว่าง",
+
+    coffeeText:
+      "พักผ่อนและเพลิดเพลินกับกาแฟและของว่าง",
+
+    lunchTitle:
+      "เลี้ยงฉลองมงคลสมรส",
+
+    lunchText:
+      "ร่วมรับประทานอาหารกลางวันและเฉลิมฉลองวันสำคัญกับครอบครัวและคนที่เรารัก",
+
+    locationTitle:
+      "สถานที่",
+
+    locationText:
+      "เรามีความยินดีเป็นอย่างยิ่งที่จะจัดงานฉลองมงคลสมรส ณ Baiboon Grand จังหวัดเลย ประเทศไทย",
+
+    rsvpTitle:
+      "ตอบรับการเข้าร่วมงาน",
+
+    rsvpText:
+      "กรุณาแจ้งให้เราทราบว่าท่านจะสามารถมาร่วมงานกับเราได้หรือไม่",
+
+    rsvpLink:
+      "ตอบรับออนไลน์"
+
+  }
+
+};
+
+
+/* =========================================================
+   TAAL INSTELLEN
+   ========================================================= */
+
+function setLang(lang){
+
+  document.documentElement.lang = lang;
+
+
+  document
+    .querySelectorAll("[data-t]")
+    .forEach(element => {
+
+      const key = element.dataset.t;
+
+      if(
+        L[lang] &&
+        L[lang][key] !== undefined
+      ){
+
+        element.textContent =
+          L[lang][key];
+
+      }
+
+    });
+
+
+  document
+    .querySelectorAll(".lang button")
+    .forEach(button => {
+
+      button.setAttribute(
+        "aria-pressed",
+        button.dataset.l === lang
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   TAALKNOPPEN
+   ========================================================= */
+
+document
+  .querySelectorAll(".lang button")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => setLang(button.dataset.l)
+    );
+
+  });
+
+
+/* =========================================================
+   STARTTAAL
+   ========================================================= */
+
+const urlLang =
+  new URLSearchParams(
+    window.location.search
+  ).get("lang");
+
+
+setLang(
+  urlLang && L[urlLang]
+    ? urlLang
+    : "en"
+);
+
+</script>
+
+</body>
+</html>
 ```
