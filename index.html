@@ -176,6 +176,8 @@ body{
   height:100%;
 
   object-fit:contain;
+
+  display:block;
 }
 
 .logo .mono{
@@ -234,23 +236,25 @@ body{
 }
 
 
-/* Logo rechts */
+/* =========================================================
+   GROTER SIERLIJK LOGO
+   ========================================================= */
 
 #p1 .logo{
 
-  top:3rem;
+  top:2rem;
 
-  right:3.5rem;
+  right:3rem;
 
-  width:9rem;
-  height:9rem;
+  width:13rem;
+
+  height:13rem;
 
   color:var(--cream);
 }
 
 
-/* Als logo.png transparant is,
-   wordt het netjes weergegeven */
+/* Logo afbeelding */
 
 #p1 .logo img{
 
@@ -492,7 +496,25 @@ body{
 }
 
 
-/* Titel */
+/* =========================================================
+   PAGINA 2 LOGO
+   ========================================================= */
+
+#p2>.logo{
+
+  top:2rem;
+
+  right:2rem;
+
+  width:7rem;
+
+  height:7rem;
+}
+
+
+/* =========================================================
+   TITEL
+   ========================================================= */
 
 .details-title{
 
@@ -875,22 +897,6 @@ body{
 
 
 /* =========================================================
-   PAGINA 2 LOGO
-   ========================================================= */
-
-#p2>.logo{
-
-  top:2rem;
-
-  right:2rem;
-
-  width:5rem;
-
-  height:5rem;
-}
-
-
-/* =========================================================
    THAI
    ========================================================= */
 
@@ -973,11 +979,25 @@ html[lang="th"] .details-title h2{
   }
 
 
+  /* Groter logo op tablet */
+
   #p1 .logo{
 
     top:2rem;
 
     right:2rem;
+
+    width:9rem;
+
+    height:9rem;
+  }
+
+
+  #p2>.logo{
+
+    top:1.5rem;
+
+    right:1.5rem;
 
     width:6rem;
 
@@ -1024,15 +1044,29 @@ html[lang="th"] .details-title h2{
   }
 
 
+  /* Groot sierlijk logo op mobiel */
+
   #p1 .logo{
 
-    top:1.5rem;
+    top:1.2rem;
 
-    right:1.5rem;
+    right:1.2rem;
 
-    width:4.5rem;
+    width:7rem;
 
-    height:4.5rem;
+    height:7rem;
+  }
+
+
+  #p2>.logo{
+
+    top:1.2rem;
+
+    right:1.2rem;
+
+    width:5rem;
+
+    height:5rem;
   }
 
 
@@ -1360,8 +1394,6 @@ html[lang="th"] .details-title h2{
         <div class="timeline-icon">
 
           <svg viewBox="0 0 24 24">
-
-            <!-- glazen -->
 
             <path d="M6 3h7l-1 8H7L6 3z"/>
 
@@ -1703,6 +1735,7 @@ html[lang="th"] .details-title h2{
 
 </section>
 
+
 </main>
 
 
@@ -2001,6 +2034,6 @@ setLang(
 
 </script>
 
+
 </body>
 </html>
-```
