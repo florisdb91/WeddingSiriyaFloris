@@ -85,11 +85,18 @@ body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weig
 /* foto bovenaan (vervang images/foto-1.jpg) */
 .card-photo{
   position:relative;width:100%;
-  height:clamp(8rem,28svh,18rem);
-  background:linear-gradient(160deg,var(--blue-light),var(--blue));
+  height:clamp(11rem,34svh,21rem);
+  background:
+    radial-gradient(ellipse 62% 72% at 50% 56%,rgba(255,254,251,.96),rgba(255,254,251,0) 72%),
+    linear-gradient(160deg,var(--blue-light),var(--blue));
   overflow:hidden;flex:none;
+  display:flex;align-items:flex-end;justify-content:center;
+  padding:clamp(.7rem,3cqw,1.2rem) 0 calc(clamp(3.2rem,12cqw,4.8rem)/2 + .55rem);   /* ruimte zodat het logo de tekening niet raakt */
 }
 .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card-photo picture{display:contents}
+/* de tekening (images/tekening.webp / tekening.png) */
+.card-photo .card-art{position:relative;inset:auto;width:auto;height:100%;max-width:80%;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(62,10,15,.22))}
 
 /* monogram / logo over de onderrand van de foto */
 .mark{
@@ -137,7 +144,7 @@ html[lang="th"] .countdown-done{font-family:var(--serif)}
 @keyframes bob{50%{transform:translateX(-50%) translateY(5px)}}
 
 /* lage schermen (liggende telefoon): laat de kaart gewoon meegroeien */
-@media(max-height:560px){.card-photo{height:clamp(5rem,22svh,9rem)}}
+@media(max-height:560px){.card-photo{height:clamp(8rem,46svh,12rem)}}
 
 /* ===================== PAGINA 2 ===================== */
 #p2{background:var(--cream);color:var(--red);padding:6rem 6vw;display:flex;flex-direction:column;align-items:center}
@@ -246,9 +253,12 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
   <article class="card">
     <div class="frame">
 
-      <!-- foto: vervang images/foto-1.jpg -->
+      <!-- onze tekening: images/tekening.webp (met tekening.png als reserve) -->
       <div class="card-photo">
-        <img src="images/foto-1.jpg" alt="" onerror="this.remove()">
+        <picture>
+          <source srcset="images/tekening.webp" type="image/webp">
+          <img class="card-art" src="images/tekening.png" alt="Siriya, Floris and their dog" onerror="this.remove()">
+        </picture>
       </div>
 
       <!-- logo: images/logo1.png (anders S&F) -->
@@ -288,6 +298,7 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
       </div>
 
+
       <a class="next" href="#p2" aria-label="Next">↓</a>
 
     </div>
@@ -298,6 +309,7 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
 <!-- ===================== PAGINA 2 — DETAILS ===================== -->
 <section class="page" id="p2">
+
 
   <div class="logo" aria-hidden="true">
     <span class="mono">S&amp;F</span>
