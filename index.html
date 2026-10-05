@@ -183,7 +183,7 @@ html[lang="th"] .countdown-done{font-family:var(--serif)}
 .location-row.address{align-items:flex-start}
 .location-row.address svg{margin-top:.2rem}
 address{font-style:normal;line-height:1.55}
-.map-link{align-self:flex-start;margin:.3rem 0 .4rem 2rem;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding-bottom:.15rem}
+.map-link{display:inline-block;margin:.5rem 0 0;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding-bottom:.15rem}
 html[lang="th"] .map-link{letter-spacing:.02em;font-size:.95rem}
 .location-row svg{width:1.2rem;height:1.2rem;stroke:var(--red);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
@@ -195,6 +195,27 @@ html[lang="th"] .map-link{letter-spacing:.02em;font-size:.95rem}
 .rsvp-link{display:inline-block;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;padding-bottom:.2rem}
 
 #p2>.logo{top:2rem;right:2rem;width:5rem;height:5rem}
+
+/* kleurenpalet (dresscode) */
+.palette{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
+.palette .dot{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(125,15,26,.28),0 2px 5px rgba(62,10,15,.14)}
+
+/* Google Maps: klein kaartje rechts naast het adres */
+.addr-col{flex:1;min-width:0}
+.map-box{position:relative;flex:none;width:clamp(8rem,34%,10.5rem);aspect-ratio:4/3;border:1px solid rgba(125,15,26,.25);background:var(--blue-light);overflow:hidden}
+.map-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map-cover{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:.4rem;background:transparent;border:0;cursor:pointer;font:inherit;color:var(--red)}
+.map-cover span{background:rgba(251,248,242,.94);border:1px solid rgba(125,15,26,.25);padding:.2rem .5rem;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
+html[lang="th"] .map-cover span{letter-spacing:.01em;font-size:.78rem;text-transform:none}
+.map-box.live .map-cover{display:none}
+
+/* agenda-knop: klein, onder het RSVP-vlak */
+.cal{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;margin-top:1rem}
+.cal-btn{appearance:none;border:1px solid var(--red);background:transparent;color:var(--red);font:inherit;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .9rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;transition:background .2s,color .2s}
+.cal-btn svg{width:.95rem;height:.95rem;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.cal-btn:hover{background:var(--red);color:var(--cream)}
+.cal-alt{color:var(--red);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(125,15,26,.5);padding-bottom:.05rem;opacity:.85}
+html[lang="th"] .cal-btn,html[lang="th"] .cal-alt{letter-spacing:.01em;text-transform:none;font-size:.9rem}
 
 /* ===================== THAI ===================== */
 html[lang="th"] .cover-pre,html[lang="th"] .cover-date{letter-spacing:.02em}
@@ -370,6 +391,15 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
         <div class="timeline-icon"><svg viewBox="0 0 24 24"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5v2l8 5.5a1.2 1.2 0 0 1-.7 2.2H4.7A1.2 1.2 0 0 1 4 14l8-5.5"/></svg></div>
         <h3 data-t="dressTitle">Dress Code</h3>
         <p data-t="dressText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+        <!-- kleurenpalet: alleen bolletjes -->
+        <div class="palette" role="img" aria-label="Colour palette: Milk Ivory, Icy Blue, Powder Blue, Cherry Red, Dark Cherry Wine">
+          <span class="dot" style="--c:#F7F1E8" title="Milk Ivory"></span>
+          <span class="dot" style="--c:#DCE5EE" title="Icy Blue"></span>
+          <span class="dot" style="--c:#BAC7D3" title="Powder Blue"></span>
+          <span class="dot" style="--c:#7D0F1A" title="Cherry Red"></span>
+          <span class="dot" style="--c:#3E0A0F" title="Dark Cherry Wine"></span>
+        </div>
       </div>
     </div>
 
@@ -383,9 +413,20 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
       <div class="location-meta">
         <div class="location-row address">
           <svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.3"/></svg>
-          <address>Baiboon Grand<br>111 Na An, อ.เมืองเลย,<br>Loei 42000, Thailand</address>
+
+          <div class="addr-col">
+            <address>Baiboon Grand<br>111 Na An, อ.เมืองเลย,<br>Loei 42000, Thailand</address>
+            <a class="map-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x312147a75364f8b3:0xcbe444a94fc6d62e?sa=X&amp;ved=1t:8290&amp;ictx=111" target="_blank" rel="noopener" data-t="mapLink">Open in Google Maps</a>
+          </div>
+
+          <!-- klein interactief Google Maps-kaartje rechts van het adres (eerst tikken, dan pas bewegen) -->
+          <div class="map-box" id="mapBox">
+            <iframe title="Map: Baiboon Grand, Loei" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+              src="https://maps.google.com/maps?q=Baiboon%20Grand%2C%20111%20Na%20An%2C%20Loei%2042000%2C%20Thailand&amp;z=15&amp;hl=en&amp;output=embed"></iframe>
+            <button class="map-cover" id="mapCover" type="button"><span data-t="mapTap">Tap to explore</span></button>
+          </div>
         </div>
-        <a class="map-link" href="https://www.google.com/maps/place//data=!4m2!3m1!1s0x312147a75364f8b3:0xcbe444a94fc6d62e?sa=X&amp;ved=1t:8290&amp;ictx=111" target="_blank" rel="noopener" data-t="mapLink">Open in Google Maps</a>
+
         <div class="location-row">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></svg>
           <span>27 March 2027 · 09:00</span>
@@ -401,6 +442,15 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
         <!-- LATER DE ECHTE RSVP LINK:  <a href="https://jouw-rsvp-link.nl" class="rsvp-link">RSVP online</a> -->
         <a href="#" class="rsvp-link" data-t="rsvpLink" onclick="return false;">RSVP online</a>
+      </div>
+
+      <!-- toevoegen aan agenda (klein, onder het RSVP-vlak) -->
+      <div class="cal">
+        <button class="cal-btn" id="calBtn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M12 13v4M10 15h4"/></svg>
+          <span data-t="calBtn">Add to calendar</span>
+        </button>
+        <a class="cal-alt" id="calGoogle" href="#" target="_blank" rel="noopener" data-t="calGoogle">Google Calendar</a>
       </div>
 
     </aside>
@@ -440,7 +490,11 @@ const L = {
     rsvpText:"Please let us know if you will be joining us on our special day.",
     rsvpLink:"RSVP online",
     mapLink:"Open in Google Maps",
-    cdD:"Days", cdH:"Hours", cdM:"Minutes", cdS:"Seconds", cdDone:"The day is here"
+    cdD:"Days", cdH:"Hours", cdM:"Minutes", cdS:"Seconds", cdDone:"The day is here",
+    mapTap:"Tap to explore",
+    calBtn:"Add to calendar", calGoogle:"Google Calendar",
+    calTitle:"Wedding of Siriya & Floris",
+    calDesc:"We would love to celebrate with you! Welcome drinks from 08:30, ceremony at 09:00."
   },
 
   nl:{
@@ -467,7 +521,11 @@ const L = {
     rsvpText:"Laat ons weten of je erbij kunt zijn op onze bijzondere dag.",
     rsvpLink:"RSVP online",
     mapLink:"Open in Google Maps",
-    cdD:"Dagen", cdH:"Uren", cdM:"Minuten", cdS:"Seconden", cdDone:"De dag is aangebroken"
+    cdD:"Dagen", cdH:"Uren", cdM:"Minuten", cdS:"Seconden", cdDone:"De dag is aangebroken",
+    mapTap:"Tik om te bekijken",
+    calBtn:"Toevoegen aan agenda", calGoogle:"Google Agenda",
+    calTitle:"Bruiloft van Siriya & Floris",
+    calDesc:"We vieren het graag met jullie! Ontvangst vanaf 08:30, ceremonie om 09:00."
   },
 
   th:{
@@ -494,7 +552,11 @@ const L = {
     rsvpText:"กรุณาแจ้งให้เราทราบว่าท่านจะสามารถมาร่วมงานกับเราได้หรือไม่",
     rsvpLink:"ตอบรับออนไลน์",
     mapLink:"เปิดใน Google Maps",
-    cdD:"วัน", cdH:"ชั่วโมง", cdM:"นาที", cdS:"วินาที", cdDone:"วันสำคัญมาถึงแล้ว"
+    cdD:"วัน", cdH:"ชั่วโมง", cdM:"นาที", cdS:"วินาที", cdDone:"วันสำคัญมาถึงแล้ว",
+    mapTap:"แตะเพื่อดู",
+    calBtn:"เพิ่มลงในปฏิทิน", calGoogle:"Google ปฏิทิน",
+    calTitle:"งานแต่งงานของ Siriya & Floris",
+    calDesc:"ขอเชิญร่วมเป็นเกียรติ ต้อนรับแขกตั้งแต่ 08.30 น. พิธีเริ่ม 09.00 น."
   }
 };
 
@@ -534,6 +596,61 @@ function tick(){
 const timer = setInterval(tick,1000);
 tick();
 
+/* ===== Google Maps: tik om te activeren ===== */
+const mapBox = document.getElementById("mapBox");
+document.getElementById("mapCover").addEventListener("click", ()=> mapBox.classList.add("live"));
+
+/* ===== toevoegen aan agenda =====
+   Start: 27 maart 2027, 09:00 Thaise tijd (= 02:00 UTC). Einde: 14:00 Thaise tijd (= 07:00 UTC) — pas aan indien nodig. */
+const EVENT = {
+  start:"20270327T020000Z",
+  end:"20270327T070000Z",
+  location:"Baiboon Grand, 111 Na An, อ.เมืองเลย, Loei 42000, Thailand"
+};
+const icsEsc = t => String(t).replace(/\\/g,"\\\\").replace(/;/g,"\\;").replace(/,/g,"\\,").replace(/\n/g,"\\n");
+function calText(){
+  const lang = document.documentElement.lang;
+  const t = L[lang] || L.en;
+  return {title:t.calTitle, desc:t.calDesc + "\n" + location.href.split("#")[0]};
+}
+function updateGoogleLink(){
+  const c = calText();
+  const url = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+    + "&text=" + encodeURIComponent(c.title)
+    + "&dates=" + EVENT.start + "/" + EVENT.end
+    + "&details=" + encodeURIComponent(c.desc)
+    + "&location=" + encodeURIComponent(EVENT.location)
+    + "&ctz=Asia/Bangkok";
+  document.getElementById("calGoogle").href = url;
+}
+const icsFold = line => line.length <= 60 ? line : (line.match(/.{1,60}/gu) || [line]).join("\r\n ");
+function downloadICS(){
+  const c = calText();
+  const stamp = new Date().toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const ics = [
+    "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Siriya & Floris//Wedding//EN","CALSCALE:GREGORIAN","METHOD:PUBLISH",
+    "BEGIN:VEVENT",
+    "UID:siriya-floris-20270327@wedding",
+    "DTSTAMP:" + stamp,
+    "DTSTART:" + EVENT.start,
+    "DTEND:" + EVENT.end,
+    "SUMMARY:" + icsEsc(c.title),
+    "LOCATION:" + icsEsc(EVENT.location),
+    "DESCRIPTION:" + icsEsc(c.desc),
+    "BEGIN:VALARM","TRIGGER:-P1D","ACTION:DISPLAY","DESCRIPTION:" + icsEsc(c.title),"END:VALARM",
+    "END:VEVENT","END:VCALENDAR"
+  ].map(icsFold).join("\r\n");
+  const blob = new Blob([ics],{type:"text/calendar;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "siriya-floris-wedding.ics";
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+document.getElementById("calBtn").addEventListener("click", downloadICS);
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click", updateGoogleLink));
+updateGoogleLink();
+
 /* ===== muziek ===== */
 const audio = document.getElementById("bgm");
 const musicBtn = document.getElementById("musicBtn");
@@ -560,6 +677,7 @@ document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",
 
 const urlLang = new URLSearchParams(window.location.search).get("lang");
 setLang(urlLang && L[urlLang] ? urlLang : "en");
+updateGoogleLink();
 </script>
 
 </body>
