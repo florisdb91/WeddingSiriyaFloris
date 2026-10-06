@@ -147,7 +147,7 @@ html[lang="th"] .countdown-done{font-family:var(--serif)}
 @media(max-height:560px){.card-photo{height:clamp(8rem,46svh,12rem)}}
 
 /* ===================== PAGINA 2 ===================== */
-#p2{background:var(--cream);color:var(--red);padding:6rem 6vw;display:flex;flex-direction:column;align-items:center}
+#p2,#p3{background:var(--cream);color:var(--red);padding:6rem 6vw;display:flex;flex-direction:column;align-items:center}
 
 .details-title{width:100%;max-width:75rem;text-align:center;margin-bottom:4rem}
 .details-title h2{font-family:var(--script);font-size:clamp(3.4rem,8vw,6rem);font-weight:400;line-height:1.1;margin-bottom:.7rem}
@@ -194,7 +194,7 @@ html[lang="th"] .map-link{letter-spacing:.02em;font-size:.95rem}
 .qr-placeholder{width:8rem;height:8rem;margin:0 auto 1rem;border:1px dashed rgba(125,15,26,.5);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
 .rsvp-link{display:inline-block;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;padding-bottom:.2rem}
 
-#p2>.logo{top:2rem;right:2rem;width:5rem;height:5rem}
+#p2>.logo,#p3>.logo{top:2rem;right:2rem;width:5rem;height:5rem}
 
 /* kleurenpalet (dresscode) */
 .palette{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
@@ -217,6 +217,23 @@ html[lang="th"] .map-cover span{letter-spacing:.01em;font-size:.78rem;text-trans
 .cal-alt{color:var(--red);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(125,15,26,.5);padding-bottom:.05rem;opacity:.85}
 html[lang="th"] .cal-btn,html[lang="th"] .cal-alt{letter-spacing:.01em;text-transform:none;font-size:.9rem}
 
+/* ===================== PAGINA 3 — ABOUT US ===================== */
+#p3{justify-content:center;border-top:1px solid rgba(125,15,26,.12)}
+.about-photos{width:100%;max-width:62rem;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,2.4vw,1.8rem);align-items:end}
+.about-photo{padding:clamp(.35rem,1vw,.6rem);background:#FFFEFB;border:1px solid rgba(125,15,26,.25);box-shadow:0 14px 30px rgba(125,15,26,.1)}
+.about-photo .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(160deg,var(--blue-light),var(--blue))}
+.about-photo:nth-child(2) .ph{aspect-ratio:3/3.6}
+.about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.about-line{width:clamp(2.5rem,8vw,4rem);height:1px;background:var(--red);opacity:.55;margin:clamp(2rem,5vw,3rem) auto 1.4rem}
+.about-text{max-width:34rem;text-align:center;font-style:italic;font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.7;opacity:.85;text-wrap:balance}
+html[lang="th"] .about-text{font-style:normal;line-height:1.9}
+@media(max-width:600px){
+  .about-photos{grid-template-columns:1fr 1fr}
+  .about-photo:first-child{grid-column:1 / -1}
+  .about-photo:first-child .ph{aspect-ratio:4/3}
+  .about-photo:nth-child(2) .ph{aspect-ratio:3/4}
+}
+
 /* ===================== THAI ===================== */
 html[lang="th"] .cover-pre,html[lang="th"] .cover-date{letter-spacing:.02em}
 html[lang="th"] .cover-pre{font-size:clamp(.8rem,2.8cqw,1rem)}
@@ -237,7 +254,7 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
 /* ===================== MOBIEL ===================== */
 @media(max-width:600px){
-  #p2{padding:5rem 1.4rem 4rem}
+  #p2,#p3{padding:5rem 1.4rem 4rem}
   .details-title{margin-bottom:3rem}
   .timeline,.dresscode{padding-left:4.5rem}
   .timeline-item{grid-template-columns:4.9rem 1fr;gap:.5rem}
@@ -246,7 +263,7 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
   .dresscode .timeline-icon{left:0}
   .timeline-content h3,.dresscode h3{font-size:1.45rem}
   .info-panel{padding-top:2.5rem}
-  #p2>.logo{width:4rem;height:4rem;top:1.2rem;right:1rem}
+  #p2>.logo,#p3>.logo{width:4rem;height:4rem;top:1.2rem;right:1rem}
 }
 
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
@@ -461,6 +478,30 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
 </section>
 
+<!-- ===================== PAGINA 3 — ABOUT US ===================== -->
+<section class="page" id="p3">
+
+  <div class="logo" aria-hidden="true">
+    <span class="mono">S&amp;F</span>
+    <img src="images/logo2.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
+  </div>
+
+  <header class="details-title">
+    <h2 data-t="aboutTitle">About us</h2>
+  </header>
+
+  <!-- 3 foto's van jullie: images/over-ons-1.jpg, over-ons-2.jpg, over-ons-3.jpg -->
+  <div class="about-photos">
+    <figure class="about-photo"><div class="ph"><img src="images/over-ons-1.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
+    <figure class="about-photo"><div class="ph"><img src="images/over-ons-2.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
+    <figure class="about-photo"><div class="ph"><img src="images/over-ons-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
+  </div>
+
+  <div class="about-line"></div>
+  <p class="about-text" data-t="aboutText">We hope to see you at our wedding and apologize if we are not able to deliver this invitation personally.</p>
+
+</section>
+
 </main>
 
 <script>
@@ -494,6 +535,8 @@ const L = {
     mapLink:"Open in Google Maps",
     cdD:"Days", cdH:"Hours", cdM:"Minutes", cdS:"Seconds", cdDone:"The day is here",
     mapTap:"Tap to explore",
+    aboutTitle:"About us",
+    aboutText:"We hope to see you at our wedding and apologize if we are not able to deliver this invitation personally.",
     calBtn:"Add to calendar", calGoogle:"Google Calendar",
     calTitle:"Wedding of Siriya & Floris",
     calDesc:"We would love to celebrate with you! Welcome drinks at 2 PM, ceremony at 3 PM, wedding dinner at 6 PM."
@@ -527,6 +570,8 @@ const L = {
     mapLink:"Open in Google Maps",
     cdD:"Dagen", cdH:"Uren", cdM:"Minuten", cdS:"Seconden", cdDone:"De dag is aangebroken",
     mapTap:"Tik om te bekijken",
+    aboutTitle:"Over ons",
+    aboutText:"We hopen jullie te zien op onze bruiloft en bieden onze excuses aan als we deze uitnodiging niet persoonlijk kunnen overhandigen.",
     calBtn:"Toevoegen aan agenda", calGoogle:"Google Agenda",
     calTitle:"Bruiloft van Siriya & Floris",
     calDesc:"We vieren het graag met jullie! Ontvangst om 14:00, ceremonie om 15:00, diner om 18:00."
@@ -560,6 +605,8 @@ const L = {
     mapLink:"เปิดใน Google Maps",
     cdD:"วัน", cdH:"ชั่วโมง", cdM:"นาที", cdS:"วินาที", cdDone:"วันสำคัญมาถึงแล้ว",
     mapTap:"แตะเพื่อดู",
+    aboutTitle:"เกี่ยวกับเรา",
+    aboutText:"เราหวังเป็นอย่างยิ่งว่าจะได้พบทุกท่านในงานแต่งงานของเรา และขออภัยหากไม่สามารถนำบัตรเชิญมามอบให้ด้วยตนเองได้",
     calBtn:"เพิ่มลงในปฏิทิน", calGoogle:"Google ปฏิทิน",
     calTitle:"งานแต่งงานของ Siriya & Floris",
     calDesc:"ขอเชิญร่วมเป็นเกียรติ ต้อนรับแขก 14.00 น. พิธี 15.00 น. งานเลี้ยง 18.00 น."
