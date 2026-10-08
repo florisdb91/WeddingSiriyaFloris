@@ -52,12 +52,6 @@ body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:
 /* ===================== BLADEREN (aquarel) ===================== */
 .leaf{position:absolute;height:auto;max-width:none;pointer-events:none;user-select:none;z-index:0}
 
-/* ===================== LOGO (pagina 2 en 3) ===================== */
-.logo{position:absolute;z-index:5;width:5rem;height:5rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.logo img{width:100%;height:100%;object-fit:contain}
-.logo .mono{color:var(--blue);font-size:1.4rem;font-style:italic}
-.logo.has .mono{display:none}
-
 /* ===================== PAGINA 1 — KAART ===================== */
 #p1{
   --m:clamp(1.2rem,4.6vw,2.4rem);         /* rand rond de kaart */
@@ -172,8 +166,6 @@ html[lang="th"] .countdown-done{font-family:var(--serif);font-size:clamp(1.2rem,
 .sheet .leaf-bl{bottom:0;left:0;width:clamp(9rem,34%,21rem)}
 .sheet .leaf-tl{top:0;left:0;width:clamp(9rem,36%,22rem);transform:scaleX(-1)}
 .sheet .leaf-br{bottom:0;right:0;width:clamp(9rem,34%,21rem);transform:scaleX(-1)}
-.sheet>.logo{top:1.6rem;left:1.6rem;width:4.6rem;height:4.6rem}
-#p3 .sheet>.logo{left:auto;right:1.6rem}
 
 .details-title{width:100%;max-width:75rem;text-align:center;margin-bottom:3.4rem}
 .details-title h2{font-family:var(--script);color:var(--blue);font-size:clamp(4.6rem,12vw,8rem);font-weight:400;line-height:.95;margin-bottom:.2rem}
@@ -286,8 +278,6 @@ html[lang="th"] .info-panel .location-name{font-family:var(--script)}
   .dresscode .timeline-icon{left:0}
   .timeline-content h3,.dresscode h3{font-size:1.45rem}
   .info-panel{padding-top:2.5rem}
-  .sheet>.logo{width:3.8rem;height:3.8rem;top:1.1rem;left:1rem}
-  #p3 .sheet>.logo{left:auto;right:1rem}
 }
 
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
@@ -354,7 +344,7 @@ html[lang="th"] .info-panel .location-name{font-family:var(--script)}
         </div>
         <p class="cover-year" data-t="yearLine">Two thousand twenty seven</p>
 
-        <p class="cover-time" data-t="time">02:00 PM</p>
+        <p class="cover-time" data-t="time">Two o'clock in the Afternoon</p>
         <p class="cover-venue">Baiboon Grand</p>
         <p class="cover-city" data-t="cityLine">Loei, Thailand</p>
 
@@ -389,11 +379,6 @@ html[lang="th"] .info-panel .location-name{font-family:var(--script)}
   <img class="leaf leaf-tr" src="images/blad-rechtsboven.webp" alt="" aria-hidden="true" onerror="this.remove()">
   <img class="leaf leaf-bl" src="images/blad-linksonder.webp" alt="" aria-hidden="true" onerror="this.remove()">
 
-
-  <div class="logo" aria-hidden="true">
-    <span class="mono">S&amp;F</span>
-    <img src="images/logo2.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
-  </div>
 
   <header class="details-title">
     <h2 data-t="detailsTitle">The Day</h2>
@@ -449,7 +434,7 @@ html[lang="th"] .info-panel .location-name{font-family:var(--script)}
       <div class="dresscode">
         <div class="timeline-icon"><svg viewBox="0 0 24 24"><path d="M12 6.5a2 2 0 1 0-2-2"/><path d="M12 6.5v2l8 5.5a1.2 1.2 0 0 1-.7 2.2H4.7A1.2 1.2 0 0 1 4 14l8-5.5"/></svg></div>
         <h3 data-t="dressTitle">Dress Code</h3>
-        <p data-t="dressText">Any outfit that makes you shine.</p>
+        <p data-t="dressText">Any outfit that makes you shine and feel comfortable.</p>
 
         <!-- kleurenpalet: alleen bolletjes -->
         <div class="palette" role="img" aria-label="Colour palette: Milk Ivory, Icy Blue, Powder Blue, Cherry Red, Dark Cherry Wine">
@@ -526,11 +511,6 @@ html[lang="th"] .info-panel .location-name{font-family:var(--script)}
   <img class="leaf leaf-tl" src="images/blad-rechtsboven.webp" alt="" aria-hidden="true" onerror="this.remove()">
   <img class="leaf leaf-br" src="images/blad-linksonder.webp" alt="" aria-hidden="true" onerror="this.remove()">
 
-  <div class="logo" aria-hidden="true">
-    <span class="mono">S&amp;F</span>
-    <img src="images/logo2.png" alt="" onload="this.parentNode.classList.add('has')" onerror="this.remove()">
-  </div>
-
   <header class="details-title">
     <h2 data-t="aboutTitle">About us</h2>
   </header>
@@ -558,7 +538,7 @@ const L = {
     invite1:"Request the honor of your presence at the marriage",
     date:"27 March 2027",
     dow:"Sat", dnum:"27", mon:"Mar", yearLine:"Two thousand twenty seven", cityLine:"Loei, Thailand",
-    time:"02:00 PM",
+    time:"Two o'clock in the Afternoon",
     dateTimeLine:"27 March 2027 · 02:00 PM",
     tmWelcome:"02:00 PM", tmCeremony:"03:00 PM", tmCoffee:"05:00 PM", tmDinner:"06:00 PM",
     sideText:"A day of love, family, celebration and togetherness.",
@@ -573,7 +553,7 @@ const L = {
     dinnerTitle:"Wedding Dinner",
     dinnerText:"A relaxed dinner with our loved ones to continue the celebration.",
     dressTitle:"Dress Code",
-    dressText:"Any outfit that makes you shine.",
+    dressText:"Any outfit that makes you shine and feel comfortable.",
     locationTitle:"The Location",
     locationText:"We are delighted to celebrate our special day at Baiboon Grand in Loei, Thailand.",
     rsvpTitle:"RSVP",
@@ -594,7 +574,7 @@ const L = {
     invite1:"Wij verzoeken u de eer van uw aanwezigheid bij ons huwelijk",
     date:"27 maart 2027",
     dow:"Za", dnum:"27", mon:"Mrt", yearLine:"Tweeduizend zevenentwintig", cityLine:"Loei, Thailand",
-    time:"14:00 uur",
+    time:"Twee uur 's middags",
     dateTimeLine:"27 maart 2027 · 14:00 uur",
     tmWelcome:"14:00", tmCeremony:"15:00", tmCoffee:"17:00", tmDinner:"18:00",
     sideText:"Een dag vol liefde, familie, geluk en samenzijn.",
@@ -609,7 +589,7 @@ const L = {
     dinnerTitle:"Huwelijksdiner",
     dinnerText:"Een ontspannen diner met onze dierbaren om de dag samen voort te zetten.",
     dressTitle:"Dresscode",
-    dressText:"Elke outfit waarin je straalt.",
+    dressText:"Elke outfit waarin je straalt en je comfortabel voelt.",
     locationTitle:"De locatie",
     locationText:"Met veel plezier vieren wij onze bijzondere dag bij Baiboon Grand in Loei, Thailand.",
     rsvpTitle:"RSVP",
@@ -630,7 +610,7 @@ const L = {
     invite1:"ขอเชิญร่วมเป็นเกียรติในพิธีมงคลสมรสของเรา",
     date:"27 มีนาคม 2570",
     dow:"เสาร์", dnum:"27", mon:"มี.ค.", yearLine:"พ.ศ. 2570 · ค.ศ. 2027", cityLine:"จังหวัดเลย ประเทศไทย",
-    time:"เวลา 14.00 น.",
+    time:"บ่ายสองโมง",
     dateTimeLine:"27 มีนาคม 2570 · 14.00 น.",
     tmWelcome:"14.00 น.", tmCeremony:"15.00 น.", tmCoffee:"17.00 น.", tmDinner:"18.00 น.",
     sideText:"วันแห่งความรัก ครอบครัว ความสุข และการเฉลิมฉลองร่วมกัน",
@@ -645,7 +625,7 @@ const L = {
     dinnerTitle:"เลี้ยงฉลองมงคลสมรส",
     dinnerText:"ร่วมรับประทานอาหารค่ำและเฉลิมฉลองวันสำคัญกับครอบครัวและคนที่เรารัก",
     dressTitle:"การแต่งกาย",
-    dressText:"ชุดอะไรก็ได้ที่ทำให้คุณเปล่งประกาย",
+    dressText:"ชุดอะไรก็ได้ที่ทำให้คุณเปล่งประกายและรู้สึกสบายตัว",
     locationTitle:"สถานที่",
     locationText:"เรามีความยินดีเป็นอย่างยิ่งที่จะจัดงานฉลองมงคลสมรส ณ Baiboon Grand จังหวัดเลย ประเทศไทย",
     rsvpTitle:"ตอบรับการเข้าร่วมงาน",
