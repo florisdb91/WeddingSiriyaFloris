@@ -7,19 +7,22 @@
 <meta name="description" content="Siriya & Floris — 27 March 2027 — Baiboon Grand, Loei">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+Thai:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Herr+Von+Muellerhoff&family=Noto+Serif+Thai:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 
 /* ===================== KLEUREN ===================== */
 :root{
-  --red:#7D0F1A;
-  --red-dark:#650B14;
-  --cream:#F7F1E8;
-  --cream-soft:#FBF8F2;
-  --blue:#BAC7D3;
+  --ink:#2B3D57;            /* tekst (donker leisteenblauw) */
+  --blue:#4E6E99;           /* script, lijnen, accenten */
+  --blue-soft:#8EA8C7;
   --blue-light:#DCE5EE;
+  --line:rgba(78,110,153,.30);
+  --line-soft:rgba(78,110,153,.16);
+  --accent:#7D0F1A;         /* Cherry Red: alleen het datumcijfer */
+  --paper:#FFFFFF;
+  --bg:#EEF2F7;
   --serif:'Cormorant Garamond','Noto Serif Thai',Georgia,serif;
-  --script:'Pinyon Script','Snell Roundhand',cursive;
+  --script:'Herr Von Muellerhoff','Pinyon Script','Snell Roundhand',cursive;
 }
 
 /* ===================== RESET ===================== */
@@ -27,206 +30,227 @@
 img{max-width:100%}
 html{-webkit-text-size-adjust:100%}
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--red);font-family:var(--serif);font-weight:400;line-height:1.6;font-size:1.05rem}
+body{background:var(--bg);color:var(--ink);font-family:var(--serif);font-weight:400;line-height:1.6;font-size:1.05rem}
 
 /* ===================== MUZIEK ===================== */
-.music{position:fixed;top:1rem;left:1rem;z-index:100;width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid rgba(125,15,26,.15);background:rgba(247,241,232,.94);backdrop-filter:blur(8px);color:var(--red);display:grid;place-items:center;cursor:pointer;padding:0}
+.music{position:fixed;top:1rem;left:1rem;z-index:100;width:2.4rem;height:2.4rem;border-radius:50%;border:1px solid var(--line-soft);background:rgba(255,255,255,.93);backdrop-filter:blur(8px);color:var(--blue);display:grid;place-items:center;cursor:pointer;padding:0}
 .music[hidden]{display:none}
 .music svg{width:1.1rem;height:1.1rem;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .music .i-pause{display:none}
 .music.on .i-note{display:none}
 .music.on .i-pause{display:block}
-.music.on{box-shadow:0 0 0 0 rgba(125,15,26,.35);animation:pulse 2.4s ease-out infinite}
-@keyframes pulse{to{box-shadow:0 0 0 .7rem rgba(125,15,26,0)}}
+.music.on{box-shadow:0 0 0 0 rgba(78,110,153,.4);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{to{box-shadow:0 0 0 .7rem rgba(78,110,153,0)}}
 
 /* ===================== TAALKEUZE ===================== */
-.lang{position:fixed;top:1rem;right:1rem;z-index:100;display:flex;gap:.1rem;padding:.2rem .35rem;background:rgba(247,241,232,.94);border:1px solid rgba(125,15,26,.15);border-radius:2rem;backdrop-filter:blur(8px)}
-.lang button{appearance:none;border:0;background:none;color:var(--red);opacity:.45;font-family:inherit;font-size:.85rem;padding:.25rem .5rem;cursor:pointer}
-.lang button[aria-pressed="true"]{opacity:1;border-bottom:1px solid var(--red)}
+.lang{position:fixed;top:1rem;right:1rem;z-index:100;display:flex;gap:.1rem;padding:.2rem .35rem;background:rgba(255,255,255,.93);border:1px solid var(--line-soft);border-radius:2rem;backdrop-filter:blur(8px)}
+.lang button{appearance:none;border:0;background:none;color:var(--ink);opacity:.45;font-family:inherit;font-size:.85rem;padding:.25rem .5rem;cursor:pointer}
+.lang button[aria-pressed="true"]{opacity:1;border-bottom:1px solid var(--blue)}
 
 .page{min-height:100svh;position:relative}
 
-/* ===================== LOGO (pagina 2) ===================== */
+/* ===================== BLADEREN (aquarel) ===================== */
+.leaf{position:absolute;height:auto;max-width:none;pointer-events:none;user-select:none;z-index:0}
+
+/* ===================== LOGO (pagina 2 en 3) ===================== */
 .logo{position:absolute;z-index:5;width:5rem;height:5rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .logo img{width:100%;height:100%;object-fit:contain}
-.logo .mono{color:inherit;font-size:1.4rem;font-style:italic}
+.logo .mono{color:var(--blue);font-size:1.4rem;font-style:italic}
 .logo.has .mono{display:none}
 
 /* ===================== PAGINA 1 — KAART ===================== */
 #p1{
-  --bar:clamp(.5rem,1.7vw,.85rem);        /* breedte van 1 streep */
-  --m:clamp(1.4rem,5.2vw,2.6rem);         /* zichtbare rand rond de kaart */
-  --stripe-a:#7D0F1A;                     /* palet-rood */
-  --stripe-b:#730E18;                     /* bijna dezelfde tint: pas dit aan voor meer/minder contrast */
+  --m:clamp(1.2rem,4.6vw,2.4rem);         /* rand rond de kaart */
   min-height:100svh;
   padding:var(--m);
   display:flex;justify-content:center;align-items:stretch;
-  background:var(--cream);                /* zelfde crème als pagina 2 */
-  color:var(--red);
+  background:var(--bg);
+  color:var(--ink);
 }
 
 .card{
   position:relative;
   width:100%;max-width:42rem;
   min-height:calc(100svh - var(--m)*2);
-  padding:clamp(.6rem,2.4vw,1.1rem);
-  background:#FFFEFB;
+  background:var(--paper);
   container-type:inline-size;
   display:flex;
-  box-shadow:0 0 0 1px rgba(125,15,26,.22),0 18px 40px rgba(125,15,26,.16);
+  overflow:hidden;
+  box-shadow:0 22px 50px rgba(43,61,87,.14),0 0 0 1px rgba(78,110,153,.12);
 }
+.card .leaf-tr{top:0;right:0;width:clamp(12rem,58%,23rem)}
+.card .leaf-bl{bottom:0;left:0;width:clamp(9rem,44%,19rem)}
 
 .frame{
-  position:relative;flex:1;min-width:0;
-  border:1px solid rgba(125,15,26,.32);
+  position:relative;z-index:1;flex:1;min-width:0;
+  padding:clamp(.6rem,2.4vw,1.1rem);
   display:flex;flex-direction:column;align-items:center;
 }
 
-/* foto bovenaan (vervang images/foto-1.jpg) */
+/* onze tekening bovenaan (images/tekening.webp / tekening.png) */
 .card-photo{
   position:relative;width:100%;
   height:clamp(11rem,34svh,21rem);
-  background:
-    radial-gradient(ellipse 62% 72% at 50% 56%,rgba(255,254,251,.96),rgba(255,254,251,0) 72%),
-    linear-gradient(160deg,var(--blue-light),var(--blue));
   overflow:hidden;flex:none;
   display:flex;align-items:flex-end;justify-content:center;
   padding:clamp(.7rem,3cqw,1.2rem) 0 calc(clamp(3.2rem,12cqw,4.8rem)/2 + .55rem);   /* ruimte zodat het logo de tekening niet raakt */
 }
 .card-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .card-photo picture{display:contents}
-/* de tekening (images/tekening.webp / tekening.png) */
-.card-photo .card-art{position:relative;inset:auto;width:auto;height:100%;max-width:80%;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(62,10,15,.22))}
+.card-photo .card-art{position:relative;inset:auto;width:auto;height:100%;max-width:80%;object-fit:contain;filter:drop-shadow(0 8px 12px rgba(43,61,87,.2))}
 
-/* monogram / logo over de onderrand van de foto */
+/* monogram / logo over de onderrand van de tekening */
 .mark{
   position:relative;z-index:2;flex:none;
   width:clamp(3.2rem,12cqw,4.8rem);aspect-ratio:1;
   margin-top:calc(clamp(3.2rem,12cqw,4.8rem)/-2);
-  border-radius:50%;background:#FFFEFB;border:1px solid var(--red);
+  border-radius:50%;background:var(--paper);border:1px solid var(--blue);
   display:grid;place-items:center;overflow:hidden;
 }
-.mark .mono{font-size:clamp(1rem,4cqw,1.5rem);font-style:italic;color:var(--red)}
+.mark .mono{font-size:clamp(1rem,4cqw,1.5rem);font-style:italic;color:var(--blue)}
 /* logo1.png vult de cirkel; pas --logo-zoom aan als er in het bestand zelf veel witruimte rond het logo zit */
 .mark{--logo-zoom:1.55}
 .mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:0;transform:scale(var(--logo-zoom))}
 .mark.has .mono{display:none}
 
 .card-body{
+  position:relative;
   flex:1;width:100%;
   display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;
-  padding:clamp(1.4rem,6cqw,2.6rem) clamp(1rem,8cqw,3.5rem) clamp(3rem,10cqw,4rem);
+  padding:clamp(1.2rem,5cqw,2.2rem) clamp(1rem,8cqw,3.5rem) clamp(6.5rem,32cqw,11rem);
 }
 
-.cover-pre{min-height:calc(clamp(.8rem,2.8cqw,1rem)*1.6);display:flex;align-items:center;justify-content:center;font-size:clamp(.62rem,2.2cqw,.9rem);letter-spacing:.26em;text-transform:uppercase;font-weight:500;line-height:1.7;margin-bottom:clamp(.8rem,3.5cqw,1.6rem)}
+.cover-pre{min-height:calc(clamp(.8rem,2.8cqw,1rem)*1.6);display:flex;align-items:center;justify-content:center;font-size:clamp(.62rem,2.2cqw,.9rem);letter-spacing:.26em;text-transform:uppercase;font-weight:500;line-height:1.7;margin-bottom:clamp(.2rem,1.2cqw,.6rem)}
 
-.cover-names{font-weight:300;text-transform:uppercase;letter-spacing:.22em;font-size:clamp(1.6rem,8.4cqw,3.8rem);line-height:1.18;margin-bottom:clamp(.9rem,3.8cqw,1.8rem)}
-.cover-names span{display:block;padding-left:.22em}
-.cover-names .amp{font-family:var(--script);text-transform:none;letter-spacing:0;font-size:.8em;line-height:1.1;padding-left:0}
+/* namen: dun handschrift, op één regel */
+.cover-names{font-family:var(--script);font-weight:400;color:var(--blue);text-transform:none;letter-spacing:0;font-size:clamp(3rem,15.2cqw,5.6rem);line-height:1.1;margin-bottom:clamp(.1rem,1cqw,.5rem);white-space:nowrap}
+.cover-names span{display:inline}
+.cover-names .amp{padding:0 .16em}
 
-.cover-invite{font-size:clamp(.92rem,3cqw,1.25rem);font-style:italic;line-height:1.5;margin-bottom:clamp(.9rem,3.6cqw,1.6rem);max-width:30rem;min-height:3em;display:flex;align-items:center;justify-content:center;text-wrap:balance}
+.cover-invite{font-size:clamp(.92rem,3cqw,1.25rem);font-style:italic;line-height:1.5;margin-bottom:clamp(.7rem,3cqw,1.3rem);max-width:30rem;min-height:3em;display:flex;align-items:center;justify-content:center;text-wrap:balance}
 
-.cover-date{height:calc(clamp(.72rem,2.6cqw,1rem)*1.6);display:flex;align-items:center;justify-content:center;white-space:nowrap;font-size:clamp(.72rem,2.6cqw,1rem);letter-spacing:.2em;text-transform:uppercase;font-weight:500;margin-bottom:clamp(.3rem,1.2cqw,.6rem)}
-.cover-location{font-family:var(--script);font-size:clamp(1.4rem,6.4cqw,2.7rem);line-height:1.25;margin-bottom:clamp(.9rem,3.6cqw,1.6rem);min-height:2.5em;display:flex;align-items:center;justify-content:center;text-wrap:balance}
+/* datum: ZA | 27 | MRT */
+.cover-datebox{display:flex;align-items:center;justify-content:center;gap:clamp(.7rem,3.6cqw,1.4rem);height:clamp(2.4rem,9cqw,3.8rem)}
+.cover-datebox .dow,.cover-datebox .mon{font-size:clamp(.78rem,3cqw,1.15rem);letter-spacing:.2em;text-transform:uppercase;font-weight:500;min-width:3.2ch;white-space:nowrap}
+.cover-datebox .bar{width:1px;height:78%;background:var(--blue);opacity:.65}
+.cover-datebox .dnum{font-size:clamp(2.2rem,10.5cqw,4rem);line-height:1;font-weight:400;color:var(--accent);letter-spacing:.02em;font-variant-numeric:lining-nums}
+.cover-year{height:calc(clamp(.6rem,2.2cqw,.85rem)*1.8);display:flex;align-items:center;justify-content:center;font-size:clamp(.6rem,2.2cqw,.85rem);letter-spacing:.22em;text-transform:uppercase;margin-bottom:clamp(.7rem,3cqw,1.3rem);white-space:nowrap}
 
-.cover-line{width:clamp(2.5rem,12cqw,4.5rem);height:1px;background:var(--red);opacity:.55;margin:0 auto clamp(.9rem,3.6cqw,1.6rem)}
-.cover-side-text{font-size:clamp(.82rem,2.6cqw,1.05rem);font-style:italic;line-height:1.55;opacity:.8;max-width:26rem;min-height:3.1em;display:flex;align-items:center;justify-content:center;text-wrap:balance}
+.cover-time{height:calc(clamp(.95rem,3.2cqw,1.3rem)*1.5);display:flex;align-items:center;justify-content:center;font-style:italic;font-size:clamp(.95rem,3.2cqw,1.3rem);margin-bottom:clamp(.35rem,1.4cqw,.6rem)}
+.cover-venue{height:calc(clamp(.75rem,2.8cqw,1.05rem)*1.7);display:flex;align-items:center;justify-content:center;font-size:clamp(.75rem,2.8cqw,1.05rem);letter-spacing:.22em;text-transform:uppercase;font-weight:500}
+.cover-city{height:calc(clamp(.66rem,2.3cqw,.9rem)*1.7);display:flex;align-items:center;justify-content:center;font-size:clamp(.66rem,2.3cqw,.9rem);letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-bottom:clamp(.5rem,2.4cqw,1rem)}
+
+.cover-line{width:clamp(2.5rem,12cqw,4.5rem);height:1px;background:var(--blue);opacity:.5;margin:0 auto clamp(.4rem,1.6cqw,.8rem)}
+.cover-side-text{font-family:var(--script);color:var(--blue);font-size:clamp(1.5rem,6.2cqw,2.6rem);line-height:1.05;max-width:30rem;min-height:calc(clamp(1.5rem,6.2cqw,2.6rem)*2.3);display:flex;align-items:center;justify-content:center;text-wrap:balance}
 
 /* countdown */
-.countdown{display:flex;justify-content:center;gap:clamp(.9rem,5cqw,2rem);margin-top:clamp(1rem,4cqw,1.8rem)}
+.countdown{display:flex;justify-content:center;gap:clamp(.9rem,5cqw,2rem);margin-top:clamp(.6rem,2.4cqw,1.2rem)}
 .countdown div{display:flex;flex-direction:column;align-items:center;min-width:3.2ch}
-.countdown b{font-weight:300;font-size:clamp(1.3rem,6.2cqw,2.3rem);line-height:1.1;font-variant-numeric:tabular-nums lining-nums;letter-spacing:.02em}
-.countdown span{font-size:clamp(.5rem,1.8cqw,.7rem);letter-spacing:.2em;text-transform:uppercase;font-weight:500;opacity:.7;margin-top:.25rem}
+.countdown b{font-weight:300;font-size:clamp(1.3rem,6.2cqw,2.3rem);line-height:1.1;font-variant-numeric:tabular-nums lining-nums;letter-spacing:.02em;color:var(--ink)}
+.countdown span{font-size:clamp(.5rem,1.8cqw,.7rem);letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--blue);margin-top:.25rem}
 html[lang="th"] .countdown span{letter-spacing:.03em;font-size:clamp(.65rem,2.3cqw,.85rem);text-transform:none}
-.countdown-done{font-family:var(--script);font-size:clamp(1.3rem,5.5cqw,2.2rem);margin-top:clamp(1rem,4cqw,1.8rem)}
-html[lang="th"] .countdown-done{font-family:var(--serif)}
-.next{position:absolute;bottom:clamp(.5rem,2.4cqw,1rem);left:50%;transform:translateX(-50%);color:var(--red);text-decoration:none;font-size:1.5rem;line-height:1;opacity:.7;animation:bob 2.4s ease-in-out infinite}
+.countdown-done{font-family:var(--script);color:var(--blue);font-size:clamp(2rem,8cqw,3.2rem);margin-top:clamp(.6rem,2.4cqw,1.2rem)}
+html[lang="th"] .countdown-done{font-family:var(--serif);font-size:clamp(1.2rem,5cqw,2rem)}
+.next{position:absolute;z-index:2;bottom:clamp(.5rem,2.4cqw,1rem);left:50%;transform:translateX(-50%);color:var(--blue);text-decoration:none;font-size:1.5rem;line-height:1;opacity:.75;animation:bob 2.4s ease-in-out infinite}
 @keyframes bob{50%{transform:translateX(-50%) translateY(5px)}}
 
 /* lage schermen (liggende telefoon): laat de kaart gewoon meegroeien */
 @media(max-height:560px){.card-photo{height:clamp(8rem,46svh,12rem)}}
 
-/* ===================== PAGINA 2 ===================== */
-#p2,#p3{background:var(--cream);color:var(--red);padding:6rem 6vw;display:flex;flex-direction:column;align-items:center}
+/* ===================== PAGINA 2 EN 3 — WITTE BLADEN ===================== */
+#p2,#p3{background:var(--bg);color:var(--ink);padding:clamp(1rem,4vw,3rem);display:flex;justify-content:center;align-items:center}
+.sheet{
+  position:relative;isolation:isolate;overflow:hidden;
+  width:100%;max-width:64rem;
+  background:var(--paper);
+  box-shadow:0 22px 50px rgba(43,61,87,.14),0 0 0 1px rgba(78,110,153,.12);
+  padding:clamp(3.4rem,8vw,5.5rem) clamp(1.4rem,5vw,4rem) clamp(8rem,18vw,12rem);
+  display:flex;flex-direction:column;align-items:center;
+}
+.sheet .leaf{z-index:-1}
+.sheet .leaf-tr{top:0;right:0;width:clamp(9rem,36%,22rem)}
+.sheet .leaf-bl{bottom:0;left:0;width:clamp(9rem,34%,21rem)}
+.sheet .leaf-tl{top:0;left:0;width:clamp(9rem,36%,22rem);transform:scaleX(-1)}
+.sheet .leaf-br{bottom:0;right:0;width:clamp(9rem,34%,21rem);transform:scaleX(-1)}
+.sheet>.logo{top:1.6rem;left:1.6rem;width:4.6rem;height:4.6rem}
+#p3 .sheet>.logo{left:auto;right:1.6rem}
 
-.details-title{width:100%;max-width:75rem;text-align:center;margin-bottom:4rem}
-.details-title h2{font-family:var(--script);font-size:clamp(3.4rem,8vw,6rem);font-weight:400;line-height:1.1;margin-bottom:.7rem}
-.details-title p{font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;opacity:.65}
+.details-title{width:100%;max-width:75rem;text-align:center;margin-bottom:3.4rem}
+.details-title h2{font-family:var(--script);color:var(--blue);font-size:clamp(4.6rem,12vw,8rem);font-weight:400;line-height:.95;margin-bottom:.2rem}
+.details-title p{font-size:.9rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+.sprig{display:block;width:clamp(9rem,26vw,15rem);height:auto;margin:1.2rem auto 0;opacity:.95}
 
-.details-grid{width:100%;max-width:75rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(20rem,.9fr);gap:7rem;align-items:start}
+.details-grid{width:100%;max-width:75rem;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(20rem,.9fr);gap:5rem;align-items:start}
 
 /* tijdlijn */
 .timeline{position:relative;padding-left:5.5rem}
-.timeline::before{content:"";position:absolute;left:1.45rem;top:1rem;bottom:1rem;width:1px;background:rgba(125,15,26,.28)}
+.timeline::before{content:"";position:absolute;left:1.45rem;top:1rem;bottom:1rem;width:1px;background:var(--line)}
 .timeline-item{position:relative;display:grid;grid-template-columns:5rem 1fr;gap:1.5rem;min-height:8rem;padding-bottom:3rem}
-.timeline-icon{position:absolute;left:-5.5rem;top:0;width:3rem;height:3rem;border-radius:50%;background:var(--cream);border:1px solid var(--red);display:flex;align-items:center;justify-content:center;z-index:2}
-.timeline-icon svg{width:1.25rem;height:1.25rem;stroke:var(--red);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
-.timeline-time{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding-top:.25rem;opacity:.65;white-space:nowrap}
+.timeline-icon{position:absolute;left:-5.5rem;top:0;width:3rem;height:3rem;border-radius:50%;background:var(--paper);border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;z-index:2}
+.timeline-icon svg{width:1.25rem;height:1.25rem;stroke:var(--blue);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.timeline-time{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;padding-top:.25rem;color:var(--blue);white-space:nowrap}
 .timeline-content h3{font-size:1.7rem;font-weight:400;line-height:1.1;margin-bottom:.3rem}
-.timeline-content p{font-size:1rem;line-height:1.55;opacity:.72}
+.timeline-content p{font-size:1rem;line-height:1.55;opacity:.75}
 
-/* dresscode (nieuw) */
+/* dresscode */
 .dresscode{position:relative;margin-top:1rem;padding-left:5.5rem}
 .dresscode .timeline-icon{left:0}
 .dresscode h3{font-size:1.7rem;font-weight:400;line-height:1.1;margin:.2rem 0 .4rem}
-.dresscode p{font-size:1rem;line-height:1.6;opacity:.72}
-.dresscode::before{content:"";position:absolute;left:0;right:0;top:-2rem;height:1px;background:rgba(125,15,26,.18)}
+.dresscode p{font-size:1rem;line-height:1.6;opacity:.75}
+.dresscode::before{content:"";position:absolute;left:0;right:0;top:-2rem;height:1px;background:var(--line-soft)}
 
 /* rechterkant */
-.info-panel{border-left:1px solid rgba(125,15,26,.2);padding-left:3rem}
+.info-panel{border-left:1px solid var(--line-soft);padding-left:3rem}
 .info-panel h3{font-size:2rem;font-weight:400;margin-bottom:1rem}
-.info-panel .location-name{font-family:var(--script);font-size:2rem;line-height:1.2;margin-bottom:1rem}
-.info-panel p{font-size:1rem;line-height:1.7;opacity:.75;margin-bottom:1.5rem}
+.info-panel .location-name{font-family:var(--script);color:var(--blue);font-size:clamp(3rem,5.4vw,3.8rem);line-height:1;margin-bottom:1rem}
+.info-panel p{font-size:1rem;line-height:1.7;opacity:.78;margin-bottom:1.5rem}
 
 .location-meta{display:flex;flex-direction:column;gap:.6rem;margin:2rem 0 3rem}
 .location-row{display:flex;align-items:center;gap:.8rem;font-size:.95rem}
 .location-row.address{align-items:flex-start}
 .location-row.address svg{margin-top:.2rem}
 address{font-style:normal;line-height:1.55}
-.map-link{display:inline-block;margin:.5rem 0 0;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding-bottom:.15rem}
+.map-link{display:inline-block;margin:.5rem 0 0;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;padding-bottom:.15rem}
 html[lang="th"] .map-link{letter-spacing:.02em;font-size:.95rem}
-.location-row svg{width:1.2rem;height:1.2rem;stroke:var(--red);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.location-row svg{width:1.2rem;height:1.2rem;stroke:var(--blue);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round;flex:none}
 
 /* RSVP */
-.rsvp{margin-top:2rem;padding:2rem;border:1px solid rgba(125,15,26,.25);text-align:center}
+.rsvp{margin-top:2rem;padding:2rem;border:1px solid var(--line);text-align:center;background:rgba(255,255,255,.7)}
 .rsvp h3{font-size:1.8rem;font-weight:400;margin-bottom:.5rem}
 .rsvp p{font-size:.95rem;margin-bottom:1.5rem}
-.qr-placeholder{width:8rem;height:8rem;margin:0 auto 1rem;border:1px dashed rgba(125,15,26,.5);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.65}
-.rsvp-link{display:inline-block;color:var(--red);text-decoration:none;border-bottom:1px solid var(--red);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;padding-bottom:.2rem}
-
-#p2>.logo,#p3>.logo{top:2rem;right:2rem;width:5rem;height:5rem}
+.qr-placeholder{width:8rem;height:8rem;margin:0 auto 1rem;border:1px dashed var(--blue-soft);display:flex;align-items:center;justify-content:center;text-align:center;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
+.rsvp-link{display:inline-block;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--blue);font-size:.9rem;letter-spacing:.12em;text-transform:uppercase;padding-bottom:.2rem}
 
 /* kleurenpalet (dresscode) */
 .palette{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.1rem}
-.palette .dot{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(125,15,26,.28),0 2px 5px rgba(62,10,15,.14)}
+.palette .dot{width:2.2rem;height:2.2rem;border-radius:50%;background:var(--c);box-shadow:inset 0 0 0 1px rgba(43,61,87,.22),0 2px 5px rgba(43,61,87,.14)}
 
 /* Google Maps: klein kaartje rechts naast het adres */
 .addr-col{flex:1;min-width:0}
-.map-box{position:relative;flex:none;width:clamp(8rem,34%,10.5rem);aspect-ratio:4/3;border:1px solid rgba(125,15,26,.25);background:var(--blue-light);overflow:hidden}
+.map-box{position:relative;flex:none;width:clamp(8rem,34%,10.5rem);aspect-ratio:4/3;border:1px solid var(--line);background:var(--blue-light);overflow:hidden}
 .map-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.map-cover{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:.4rem;background:transparent;border:0;cursor:pointer;font:inherit;color:var(--red)}
-.map-cover span{background:rgba(251,248,242,.94);border:1px solid rgba(125,15,26,.25);padding:.2rem .5rem;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
+.map-cover{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:.4rem;background:transparent;border:0;cursor:pointer;font:inherit;color:var(--ink)}
+.map-cover span{background:rgba(255,255,255,.94);border:1px solid var(--line);padding:.2rem .5rem;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;line-height:1.3}
 html[lang="th"] .map-cover span{letter-spacing:.01em;font-size:.78rem;text-transform:none}
 .map-box.live .map-cover{display:none}
 
 /* agenda-knop: klein, onder het RSVP-vlak */
 .cal{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem 1rem;margin-top:1rem}
-.cal-btn{appearance:none;border:1px solid var(--red);background:transparent;color:var(--red);font:inherit;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .9rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;transition:background .2s,color .2s}
+.cal-btn{appearance:none;border:1px solid var(--blue);background:transparent;color:var(--blue);font:inherit;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem .9rem;cursor:pointer;display:inline-flex;align-items:center;gap:.45rem;transition:background .2s,color .2s}
 .cal-btn svg{width:.95rem;height:.95rem;stroke:currentColor;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.cal-btn:hover{background:var(--red);color:var(--cream)}
-.cal-alt{color:var(--red);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid rgba(125,15,26,.5);padding-bottom:.05rem;opacity:.85}
+.cal-btn:hover{background:var(--blue);color:#fff}
+.cal-alt{color:var(--blue);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:.05rem}
 html[lang="th"] .cal-btn,html[lang="th"] .cal-alt{letter-spacing:.01em;text-transform:none;font-size:.9rem}
 
 /* ===================== PAGINA 3 — ABOUT US ===================== */
-#p3{justify-content:center;border-top:1px solid rgba(125,15,26,.12)}
 .about-photos{width:100%;max-width:62rem;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(.8rem,2.4vw,1.8rem);align-items:end}
-.about-photo{padding:clamp(.35rem,1vw,.6rem);background:#FFFEFB;border:1px solid rgba(125,15,26,.25);box-shadow:0 14px 30px rgba(125,15,26,.1)}
-.about-photo .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(160deg,var(--blue-light),var(--blue))}
+.about-photo{padding:clamp(.35rem,1vw,.6rem);background:var(--paper);border:1px solid var(--line);box-shadow:0 14px 30px rgba(43,61,87,.1)}
+.about-photo .ph{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(160deg,var(--blue-light),#BFD0E4)}
 .about-photo:nth-child(2) .ph{aspect-ratio:3/3.6}
 .about-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.about-line{width:clamp(2.5rem,8vw,4rem);height:1px;background:var(--red);opacity:.55;margin:clamp(2rem,5vw,3rem) auto 1.4rem}
 .about-text{max-width:34rem;text-align:center;font-style:italic;font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.7;opacity:.85;text-wrap:balance}
 html[lang="th"] .about-text{font-style:normal;line-height:1.9}
+.about-sprig{margin:clamp(1.6rem,4vw,2.6rem) auto 1.2rem}
 @media(max-width:600px){
   .about-photos{grid-template-columns:1fr 1fr}
   .about-photo:first-child{grid-column:1 / -1}
@@ -235,27 +259,26 @@ html[lang="th"] .about-text{font-style:normal;line-height:1.9}
 }
 
 /* ===================== THAI ===================== */
-html[lang="th"] .cover-pre,html[lang="th"] .cover-date{letter-spacing:.02em}
-html[lang="th"] .cover-pre{font-size:clamp(.8rem,2.8cqw,1rem)}
+html[lang="th"] .cover-pre,html[lang="th"] .cover-datebox .dow,html[lang="th"] .cover-datebox .mon,html[lang="th"] .cover-year,html[lang="th"] .cover-venue,html[lang="th"] .cover-city{letter-spacing:.04em}
+html[lang="th"] .cover-pre{font-size:clamp(.8rem,2.8cqw,1rem);line-height:1.6}
 html[lang="th"] .cover-invite{font-style:normal;line-height:1.5}
-html[lang="th"] .cover-side-text{font-style:normal;line-height:1.55}
-html[lang="th"] .cover-pre{letter-spacing:.04em;line-height:1.6}
-/* de Thaise tijd krijgt een Thais lettertype; "Baiboon Grand, Loei" blijft in hetzelfde handschrift als in EN/NL */
-html[lang="th"] .cover-location .loc-time{font-family:'Noto Serif Thai',var(--serif);font-size:.6em;font-weight:400;letter-spacing:0}
+html[lang="th"] .cover-time{font-style:normal}
+html[lang="th"] .cover-side-text{font-family:var(--serif);font-size:clamp(.88rem,2.8cqw,1.08rem);line-height:1.55;color:var(--blue)}
 html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;font-weight:300;line-height:1.3;font-size:clamp(2.6rem,6vw,4.5rem)}
+html[lang="th"] .info-panel .location-name{font-family:var(--script)}
 
-:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+:focus-visible{outline:2px solid var(--blue);outline-offset:4px}
 
 /* ===================== TABLET ===================== */
 @media(max-width:900px){
-  .details-grid{grid-template-columns:1fr;gap:5rem;max-width:45rem}
-  .info-panel{border-left:0;border-top:1px solid rgba(125,15,26,.2);padding-left:0;padding-top:3rem}
+  .details-grid{grid-template-columns:1fr;gap:4rem;max-width:45rem}
+  .info-panel{border-left:0;border-top:1px solid var(--line-soft);padding-left:0;padding-top:3rem}
 }
 
 /* ===================== MOBIEL ===================== */
 @media(max-width:600px){
-  #p2,#p3{padding:5rem 1.4rem 4rem}
-  .details-title{margin-bottom:3rem}
+  .sheet{padding:4.6rem 1.3rem 9rem}
+  .details-title{margin-bottom:2.6rem}
   .timeline,.dresscode{padding-left:4.5rem}
   .timeline-item{grid-template-columns:4.9rem 1fr;gap:.5rem}
   .timeline-time{letter-spacing:.05em}
@@ -263,7 +286,8 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
   .dresscode .timeline-icon{left:0}
   .timeline-content h3,.dresscode h3{font-size:1.45rem}
   .info-panel{padding-top:2.5rem}
-  #p2>.logo,#p3>.logo{width:4rem;height:4rem;top:1.2rem;right:1rem}
+  .sheet>.logo{width:3.8rem;height:3.8rem;top:1.1rem;left:1rem}
+  #p3 .sheet>.logo{left:auto;right:1rem}
 }
 
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important}}
@@ -291,6 +315,11 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 <section class="page" id="p1">
 
   <article class="card">
+
+    <!-- aquarelbladeren (images/blad-rechtsboven.webp en images/blad-linksonder.webp) -->
+    <img class="leaf leaf-tr" src="images/blad-rechtsboven.webp" alt="" aria-hidden="true" onerror="this.remove()">
+    <img class="leaf leaf-bl" src="images/blad-linksonder.webp" alt="" aria-hidden="true" onerror="this.remove()">
+
     <div class="frame">
 
       <!-- onze tekening: images/tekening.webp (met tekening.png als reserve) -->
@@ -311,17 +340,23 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
         <p class="cover-pre" data-t="pre">Together with our families</p>
 
-        <h1 class="cover-names" aria-label="Siriya &amp; Floris">
-          <span>Siriya</span>
-          <span class="amp">&amp;</span>
-          <span>Floris</span>
-        </h1>
+        <h1 class="cover-names" aria-label="Siriya &amp; Floris"><span>Siriya</span> <span class="amp">&amp;</span> <span>Floris</span></h1>
 
         <p class="cover-invite" data-t="invite1">Request the honor of your presence at the marriage</p>
 
-        <p class="cover-date" data-t="date">27 March 2027</p>
+        <!-- datum: ZA | 27 | MRT -->
+        <div class="cover-datebox">
+          <span class="dow" data-t="dow">Sat</span>
+          <span class="bar"></span>
+          <span class="dnum" data-t="dnum">27</span>
+          <span class="bar"></span>
+          <span class="mon" data-t="mon">Mar</span>
+        </div>
+        <p class="cover-year" data-t="yearLine">Two thousand twenty seven</p>
 
-        <p class="cover-location"><span><span class="loc-time" data-t="time">02:00 PM</span> · Baiboon Grand, Loei</span></p>
+        <p class="cover-time" data-t="time">02:00 PM</p>
+        <p class="cover-venue">Baiboon Grand</p>
+        <p class="cover-city" data-t="cityLine">Loei, Thailand</p>
 
         <div class="cover-line"></div>
 
@@ -349,6 +384,10 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
 <!-- ===================== PAGINA 2 — DETAILS ===================== -->
 <section class="page" id="p2">
+<div class="sheet">
+
+  <img class="leaf leaf-tr" src="images/blad-rechtsboven.webp" alt="" aria-hidden="true" onerror="this.remove()">
+  <img class="leaf leaf-bl" src="images/blad-linksonder.webp" alt="" aria-hidden="true" onerror="this.remove()">
 
 
   <div class="logo" aria-hidden="true">
@@ -359,6 +398,7 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
   <header class="details-title">
     <h2 data-t="detailsTitle">The Day</h2>
     <p data-t="detailsSub">Our wedding celebration</p>
+    <img class="sprig" src="images/blad-tak.webp" alt="" aria-hidden="true" onerror="this.remove()">
   </header>
 
   <div class="details-grid">
@@ -476,10 +516,15 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
 
   </div>
 
+</div>
 </section>
 
 <!-- ===================== PAGINA 3 — ABOUT US ===================== -->
 <section class="page" id="p3">
+<div class="sheet">
+
+  <img class="leaf leaf-tl" src="images/blad-rechtsboven.webp" alt="" aria-hidden="true" onerror="this.remove()">
+  <img class="leaf leaf-br" src="images/blad-linksonder.webp" alt="" aria-hidden="true" onerror="this.remove()">
 
   <div class="logo" aria-hidden="true">
     <span class="mono">S&amp;F</span>
@@ -497,9 +542,10 @@ html[lang="th"] .details-title h2{font-family:var(--serif);font-style:normal;fon
     <figure class="about-photo"><div class="ph"><img src="images/over-ons-3.jpg" alt="" loading="lazy" onerror="this.remove()"></div></figure>
   </div>
 
-  <div class="about-line"></div>
+  <img class="sprig about-sprig" src="images/blad-tak.webp" alt="" aria-hidden="true" onerror="this.remove()">
   <p class="about-text" data-t="aboutText">We hope to see you at our wedding and apologize if we are not able to deliver this invitation personally.</p>
 
+</div>
 </section>
 
 </main>
@@ -511,6 +557,7 @@ const L = {
     pre:"Together with our families",
     invite1:"Request the honor of your presence at the marriage",
     date:"27 March 2027",
+    dow:"Sat", dnum:"27", mon:"Mar", yearLine:"Two thousand twenty seven", cityLine:"Loei, Thailand",
     time:"02:00 PM",
     dateTimeLine:"27 March 2027 · 02:00 PM",
     tmWelcome:"02:00 PM", tmCeremony:"03:00 PM", tmCoffee:"05:00 PM", tmDinner:"06:00 PM",
@@ -546,6 +593,7 @@ const L = {
     pre:"Samen met onze families",
     invite1:"Wij verzoeken u de eer van uw aanwezigheid bij ons huwelijk",
     date:"27 maart 2027",
+    dow:"Za", dnum:"27", mon:"Mrt", yearLine:"Tweeduizend zevenentwintig", cityLine:"Loei, Thailand",
     time:"14:00 uur",
     dateTimeLine:"27 maart 2027 · 14:00 uur",
     tmWelcome:"14:00", tmCeremony:"15:00", tmCoffee:"17:00", tmDinner:"18:00",
@@ -581,6 +629,7 @@ const L = {
     pre:"พร้อมด้วยครอบครัวของเรา",
     invite1:"ขอเชิญร่วมเป็นเกียรติในพิธีมงคลสมรสของเรา",
     date:"27 มีนาคม 2570",
+    dow:"เสาร์", dnum:"27", mon:"มี.ค.", yearLine:"พ.ศ. 2570 · ค.ศ. 2027", cityLine:"จังหวัดเลย ประเทศไทย",
     time:"เวลา 14.00 น.",
     dateTimeLine:"27 มีนาคม 2570 · 14.00 น.",
     tmWelcome:"14.00 น.", tmCeremony:"15.00 น.", tmCoffee:"17.00 น.", tmDinner:"18.00 น.",
