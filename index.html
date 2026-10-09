@@ -28,7 +28,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Herr+Von+Muellerhoff&family=Noto+Serif+Thai:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Great+Vibes&family=Herr+Von+Muellerhoff&family=Noto+Serif+Thai:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#50383f;
@@ -115,6 +115,29 @@ html[lang="th"] .hero-meta h1 .couple-join{
   font-style:normal;
   margin-top:0;
 }
+/* A single connected calligraphic word: do not mix fonts inside Siriya. */
+html:not([lang="th"]) .couple-title .couple-first{
+  display:inline-block;
+  font-family:'Great Vibes','Pinyon Script','Herr Von Muellerhoff',cursive;
+  font-weight:400;
+  font-variant-ligatures:common-ligatures contextual;
+}
+html[lang="th"] .couple-title .couple-first{
+  display:inline-block;
+  font-family:'Noto Serif Thai',Georgia,serif;
+}
+/* The heart lettering stays in English for every selected language. */
+.hero-art .heart-live{
+  position:absolute;
+  left:25.65%;top:55.25%;width:24.5%;height:12.3%;
+  z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  pointer-events:none;text-align:center;color:#8B1022;
+  font-family:'Great Vibes','Herr Von Muellerhoff','Pinyon Script',cursive;
+  font-size:clamp(1.1rem,4.0vw,3.05rem);font-weight:400;
+  line-height:.93;
+}
+.heart-live .heart-top,.heart-live .heart-bottom{display:block;max-width:100%;white-space:nowrap}
+.heart-live .heart-bottom{font-size:1.12em;margin-top:.04em}
 /* Thai characters require a native Thai font instead of Latin calligraphy. */
 html[lang="th"] .hero-meta h1{
   font-family:'Noto Serif Thai',Georgia,serif;
@@ -308,6 +331,29 @@ html[lang="th"] .info-panel .cal-alt{
 .location-meta,.location-row.address{width:100%}
 .location-row.address{min-width:0}
 @media(max-width:900px){.details-grid{grid-template-columns:minmax(0,1fr)}.details-grid>*{min-width:0}}
+
+/* v38: Namen op de minikaart zijn nooit vertaald. Zij delen exact dezelfde
+   kalligrafische lettertypekeuze als de grote namen onder de envelop. */
+.hero-art{container-type:inline-size}
+.hero-art .mini-card-title{
+  position:absolute;left:48.55%;top:19.25%;width:26.8%;height:23.0%;
+  z-index:3;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;text-align:center;pointer-events:none;
+  color:var(--accent-deep);transform:rotate(-2.5deg);
+  font-weight:400;white-space:nowrap;
+}
+.mini-card-title .mini-first{
+  display:block;font-family:'Great Vibes','Pinyon Script','Herr Von Muellerhoff',cursive;
+  font-size:8.5cqw;line-height:1.0;font-variant-ligatures:common-ligatures contextual;
+}
+.mini-card-title .mini-join{
+  display:block;font-family:'Pinyon Script','Herr Von Muellerhoff','Snell Roundhand',cursive;
+  font-size:5.1cqw;line-height:.9;margin:.04em 0;
+}
+.mini-card-title .mini-last{
+  display:block;font-family:'Pinyon Script','Herr Von Muellerhoff','Snell Roundhand',cursive;
+  font-size:8.4cqw;line-height:1.02;
+}
 </style>
 </head>
 <body>
@@ -329,6 +375,15 @@ html[lang="th"] .info-panel .cal-alt{
       <div class="photo-slot" aria-label="Foto in polaroid">
         <img src="images/tekening.png" alt="Foto van Siriya en Floris" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='images/tekening.webp';}else{this.onerror=null;this.src='images/foto-placeholder.svg';this.classList.add('placeholder');}">
       </div>
+      <div class="mini-card-title" aria-label="Siriya and Floris">
+        <span class="mini-first">Siriya</span>
+        <span class="mini-join">and</span>
+        <span class="mini-last">Floris</span>
+      </div>
+      <div class="heart-live" role="text">
+        <span class="heart-top">Save the</span>
+        <span class="heart-bottom">Date</span>
+      </div>
     </div>
     <div class="hero-meta">
       <div class="pre" data-t="pre">Together with our families</div>
@@ -344,7 +399,7 @@ html[lang="th"] .info-panel .cal-alt{
           <span class="family-name" data-t="parentJannigje">Mrs. Jannigje in 't Veld</span>
         </div>
       </div>
-      <h1 class="couple-title"><span data-t="coupleFirst">Siriya</span><span class="couple-join" data-t="coupleJoin">and</span><span data-t="coupleLast">Floris</span></h1>
+      <h1 class="couple-title" aria-label="Siriya and Floris"><span class="couple-first" data-t="coupleFirst">Siriya</span><span class="couple-join" data-t="coupleJoin">and</span><span data-t="coupleLast">Floris</span></h1>
       <div class="sub" data-t="invite1">Request the pleasure of your company as we celebrate our marriage.</div>
     </div>
     <div class="hero-actions">
@@ -484,6 +539,7 @@ const L = {
     parentJannigje:"Mrs. Jannigje in 't Veld",
     pre:"Together with our families",
     saveDate:"Save the Date",
+    heartTop:"Save the",heartBottom:"Date",
     heroScroll:"Scroll for details",
     invite1:"Request the pleasure of your company as we celebrate our marriage.",
     date:"27 March 2027",
@@ -549,6 +605,7 @@ const L = {
     parentJannigje:"Mrs. Jannigje in 't Veld",
     pre:"Samen met onze families",
     saveDate:"Save the Date",
+    heartTop:"Noteer de",heartBottom:"datum",
     heroScroll:"Scroll voor details",
     invite1:"Wij nodigen u van harte uit om samen ons huwelijk te vieren.",
     date:"27 maart 2027",
@@ -614,6 +671,7 @@ const L = {
     parentJannigje:"นางยานนิกเยอ อินท์ เฟลด์",
     pre:"พร้อมด้วยครอบครัวของเรา",
     saveDate:"บันทึกวันสำคัญ",
+    heartTop:"บันทึก",heartBottom:"วันสำคัญ",
     heroScroll:"เลื่อนลงเพื่อดูรายละเอียด",
     invite1:"ขอเรียนเชิญท่านมาร่วมเฉลิมฉลองงานมงคลสมรสของเรา",
     date:"27 มีนาคม 2570",
@@ -677,9 +735,11 @@ function setLang(lang){
   document.querySelectorAll("[data-t]").forEach(el=>{
     const key = el.dataset.t;
     if(L[lang] && L[lang][key] !== undefined){
-      el.textContent=L[lang][key];
+      el.textContent = L[lang][key];
     }
   });
+  document.querySelector(".couple-title").setAttribute("aria-label",
+    `${L[lang].coupleFirst} ${L[lang].coupleJoin} ${L[lang].coupleLast}`);
   document.querySelectorAll("[data-ph]").forEach(el=>{
     const key=el.dataset.ph;
     if(L[lang] && L[lang][key] !== undefined) el.placeholder=L[lang][key];
