@@ -1514,11 +1514,58 @@ body::before{
   #weddingIntro .intro-stage-shadow {top:42%;}
 }
 
+
+/* v14.2 / v18.2 — wacht uitsluitend op de drie afbeeldingen van de openingskaart.
+   De rest van de website hoeft niet mee te laden. */
+#weddingIntro:not(.intro-cover-ready) .intro-book-stage,
+#weddingIntro:not(.intro-cover-ready) .intro-hint{
+  opacity:0;
+  visibility:hidden;
+}
+#weddingIntro .intro-book-stage,
+#weddingIntro .intro-hint{
+  transition:opacity .26s ease;
+}
+#weddingIntro .intro-loading{
+  position:absolute;inset:0;z-index:8;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:.65rem;text-align:center;pointer-events:none;
+  color:#557487;font-family:'Cormorant Garamond',Georgia,serif;
+  transition:opacity .22s ease,visibility .22s ease;
+}
+#weddingIntro .intro-loading-mark{
+  width:2rem;height:2rem;border-radius:50%;
+  border:1.5px solid rgba(107,147,165,.25);
+  border-top-color:#7699AA;
+  animation:intro-loading-spin 1s linear infinite;
+}
+#weddingIntro .intro-loading-caption{
+  font-size:clamp(.95rem,2vw,1.14rem);
+  letter-spacing:.06em;
+}
+#weddingIntro.intro-cover-ready .intro-loading{opacity:0;visibility:hidden}
+/* Wanneer een afbeelding ontbreekt of de verbinding blijft hangen:
+   geen rode of onvolledige kaart, maar een nette blauwgrijze omslag. */
+#weddingIntro.intro-cover-fallback .intro-panel-face{
+  background-image:none!important;
+  background-color:#718B98!important;
+}
+#weddingIntro.intro-cover-fallback .intro-panel-back{
+  background:#667F8D!important;
+}
+@keyframes intro-loading-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){
+  #weddingIntro .intro-loading-mark{animation:none}
+  #weddingIntro .intro-book-stage,
+  #weddingIntro .intro-hint,
+  #weddingIntro .intro-loading{transition:none!important}
+}
+
 </style>
 </head>
 <body>
 
-<div id="weddingIntro" class="wedding-intro" aria-label="Openvouwende trouwuitnodiging">
+<div id="weddingIntro" class="wedding-intro" aria-label="Openvouwende trouwuitnodiging" aria-busy="true">
   <div class="intro-book-stage">
   <div class="intro-inside" aria-hidden="true"><div class="intro-small">Our Wedding Invitation</div><div class="intro-small-th" lang="th">บัตรเชิญงานแต่งงานของเรา</div><div class="intro-flourish">✧</div><div class="intro-couple"><span>Siriya</span><span class="intro-amp">&amp;</span><span>Floris</span></div><div class="intro-date">27 March 2027</div><span class="intro-paper-shadow intro-paper-shadow--left"></span><span class="intro-paper-shadow intro-paper-shadow--right"></span></div>
   <div class="intro-stage-shadow" aria-hidden="true"></div>
@@ -1533,6 +1580,7 @@ body::before{
     <div class="intro-crease" aria-hidden="true"></div>
   </div>
   </div><!-- /intro-book-stage: alleen de fysieke kaart beweegt -->
+  <div class="intro-loading" role="status" aria-live="polite"><span class="intro-loading-mark" aria-hidden="true"></span><span class="intro-loading-caption">Preparing your invitation…</span></div>
   <div class="intro-hint" id="introHint"></div>
   <div class="intro-transition-veil" aria-hidden="true"></div>
 </div>
@@ -2327,24 +2375,50 @@ rsvpForm.addEventListener('submit',async (evt)=>{
   const trigger=document.getElementById('introOpen');
   const hint=document.getElementById('introHint');
   if(!overlay||!trigger)return;
-  // Wait for the leather and gilded cover artwork to decode before showing
-  // the insert behind the closed flaps, preventing an initial paper flash.
+  // De openingskaart wordt pas zichtbaar zodra haar drie eigen afbeeldingen
+  // gedecodeerd zijn. Andere pagina-afbeeldingen vertragen de intro niet.
+  // Een limiet van 4,5 seconden voorkomt vastlopen op trage verbindingen.
+  trigger.disabled=true;
   const coverImages=['images/intro-gold-left.webp','images/intro-gold-right.webp',
                      'images/intro-red-leather.webp'];
-  const coverReady=Promise.all(coverImages.map(src=>{
+  const decodeCoverImage=src=>new Promise(resolve=>{
     const image=new Image();
+    let completed=false;
+    const finish=ok=>{
+      if(completed)return;
+      completed=true;
+      resolve(ok);
+    };
+    image.onload=()=>{
+      if(typeof image.decode==='function')image.decode().then(()=>finish(true),()=>finish(false));
+      else finish(true);
+    };
+    image.onerror=()=>finish(false);
     image.src=src;
-    if(typeof image.decode==='function')return image.decode().catch(()=>{});
-    return new Promise(resolve=>{
-      if(image.complete){resolve();return;}
-      image.onload=image.onerror=resolve;
-    });
-  })).then(()=>overlay.classList.add('intro-cover-ready'));
+    if(image.complete){
+      if(!image.naturalWidth)finish(false);
+      else if(typeof image.decode==='function')image.decode().then(()=>finish(true),()=>finish(false));
+      else finish(true);
+    }
+  });
+  const coverReady=Promise.race([
+    Promise.all(coverImages.map(decodeCoverImage)),
+    new Promise(resolve=>setTimeout(()=>resolve(null),4500))
+  ]).then(results=>{
+    if(!overlay.isConnected)return;
+    if(!results||!results.every(Boolean))overlay.classList.add('intro-cover-fallback');
+    overlay.classList.add('intro-cover-ready');
+    overlay.setAttribute('aria-busy','false');
+    trigger.disabled=false;
+  });
   let opened=false,leaveTimer=null,removeTimer=null;
   const txt={en:'Tap or click the seal to open your invitation',nl:'Tik of klik op het zegel om de uitnodiging te openen',th:'แตะหรือคลิกที่ตราประทับเพื่อเปิดคำเชิญของคุณ'};
   const thaiLine='แตะหรือคลิกที่ตราประทับเพื่อเปิดคำเชิญของคุณ';
   const lang=(navigator.language||'en').toLowerCase();
   const locale=lang.startsWith('nl')?'nl':(lang.startsWith('th')?'th':'en');
+  const loadingText={en:"Preparing your invitation…",nl:"Jullie uitnodiging wordt klaargemaakt…",th:"กำลังเตรียมบัตรเชิญของคุณ…"};
+  const loadingLabel=overlay.querySelector('.intro-loading-caption');
+  if(loadingLabel)loadingLabel.textContent=loadingText[locale];
   hint.innerHTML='<span class="intro-hint-main">'+txt[locale]+'</span>' + (locale==='th' ? '' : '<span class="intro-hint-th" lang="th">'+thaiLine+'</span>');
   function removeIntro(){
     if(!overlay.isConnected)return;
