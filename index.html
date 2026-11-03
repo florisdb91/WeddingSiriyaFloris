@@ -33,6 +33,8 @@
 <meta name="twitter:description" content="27 March 2027 · Loei, Thailand. Join us for our wedding and RSVP online.">
 <meta name="twitter:image" content="https://florisdb91.github.io/WeddingSiriyaFloris/images/whatsapp-preview-v31.jpg">
 
+<!-- De vaste mobiele achtergrond vroeg laden, zodat de browser niet opnieuw hoeft te tekenen. -->
+<link rel="preload" as="image" href="images/watercolor-landscape.webp">
 <!-- Load the physical cover artwork early, before the HTML body is painted. -->
 <link rel="preload" as="image" href="images/intro-gold-left.webp">
 <link rel="preload" as="image" href="images/intro-gold-right.webp">
@@ -263,10 +265,12 @@ html[lang="th"] .family-name{
   font-size:var(--thai-parent-font,clamp(.74rem,2.8vw,1.42rem));
   letter-spacing:0;
   line-height:1.55;
-  white-space:nowrap;
-  text-wrap:nowrap;
-  overflow-wrap:normal;
-  word-break:keep-all;
+  /* Keep both parent groups in their original columns, while letting
+     complete first + family names wrap legibly on narrow phones. */
+  white-space:normal;
+  text-wrap:balance;
+  overflow-wrap:break-word;
+  word-break:normal;
 }
 
 /* === v20: minimalist RSVP button on page 2, accessible popup === */
@@ -1579,6 +1583,8 @@ body{background:transparent;}
     background-image:none !important;
     overscroll-behavior-y:none;
   }
+  /* Statisch beeld in een eigen compositing layer, los van browser-UI repaints.
+     De bestaande bevroren pixelafmetingen en positie blijven onveranderd. */
   .site-fixed-watercolor{
     display:block;
     position:fixed;
@@ -1587,14 +1593,28 @@ body{background:transparent;}
     height:var(--wedding-bg-height, 100lvh);
     z-index:0;
     pointer-events:none;
+    overflow:hidden;
     background-color:#EAF3F1;
-    background-image:
-      linear-gradient(rgba(255,255,255,.25),rgba(255,255,255,.48)),
-      url('images/watercolor-landscape.webp');
-    background-repeat:no-repeat,no-repeat;
-    background-position:center top,center top;
-    background-size:100% 100%,auto var(--wedding-bg-height, 100lvh);
-    /* Geen transform of will-change: voorkom een extra scroll-compositor-offset. */
+    contain:strict;
+    transform:translate3d(0,0,0);
+    -webkit-backface-visibility:hidden;
+    backface-visibility:hidden;
+  }
+  .site-fixed-watercolor-art{
+    display:block;
+    position:absolute;
+    left:50%;top:0;
+    width:auto;
+    max-width:none;
+    height:100%;
+    transform:translateX(-50%);
+  }
+  .site-fixed-watercolor::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(rgba(255,255,255,.25),rgba(255,255,255,.48));
+    pointer-events:none;
   }
   #p1,#p2,#p3{
     position:relative;
@@ -1607,7 +1627,7 @@ body{background:transparent;}
 </style>
 </head>
 <body>
-<div class="site-fixed-watercolor" aria-hidden="true"></div>
+<div class="site-fixed-watercolor" aria-hidden="true"><img class="site-fixed-watercolor-art" src="images/watercolor-landscape.webp" alt="" decoding="async" fetchpriority="high"></div>
 <script>
 /* v14.8 / v18.8: bevries het aquareldoek in echte CSS-pixels.
    Chrome / Samsung Internet wijzigen de zichtbare hoogte bij het tonen of
@@ -2016,10 +2036,10 @@ const L = {
 
   th:{
     coupleFirst:"สิริยา", coupleJoin:"และ", coupleLast:"ฟลอริส",
-    parentSurasak:"นาย สุรศักดิ์",
-    parentNuanyai:"นาง นวลใย",
-    parentNorbertus:"นาย นอร์เบอร์ตัส",
-    parentJannigje:"นาง ยานนิกเยอ",
+    parentSurasak:"นาย สุรศักดิ์ อิ่มเอิบ",
+    parentNuanyai:"นาง นวลใย อิ่มเอิบ",
+    parentNorbertus:"นาย นอร์เบอร์ตัส เดอ เบียร์",
+    parentJannigje:"นาง ยานนิกเยอ อินท์ เวลด์",
     pre:"พร้อมด้วยครอบครัวของเรา",
     saveDate:"บันทึกวันสำคัญ",
     heartTop:"บันทึก",heartBottom:"วันสำคัญ",
