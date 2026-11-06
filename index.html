@@ -1858,8 +1858,45 @@ html[lang="th"] .sf-love-date{font-family:'Noto Serif Thai',Tahoma,serif;letter-
 
 /* Secret Guestbook — separate from RSVP, music, and Love Flight. */
 .sf-love-book[hidden],.sf-love-book-form[hidden]{display:none!important}
-.sf-love-book-open{display:inline-flex;align-items:center;justify-content:center;gap:8px;margin:13px auto 0;padding:8px 14px;border:0;border-bottom:1px solid rgba(177,134,73,.45);background:transparent;color:#8b6859;cursor:pointer;font:400 .79rem/1.4 Georgia,serif;touch-action:manipulation}
-.sf-love-book-open:hover,.sf-love-book-open:focus-visible{color:#633f48;border-color:#ab7d5e}
+/* The guestbook is the primary, distinctly visible discovery action. No animation loops. */
+.sf-love-book-open{
+  display:flex;align-items:center;justify-content:flex-start;gap:13px;
+  width:min(100%,360px);min-height:78px;box-sizing:border-box;
+  margin:20px auto 0;padding:13px 14px;
+  border:1px solid #c6a475;border-radius:7px;
+  background:linear-gradient(115deg,rgba(249,240,221,.95),rgba(255,253,246,.99) 58%,rgba(245,232,209,.92));
+  color:#79564b;text-align:left;cursor:pointer;touch-action:manipulation;
+  box-shadow:0 5px 18px rgba(105,71,39,.12),inset 0 0 0 3px rgba(255,255,255,.58);
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.sf-love-book-open-icon{
+  display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;
+  border:1px solid rgba(183,150,103,.47);border-radius:50%;
+  background:rgba(255,250,241,.78);color:#a47a4c;
+}
+.sf-love-book-open-icon svg{display:block;width:32px;height:32px}
+.sf-love-book-open-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+.sf-love-book-open-title{font:500 1.12rem/1.16 'Cormorant Garamond',Georgia,serif;color:#78434a;letter-spacing:.01em}
+.sf-love-book-open-hint{font:400 .72rem/1.35 Georgia,serif;color:#806d61}
+.sf-love-book-open-chevron{font:400 1.45rem/1 Georgia,serif;color:#a37e51;padding-left:2px}
+.sf-love-book-open:hover,.sf-love-book-open:focus-visible{
+  transform:translateY(-1px);border-color:#a88454;
+  box-shadow:0 8px 20px rgba(105,71,39,.18),inset 0 0 0 3px rgba(255,255,255,.65);
+}
+.sf-love-book-open:active{transform:translateY(0)}
+/* Preserve a smaller, equally discoverable secondary entrance to the mini game. */
+.sf-love-letter .sf-love-play{margin-top:12px}
+html[lang="th"] .sf-love-book-open-title{font-family:'Noto Serif Thai',Tahoma,sans-serif;font-size:.95rem;font-weight:500;line-height:1.4}
+html[lang="th"] .sf-love-book-open-hint{font-family:'Noto Serif Thai',Tahoma,sans-serif;font-size:.74rem;line-height:1.45}
+@media(max-width:360px){
+  .sf-love-book-open{min-height:72px;gap:10px;padding:10px 11px;margin-top:15px}
+  .sf-love-book-open-icon{flex-basis:42px;width:42px;height:42px}
+  .sf-love-book-open-title{font-size:1rem}
+  .sf-love-book-open-hint{font-size:.68rem}
+}
+@media(prefers-reduced-motion:reduce){.sf-love-book-open{transition:none!important}}
+
 .sf-love-card.sf-love-book-mode{padding:clamp(24px,4vw,34px) clamp(19px,5vw,37px) clamp(21px,4vw,29px)}
 .sf-love-book{color:#69555a;text-align:center}
 .sf-love-book-kicker{margin:2px 0 5px;font:400 .65rem/1.5 Georgia,serif;letter-spacing:.18em;color:#a1845a;text-transform:uppercase}
@@ -3017,13 +3054,25 @@ rsvpForm.addEventListener('submit',async (evt)=>{
       <p class="sf-love-names" id="sfLoveNames">Siriya &amp; Floris</p>
       <p class="sf-love-date" id="sfLoveDate">27 March 2027</p>
       <p class="sf-love-hashtag">#SPLoveAtFirstSight</p>
+      <button id="sfLoveBookOpen" class="sf-love-book-open" type="button">
+        <span class="sf-love-book-open-icon" aria-hidden="true">
+          <svg viewBox="0 0 36 36" width="35" height="35" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8c-4.2-2.5-8-2.7-12-1.7v21.3c4-1 7.8-.8 12 1.7 4.2-2.5 8-2.7 12-1.7V6.3c-4-1-7.8-.8-12 1.7Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M18 8v21.3M9.3 12.4c2-.2 3.9.2 5.5 1.1M9.3 16c2-.2 3.9.2 5.5 1.1M21.3 13.5c1.7-.9 3.6-1.3 5.5-1.1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M23.4 20.6c-1.8-1.7-3.9 1.1 0 3.5 3.9-2.4 1.8-5.2 0-3.5Z" fill="currentColor" opacity=".65"/>
+          </svg>
+        </span>
+        <span class="sf-love-book-open-copy">
+          <span class="sf-love-book-open-title" id="sfLoveBookOpenText">Secret guestbook</span>
+          <span class="sf-love-book-open-hint" id="sfLoveBookOpenHint">See who found our secret &amp; leave your name</span>
+        </span>
+        <span class="sf-love-book-open-chevron" aria-hidden="true">›</span>
+      </button>
       <button class="sf-love-play" id="sfLovePlay" type="button">
         <span class="sf-love-play-heart" aria-hidden="true">♥</span>
         <span id="sfLovePlayText">Play our little game</span>
         <span class="sf-love-play-arrow" aria-hidden="true">›</span>
       </button>
-
-      <button id="sfLoveBookOpen" class="sf-love-book-open" type="button">✦ <span id="sfLoveBookOpenText">Secret guestbook</span></button>
     </div>
     <div id="sfLoveGame" class="sf-love-game" hidden>
       <p class="sf-love-game-eyebrow" id="sfLoveGameEyebrow">A little extra secret</p>
@@ -3647,16 +3696,16 @@ rsvpForm.addEventListener('submit',async (evt)=>{
   if(!panel||!card||!letter)return;
   const open=$('sfLoveBookOpen'),back=$('sfLoveBookBack'),form=$('sfLoveBookForm'),entries=$('sfLoveBookEntries'),feedback=$('sfLoveBookFeedback'),submit=$('sfLoveBookSubmit');
   const dict={
-    en:{open:'Secret guestbook',kicker:'A shared little secret',title:'The secret guestbook',intro:'See who found our hidden surprise and leave your mark.',name:'Your name or nickname',message:'A little message (optional)',consent:'I agree that my name and message will be visible to other visitors.',submit:'Sign the guestbook ♡',back:'← Back to surprise',loading:'Opening the guestbook…',empty:'Be the first to find our secret!',unavailable:'The shared guestbook is not connected yet.',error:'Could not load the guestbook. Please try again later.',success:'Your signature has been added! ♡',invalid:'Please enter a name and accept public display.',challenge:'Please complete the security check.',fail:'Your message could not be saved. Please try again.',count:'guests found this secret'},
-    nl:{open:'Geheim gastenboek',kicker:'Een gedeeld geheimpje',title:'Het geheime gastenboek',intro:'Ontdek wie ons geheimpje al heeft gevonden en laat iets achter.',name:'Je naam of bijnaam',message:'Een berichtje (optioneel)',consent:'Ik ga ermee akkoord dat mijn naam en bericht zichtbaar zijn voor andere bezoekers.',submit:'Schrijf in het gastenboek ♡',back:'← Terug naar de verrassing',loading:'Gastenboek wordt geladen…',empty:'Wees de eerste die ons geheimpje vindt!',unavailable:'Het gedeelde gastenboek is nog niet gekoppeld.',error:'Het gastenboek kan niet worden geladen. Probeer het later opnieuw.',success:'Je naam staat in het gastenboek! ♡',invalid:'Vul je naam in en geef toestemming voor openbare weergave.',challenge:'Voltooi eerst de beveiligingscontrole.',fail:'Opslaan is niet gelukt. Probeer het opnieuw.',count:'gasten vonden het geheim'},
-    th:{open:'สมุดเยี่ยมลับ',kicker:'ความลับที่แบ่งปันกัน',title:'สมุดเยี่ยมลับ',intro:'ดูว่าใครค้นพบความลับของเราแล้ว และฝากข้อความไว้',name:'ชื่อหรือชื่อเล่น',message:'ข้อความสั้น ๆ (ไม่บังคับ)',consent:'ฉันยินยอมให้ชื่อและข้อความของฉันแสดงต่อผู้เข้าชมคนอื่น',submit:'ลงชื่อในสมุดเยี่ยม ♡',back:'← กลับไปที่ข้อความ',loading:'กำลังเปิดสมุดเยี่ยม…',empty:'มาเป็นคนแรกที่ค้นพบความลับของเรา!',unavailable:'สมุดเยี่ยมยังไม่ได้เชื่อมต่อ',error:'โหลดสมุดเยี่ยมไม่สำเร็จ โปรดลองอีกครั้ง',success:'เพิ่มชื่อของคุณแล้ว! ♡',invalid:'กรุณากรอกชื่อและยินยอมให้แสดงต่อผู้เข้าชม',challenge:'กรุณาผ่านการตรวจสอบความปลอดภัย',fail:'บันทึกข้อความไม่สำเร็จ โปรดลองอีกครั้ง',count:'คนค้นพบความลับนี้แล้ว'}
+    en:{open:'Secret guestbook',hint:'See who found our secret & leave your name',kicker:'A shared little secret',title:'The secret guestbook',intro:'See who found our hidden surprise and leave your mark.',name:'Your name or nickname',message:'A little message (optional)',consent:'I agree that my name and message will be visible to other visitors.',submit:'Sign the guestbook ♡',back:'← Back to surprise',loading:'Opening the guestbook…',empty:'Be the first to find our secret!',unavailable:'The shared guestbook is not connected yet.',error:'Could not load the guestbook. Please try again later.',success:'Your signature has been added! ♡',invalid:'Please enter a name and accept public display.',challenge:'Please complete the security check.',fail:'Your message could not be saved. Please try again.',count:'guests found this secret'},
+    nl:{open:'Geheim gastenboek',hint:'Ontdek wie het vond & schrijf je naam erbij',kicker:'Een gedeeld geheimpje',title:'Het geheime gastenboek',intro:'Ontdek wie ons geheimpje al heeft gevonden en laat iets achter.',name:'Je naam of bijnaam',message:'Een berichtje (optioneel)',consent:'Ik ga ermee akkoord dat mijn naam en bericht zichtbaar zijn voor andere bezoekers.',submit:'Schrijf in het gastenboek ♡',back:'← Terug naar de verrassing',loading:'Gastenboek wordt geladen…',empty:'Wees de eerste die ons geheimpje vindt!',unavailable:'Het gedeelde gastenboek is nog niet gekoppeld.',error:'Het gastenboek kan niet worden geladen. Probeer het later opnieuw.',success:'Je naam staat in het gastenboek! ♡',invalid:'Vul je naam in en geef toestemming voor openbare weergave.',challenge:'Voltooi eerst de beveiligingscontrole.',fail:'Opslaan is niet gelukt. Probeer het opnieuw.',count:'gasten vonden het geheim'},
+    th:{open:'สมุดเยี่ยมลับ',hint:'ดูว่าใครพบความลับแล้ว และฝากชื่อของคุณไว้',kicker:'ความลับที่แบ่งปันกัน',title:'สมุดเยี่ยมลับ',intro:'ดูว่าใครค้นพบความลับของเราแล้ว และฝากข้อความไว้',name:'ชื่อหรือชื่อเล่น',message:'ข้อความสั้น ๆ (ไม่บังคับ)',consent:'ฉันยินยอมให้ชื่อและข้อความของฉันแสดงต่อผู้เข้าชมคนอื่น',submit:'ลงชื่อในสมุดเยี่ยม ♡',back:'← กลับไปที่ข้อความ',loading:'กำลังเปิดสมุดเยี่ยม…',empty:'มาเป็นคนแรกที่ค้นพบความลับของเรา!',unavailable:'สมุดเยี่ยมยังไม่ได้เชื่อมต่อ',error:'โหลดสมุดเยี่ยมไม่สำเร็จ โปรดลองอีกครั้ง',success:'เพิ่มชื่อของคุณแล้ว! ♡',invalid:'กรุณากรอกชื่อและยินยอมให้แสดงต่อผู้เข้าชม',challenge:'กรุณาผ่านการตรวจสอบความปลอดภัย',fail:'บันทึกข้อความไม่สำเร็จ โปรดลองอีกครั้ง',count:'คนค้นพบความลับนี้แล้ว'}
   };
   const lang=()=>dict[document.documentElement.lang]||dict.en;
   const endpoint=GUESTBOOK_ENDPOINT.replace(/\/+$/,'');
   let widgetId=null,isOpen=false,requestId=0;
   function localize(){
     const t=lang();
-    for(const [id,value] of Object.entries({sfLoveBookOpenText:t.open,sfLoveBookKicker:t.kicker,sfLoveBookTitle:t.title,sfLoveBookIntro:t.intro,sfLoveBookNameLabel:t.name,sfLoveBookMessageLabel:t.message,sfLoveBookConsentText:t.consent,sfLoveBookSubmit:t.submit,sfLoveBookBack:t.back}))$(id).textContent=value;
+    for(const [id,value] of Object.entries({sfLoveBookOpenText:t.open,sfLoveBookOpenHint:t.hint,sfLoveBookKicker:t.kicker,sfLoveBookTitle:t.title,sfLoveBookIntro:t.intro,sfLoveBookNameLabel:t.name,sfLoveBookMessageLabel:t.message,sfLoveBookConsentText:t.consent,sfLoveBookSubmit:t.submit,sfLoveBookBack:t.back}))$(id).textContent=value;
   }
   function renderList(list){
     entries.replaceChildren();
